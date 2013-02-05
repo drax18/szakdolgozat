@@ -1,0 +1,15 @@
+/* 
+    Document   : adminstyle
+    Created on : 2013.02.05., 22:38:26
+    Author     : Drax
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+*{
+    padding: 0px;
+    margin: 0px;
+}
