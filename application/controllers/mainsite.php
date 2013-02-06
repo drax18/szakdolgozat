@@ -226,6 +226,8 @@
             $data['checkadmin'] = $this->admin->getAdmin();
             $this->show_with_all('mainsite/admin/adminpanel', $data);
         }
+       
+       
 
         public function login_validation(){
             $data['middle'] = 'mainsite/login';            

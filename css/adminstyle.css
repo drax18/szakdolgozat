@@ -13,3 +13,88 @@ root {
     padding: 0px;
     margin: 0px;
 }
+body{
+    font-family: century gothic, arial;
+    color:black;
+    background: url('../img/admin/bg.png');
+}
+div#admincontainer{
+    width: 1039px;
+    margin: 30px auto 30px auto;
+}
+div#adminhead{
+    
+    
+    width: 1039px;
+    height: 53px;
+    margin-bottom: 15px;
+    background: url('../img/admin/head.png');
+}
+div#adminhead2{
+    height: 71px;
+    background: url('../img/admin/adminlogo.png') no-repeat;
+    margin-bottom: 15px;
+    width: 1039px;
+}
+a{
+    color:grey;
+    text-decoration: none;
+}
+div#adminmenu ul li{
+    height: 83px;
+    
+    text-align: center;
+    
+    list-style-type: none;
+}
+div#adminmenu ul li a{
+    
+    text-decoration: none;
+    color:grey;
+    
+}
+div#adminmenu{
+    float:left;
+    width: 165px;
+    border-right: 1px solid #ababab; 
+}
+
+li.active_menu_class{
+    
+    
+    color: black;
+    border-left:1px solid #ababab; 
+    border-top:1px solid #ababab; 
+    border-bottom: 1px solid #ababab; 
+    width: 165px;
+    background-color: white;
+}
+div#admininform{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    overflow: auto;
+    float:right;
+    height: 561px;
+    width: 824px;
+    background-color: white;
+    border-bottom: 1px solid #ababab;
+    border-top:1px solid #ababab; 
+    border-right: 1px solid #ababab; 
+}
+div#admincenter{
+    width: 1031px;
+}
+.adminusername{
+    padding-top: 10px;
+    padding-left: 11px;
+    
+}
+.adminlogout{
+    padding-right: 15px;
+    padding-top: 12px;
+    font-size: 20px;
+    float: right;
+    
+}
