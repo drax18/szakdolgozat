@@ -62,6 +62,17 @@
         
         //drink
         
+        public function catlist($id){
+          
+          $data['middle'] = 'mainsite/catlist';  
+          $this->load->model('categories');          
+          $data['catname'] = $this->categories->getCat($id);
+          $data['countdrinks'] = $this->categories->sumCat($id);
+          $data['drinklist'] = $this->catdrinks($id);
+          $this->load->model('scores');
+          $data['score'] = $this->scores->getScore($id);
+          $this->show_with_all('mainsite/index',$data);
+        }
          public function catdrinks($id){
           $this->input->post('sortdata');
           $sort = $this->input->post('sortdata');
@@ -91,20 +102,7 @@
             $this->show_with_all('mainsite/index', $data);
         }
         
-        // actions
-        
-        public function catlist($id){
-          
-          $data['middle'] = 'mainsite/catlist';  
-          $this->load->model('categories');          
-          $data['catname'] = $this->categories->getCat($id);
-          $data['countdrinks'] = $this->categories->sumCat($id);
-          $data['drinklist'] = $this->catdrinks($id);
-          $this->load->model('scores');
-          $data['score'] = $this->scores->getScore($id);
-          $this->show_with_all('mainsite/index',$data);
-        }
-       
+        // actions      
        
         public function writeComm($id){
             $data = $this->input->post('comment');
