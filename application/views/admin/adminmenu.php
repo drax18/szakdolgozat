@@ -1,10 +1,10 @@
 <ul>
     <a href="<?php echo site_url("mainsite/admin/admindatas"); ?>"><li class="active_menu_class">
         <img src="<?php echo base_url("/img/admin/adats.png") ;?>" /><br />
-            ADATOK</li></a>
-   <a href="<?php echo site_url("mainsite/admin/adminusers"); ?>"> <li>
+          ADATOK</li></a>
+   <a href="<?php echo site_url("mainsite/admin/adminusers"); ?>" > <li>
           <img src="<?php echo base_url("/img/admin/users.png") ;?>" /><br />
-           FELHASZNÁLÓK</li> </a>
+          FELHASZNÁLÓK</li> </a>
   <a href="">  <li>
           <img src="<?php echo base_url("/img/admin/income.png") ;?>" /><br />
           BEVÉTEL</li> </a>

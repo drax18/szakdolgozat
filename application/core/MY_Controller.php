@@ -12,13 +12,14 @@ class MY_Controller extends CI_Controller{
         $data['footmenu2'] = $this->footmenudata2();
         $data['cart'] = $this->cartdata();
         $data['cartcount'] = $this->cartcount();
-        $data['newdrinks'] = $this->newitemsdata();
         $data['log_content'] = $this->logContentdata();
         $data['cartprice'] = $this->cartPricedata();
         $data['owndata'] = $this->own_Datas();
         $data['alfavdata'] = $this->alreadyfav();
         $data['admin'] = $this->admincheck();
         $data['fees'] = $this->shippingfees();
+        $data['checkadmin'] = $this->adminpagecheck();
+        $data['adminuser'] = $this->adminpageusercheck();
         $this->load->view($view_name,$data);        
     }
     function admincheck(){
@@ -33,6 +34,14 @@ class MY_Controller extends CI_Controller{
                 return $adminuser = false;
             }
         }
+    }
+    function adminpagecheck(){
+        $this->load->model('admin');
+        return $checkadmin = $this->admin->getAdmin();
+    }
+    function adminpageusercheck(){
+        $this->load->model('admin');
+        return $adminuser = $this->session->userdata('username');
     }
     function menudata(){
         $this->load->model('menu');
@@ -103,10 +112,6 @@ class MY_Controller extends CI_Controller{
         $owndatas = $this->users->ownData();
         return $owndatas;
     }
-    function newitemsdata(){
-            $this->load->model('newitems');
-            $newdrinksdata = $this->newitems->getnewitems();
-            return $newdrinksdata;
-    }
+   
 }
 ?>

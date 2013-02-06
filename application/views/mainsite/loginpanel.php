@@ -13,7 +13,7 @@ if($this->session->userdata('username')){
    }
    if($admin){
        ?>
-       <a class="adminbutton" href="<?php echo site_url("mainsite/admin/adminpanel"); ?>"><i>Admin Felület</i></a>
+       <a class="adminbutton" href="<?php echo site_url("mainsite/admin"); ?>"><i>Admin Felület</i></a>
        <?php
        
    }

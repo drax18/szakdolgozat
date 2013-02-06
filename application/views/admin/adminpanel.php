@@ -16,6 +16,11 @@ if($this->session->userdata('username')){
                 e.preventDefault();
                 $("#adminmenu ul li").removeClass('active_menu_class');
                 $(this).addClass('active_menu_class');
+                
+                var url = $(this).data('url');
+                
+               
+                
               });
          });
     </script>
@@ -34,7 +39,8 @@ if($this->session->userdata('username')){
             <div id="admincenter">
                 <div id="admininform">
                         <?php
-                          // $this->load->view($middle);
+                          
+                          $this->load->view($middle);
                          ?>
                     </div>
                     <div id="adminmenu">

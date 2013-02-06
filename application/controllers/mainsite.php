@@ -1,17 +1,16 @@
 <?php
     class mainsite extends MY_Controller {
-        
-        public function index(){   
-        $data['middle'] = 'mainsite/newitems';
-        $this->show_with_all('mainsite/index',$data);
-        } 
-
+        //pages
+        public function index(){
+            $this->newitems();
+        }
         public function login(){
            $data['middle'] = 'mainsite/login';
            $this->show_with_all('mainsite/index',$data); 
         }
         public function newitems(){
-
+            $this->load->model('newitems');
+            $data['newdrinks'] = $this->newitems->getnewitems();
             $data['middle'] = 'mainsite/newitems';
             $this->show_with_all('mainsite/index',$data);
         }
@@ -42,18 +41,28 @@
             $data['middle'] = 'mainsite/orderterms';
             $this->show_with_all('mainsite/index',$data);
         }
-        public function catlist($id){
-          
-          $data['middle'] = 'mainsite/catlist';  
-          $this->load->model('categories');          
-          $data['catname'] = $this->categories->getCat($id);
-          $data['countdrinks'] = $this->categories->sumCat($id);
-          $data['drinklist'] = $this->catdrinks($id);
-          $this->load->model('scores');
-            $data['score'] = $this->scores->getScore($id);
-          $this->show_with_all('mainsite/index',$data);
+         public function owncart(){
+            $data['middle'] = 'mainsite/owncart';
+            $this->show_with_all('mainsite/index', $data);
         }
-        public function catdrinks($id){
+         public function favorites(){
+            $data['middle'] = 'mainsite/favorites';
+            $this->load->model('favorites');
+            $data['favorites']= $this->favorites->getFavs();
+            $this->show_with_all('mainsite/index', $data);
+        }
+        public function own_data(){
+            $data['middle'] = 'mainsite/own_data';
+            $this->show_with_all('mainsite/index', $data);
+        }
+        public function own_orders(){
+            $data['middle'] = 'mainsite/own_orders';
+            $this->show_with_all('mainsite/index', $data);
+        }
+        
+        //drink
+        
+         public function catdrinks($id){
           $this->input->post('sortdata');
           $sort = $this->input->post('sortdata');
           $this->load->model('categories');
@@ -81,6 +90,21 @@
             $data['score'] = ($this->scores->getScoreName($name));
             $this->show_with_all('mainsite/index', $data);
         }
+        
+        // actions
+        
+        public function catlist($id){
+          
+          $data['middle'] = 'mainsite/catlist';  
+          $this->load->model('categories');          
+          $data['catname'] = $this->categories->getCat($id);
+          $data['countdrinks'] = $this->categories->sumCat($id);
+          $data['drinklist'] = $this->catdrinks($id);
+          $this->load->model('scores');
+          $data['score'] = $this->scores->getScore($id);
+          $this->show_with_all('mainsite/index',$data);
+        }
+       
        
         public function writeComm($id){
             $data = $this->input->post('comment');
@@ -104,30 +128,15 @@
 
             }
         }
-        public function owncart(){
-            $data['middle'] = 'mainsite/owncart';
-            $this->show_with_all('mainsite/index', $data);
-        }
+       
 
-        public function favorites(){
-            $data['middle'] = 'mainsite/favorites';
-            $this->load->model('favorites');
-            $data['favorites']= $this->favorites->getFavs();
-            $this->show_with_all('mainsite/index', $data);
-        }
+       
         public function removefav($id){
             $this->load->model('favorites');
             $this->favorites->removeFav($id);
         }
 
-        public function own_data(){
-            $data['middle'] = 'mainsite/own_data';
-            $this->show_with_all('mainsite/index', $data);
-        }
-        public function own_orders(){
-            $data['middle'] = 'mainsite/own_orders';
-            $this->show_with_all('mainsite/index', $data);
-        }
+        
         public function searchresult(){
            $searchopt = $this->input->post('searchoption');
            $data['middle'] = 'mainsite/searchresult';
@@ -209,26 +218,26 @@
             $this->session->sess_destroy();
             redirect($_SERVER['HTTP_REFERER']);
         }
-        public function ordersend(){                       
-          $data['middle'] = 'mainsite/own_orders';
-          
-          
-          
-          
-          
-          
-          $this->show_with_all('mainsite/index', $data);            
+        
+        
+      /*   public function admin($page = 'adminadats'){
+
+             if($page == 'adminadats')
+             {
+                $data['middle'] = 'mainsite/admin/adminadats';
+                $this->show_with_all('mainsite/admin/adminpanel', $data);    
+             }
+             if($page == 'adminusers')
+             {
+                $data['middle'] = 'mainsite/admin/adminusers';
+                $this->show_with_all('mainsite/admin/adminpanel', $data);    
+             }
+             
+            
+            
         }
 
-        public function admin(){
-            $data['adminuser'] = $this->session->userdata('username');
-            $this->load->model('admin');
-            $data['checkadmin'] = $this->admin->getAdmin();
-            $this->show_with_all('mainsite/admin/adminpanel', $data);
-        }
-       
-       
-
+*/
         public function login_validation(){
             $data['middle'] = 'mainsite/login';            
             $this->load->library('form_validation');
@@ -255,6 +264,11 @@
                 $this->form_validation->set_message('validate_credentials','Hibás Felhasználónév vagy jelszó!');
                 return false;
             }
+        }
+        //cart
+        public function ordersend(){                       
+          $data['middle'] = 'mainsite/own_orders';
+          $this->show_with_all('mainsite/index', $data);            
         }
         public function addtocart($id,$count){
             $this->load->model('cart');
