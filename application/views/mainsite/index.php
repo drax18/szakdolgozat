@@ -2,14 +2,14 @@
 <head>    
     <meta http-equiv='Content-Type' content='Type=text/html; charset=utf-8'>
     <title>Ital Közért</title>
-    <link rel="stylesheet" href="<?php echo base_url();?>css/style.css"  />
-    <link rel="stylesheet" href="<?php echo base_url();?>css/jquery.toastmessage.css"  />
+    <link rel="stylesheet" href="<?php echo base_url("css/style.css");?>"  />
+    <link rel="stylesheet" href="<?php echo base_url("css/jquery.toastmessage.css");?>"  />
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.0.0.min.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/ui/1.10.0/jquery-ui.js" /></script>
-    <script type="text/javascript" src="<?php echo base_url();?>js/jquery.cycle.all.js"></script>
-    <script type="text/javascript" src="<?php echo base_url();?>js/jquery.toastmessage.js"></script>  
+    <script type="text/javascript" src="<?php echo base_url("js/jquery.cycle.all.js");?>"></script>
+    <script type="text/javascript" src="<?php echo base_url("js/jquery.toastmessage.js");?>"></script>  
     <script type="text/javascript">        
         
         $(document).ready(function() {            
@@ -32,7 +32,7 @@
                $(this).parent().find('.alreadyfav').delay(1000).fadeOut(1000);
                e.preventDefault();
                var href2 =  $(this).data('linkname');
-               var link2 = "http://localhost/szakdoga_igniter/mainsite/favadd/" + href2;
+               var link2 = "http://localhost/szakdoga_igniter/actions/favadd/" + href2;
                $.ajax({
                    type: "POST",
                    url: link2,
@@ -61,7 +61,7 @@
             $('.favorremove').live('click',function(e){
             e.preventDefault();
             var removefav = $(this).data('favid');
-            var removelink = "http://localhost/szakdoga_igniter/mainsite/removefav/" + removefav;
+            var removelink = "http://localhost/szakdoga_igniter/actions/removefav/" + removefav;
             $.ajax({
                 type: "POST",
                 url: removelink,
@@ -77,7 +77,7 @@
                     e.preventDefault();
                     
                     var drinkid = $('#catid').val();
-                    var link3 = "http://localhost/szakdoga_igniter/mainsite/catdrinksrefresh/" + drinkid;
+                    var link3 = "http://localhost/szakdoga_igniter/alcohol/catdrinksrefresh/" + drinkid;
                     $.ajax({
                         type: "POST",
                         url: link3,
@@ -93,7 +93,7 @@
                    e.preventDefault();
                    var drink_id = $('.commentsend').data('drinkid');
                    var userscore = $('.scorevalue').val();
-                   var scorelink = "http://localhost/szakdoga_igniter/mainsite/scoreupdate/" + drink_id + "/" + userscore;            
+                   var scorelink = "http://localhost/szakdoga_igniter/actions/scoreupdate/" + drink_id + "/" + userscore;            
                    $.ajax({
                        type: "POST",
                        url: scorelink,
@@ -174,7 +174,7 @@
                $('.commentsend').click(function(e){
                    e.preventDefault();
                    var alcoholid = $(this).data('drinkid');
-                   var commentlink = "http://localhost/szakdoga_igniter/mainsite/writeComm/" + alcoholid;
+                   var commentlink = "http://localhost/szakdoga_igniter/actions/writeComm/" + alcoholid;
                    var comment = $('.commentarea').val();
                    if(comment != "" ){
                        $.ajax({
@@ -204,7 +204,7 @@
                    e.preventDefault();
                     var href = $(this).attr('href');
                     var drinkscount = $(this).parent().parent().find('.drinkscount').val();
-                    link = "http://localhost/szakdoga_igniter/mainsite/addtocart/" + href + "/" + drinkscount;
+                    link = "http://localhost/szakdoga_igniter/owncart/addtocart/" + href + "/" + drinkscount;
                     $.ajax({
                         type: "POST",
                         url: link,
@@ -224,22 +224,7 @@
                         success: function(){
                             $('.cartlist').load(location.href + ' .content_011');
                             $('.cart').load(location.href + ' .cart_title');
-                            
-                            $(".cart").live('hover',
-                                function(){
 
-                                    $(this).parent().find(".cartlist").slideDown(700);
-
-                                    $(this).parent().hover(
-                                        function(){},
-                                        function(){
-                                            $(this).parent().find(".cartlist").slideUp(700);
-
-                                        }
-                                    );
-
-                                }
-                            );
                             
                         }
                  });
@@ -273,24 +258,20 @@
    <script type="text/javascript"> 
         $(document).ready(function(){
             <!-- Kosár slider -->
-            $(".cart").live('hover',
-                function(){
-                   
-                    $(this).parent().find(".cartlist").slideDown(700);
-
-                    $(this).parent().hover(
+            $(".cartfull").live('hover',function () {
+                $(".cartlist").slideDown(700);
+                
+               $(this).parent().hover(
                         function(){},
                         function(){
                             $(this).parent().find(".cartlist").slideUp(700);
                            
                         }
                     );
-
-                }
-            );
+            });
+  
         });
     </script>
-
     <!-- SITE -->
 </head>
 <body>
@@ -298,12 +279,12 @@
         <div id="head">
             <div id="loginregister">
                 <?php
-                    $this->load->view('mainsite/headmenu');
+                    $this->load->view('indexelements/headmenu');
                 ?>
             </div>
             <div id="logpanel">
                 <?php
-                    $this->load->view('mainsite/loginpanel');
+                    $this->load->view('indexelements/loginpanel');
                 ?>
             </div>
             <div id="clear"></div>
@@ -312,12 +293,12 @@
             <div class="cartfull">
                 <div class="cart">
                     <?php
-                        $this->load->view('mainsite/cart');
+                        $this->load->view('indexelements/cart');
                     ?>
                 </div>
-                <div class="cartlist" style="display: relative; z-index: 1000;" >
+                <div class="cartlist" >
                     <?php
-                        $this->load->view('mainsite/cartlist');
+                        $this->load->view('indexelements/cartlist');
                     ?>
                 </div>
             </div>
@@ -326,12 +307,12 @@
         <div id="menusearch">
             <div id="menu">
                 <?php
-                   $this->load->view('mainsite/menu');                           
+                   $this->load->view('indexelements/menu');                           
                  ?>
             </div>
             <div id="search">
                 <?php
-                  $this->load->view('mainsite/search');
+                  $this->load->view('indexelements/search');
                 ?>
             </div>
            
@@ -344,7 +325,7 @@
             <div class="slider">
                 <div id="pager"></div>
                 <?php
-                $this->load->view("mainsite/jquery_slider");
+                $this->load->view("indexelements/jquery_slider");
                 ?>
             </div>
             <div id="clear"></div>
@@ -358,7 +339,7 @@
             <div id="categories">
                 <div id="list">
                     <?php
-                        $this->load->view('mainsite/categories');
+                        $this->load->view('indexelements/categories');
                     ?>
                 </div>
             </div>
@@ -367,13 +348,13 @@
         <div id="advertisement2">
             <div id="advimg">
                 <?php
-                    $this->load->view('mainsite/footadver');
+                    $this->load->view('indexelements/footadver');
                 ?>
             </div>
         </div>
         <div id="foot">
             <?php
-                 $this->load->view('mainsite/foot');
+                 $this->load->view('indexelements/foot');
              ?>
         </div>
         

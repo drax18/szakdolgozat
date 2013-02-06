@@ -7,7 +7,7 @@ if(isset($success)){
                 echo "<h2>Regisztráció</h2>";
                 br(1);
                 echo '<table>';
-                        echo form_open('/mainsite/register_validation');
+                        echo form_open('actions/register_validation');
                         echo '<tr>';
                         echo '<td>';
                         echo '<i>'.validation_errors().'</i>';

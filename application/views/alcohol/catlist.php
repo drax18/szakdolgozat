@@ -47,7 +47,7 @@ foreach ($catname as $categories){
   <div id="returnedsort">
 
 <?php
-$this->load->view('mainsite/drinklist');
+$this->load->view('alcohol/drinklist');
 
 ?>
   </div>

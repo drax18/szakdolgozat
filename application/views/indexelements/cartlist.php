@@ -11,7 +11,7 @@ if($this->session->userdata('username')){
             echo $row -> drink.br(1);
             echo $row -> price * $row->piece." Ft";
             ?>
-            <a href="<?php echo site_url("mainsite/deletetocart/".$row -> cart_name); ?>" class="delete_to_cart"><img src="<?php echo base_url()."/img/delete.gif" ;?>" /></a><br />
+            <a href="<?php echo site_url("owncart/deletetocart/".$row -> cart_name); ?>" class="delete_to_cart"><img src="<?php echo base_url()."/img/delete.gif" ;?>" /></a><br />
             <?php            
         }
 

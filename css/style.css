@@ -71,9 +71,11 @@ div#head2{
     position: relative;
 }
 .cartlist{
-    display: none;
+    
+   display: none;
     width: 175px;
     position: relative;
+    z-index: 1000;
     padding-left: 15px;
     background: #363232;
     font-size: 12px;
@@ -194,9 +196,6 @@ div#inform{
 div#middle{
     width: 940px;
     margin-top: 27px;
-}
-div#clear{
-    clear: both;
 }
 div#advertisement2{
     height: 106px;

@@ -30,7 +30,7 @@ if($this->session->userdata('username')){
         <div id="admincontainer">
             <div id="adminhead">
                 <?php
-                    $this->load->view('mainsite/admin/adminhead');
+                    $this->load->view('masteradmin/adminhead');
                 ?>
             </div>
             <div id="adminhead2">
@@ -45,7 +45,7 @@ if($this->session->userdata('username')){
                     </div>
                     <div id="adminmenu">
                         <?php
-                            $this->load->view('mainsite/admin/adminmenu');
+                            $this->load->view('masteradmin/adminmenu');
                         ?>
                     </div>
                 <div style="clear:both"></div>

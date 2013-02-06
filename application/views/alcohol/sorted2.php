@@ -23,7 +23,7 @@
     </div>
     <div class="cat_name" >
         <table class="cat_name_table">
-            <tr><td><p><a href="<?php echo site_url("mainsite/drinks/$row->link_name"); ?>"><h2><?php echo $row->name.br(2); ?></h2></a><p></td></tr>
+            <tr><td><p><a href="<?php echo site_url("alcohol/drink/$row->link_name"); ?>"><h2><?php echo $row->name.br(2); ?></h2></a><p></td></tr>
             <tr><td>                  
                         <div class="score">
                             <?php
@@ -84,7 +84,7 @@
                         <div style="clear: both;"></div>
                         Átlag pont: <?php echo $row->score." ( ".$row->votes." szavazat )"; ?></td></tr>
             <tr><td class="tdlastbefore"><?php echo "Alkohol tartalom: ".$row->alcohol." % / ".$row->bottle." liter"; ?></td></tr>
-            <tr><td class="tdlast"><a style="color:Grey;" href="<?php echo site_url("mainsite/drinks/$row->link_name"); ?>"><?php echo word_limiter($row->drink_information, 48); ?></a></td></tr>
+            <tr><td class="tdlast"><a style="color:Grey;" href="<?php echo site_url("alcohol/drink/$row->link_name"); ?>"><?php echo word_limiter($row->drink_information, 48); ?></a></td></tr>
         </table>
         
     </div>
@@ -93,7 +93,7 @@
            <p><?php echo "Ár: ".$row->price." Ft" ?></p>       
            <input class="drinkscount" type="text" value="1" name="db" />Darab
            <div class="cartbutton" ><a class="add_to_cart" href="<?php echo $row->link_name; ?>"><img src="<?php echo base_url()."/img/cartbutton.png" ;?>" /></a></div>
-           <div class="informbuttom"><a href="<?php echo site_url("mainsite/drinks/$row->link_name"); ?>"><img src="<?php echo base_url()."/img/moreinform.png" ;?>" /><a/></div>
+           <div class="informbuttom"><a href="<?php echo site_url("alcohol/drink/$row->link_name"); ?>"><img src="<?php echo base_url()."/img/moreinform.png" ;?>" /><a/></div>
            <a class="favoradd"  href="" data-linkname="<?php echo $row->link_name; ?>">Kedvencekhez +</a>
            <div class="alreadyfav" data-<?php echo $row->link_name; ?>="1">
                           <?php

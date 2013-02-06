@@ -9,7 +9,7 @@ if($this->session->userdata('username')){
         foreach($owndata as $row){
             echo "<h2>Adataim</h2>";
             br(1);
-            echo form_open('/mainsite/own_data_edit');
+            echo form_open('/actions/own_data_edit');
             echo '<table>';
             echo '<tr>';
             echo '<td>';

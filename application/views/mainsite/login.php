@@ -16,7 +16,7 @@
 
 <?php
             echo '<table>';
-            echo form_open('/mainsite/login_validation');
+            echo form_open('/actions/login_validation');
             echo '<tr>';
             echo "<td>"."Felhasználónév: "."</td>"."<td>".form_input('username',$this->input->post('username'),"class='inputs'")."</td>";
             echo '</tr>';
