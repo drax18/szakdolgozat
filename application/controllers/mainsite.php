@@ -1,6 +1,6 @@
 <?php
     class mainsite extends MY_Controller {
-        //pages
+        //mainsite
         public function index(){
             $this->newitems();
         }
