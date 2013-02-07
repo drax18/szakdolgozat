@@ -1,18 +1,18 @@
 <ul>
-    <a href="<?php echo site_url("masteradmin/admindatas"); ?>"><li class="active_menu_class">
+    <a href=""><li class="active_menu_class">
         <img src="<?php echo base_url("/img/admin/adats.png") ;?>" /><br />
           ADATOK</li></a>
-    <a href="<?php echo  site_url("masteradmin/adminusers"); ?>" > <li>
-           <img src="<?php echo base_url("/img/admin/users.png") ;?>" /><br />
+    <a href="" > <li>
+           <img src="<?php echo base_url("/img/admin/users.png") ;?>"/><br />
            FELHASZNÁLÓK</li> </a>
    <a href="">  <li>
-           <img src="<?php echo base_url("/img/admin/income.png") ;?>" /><br />
+           <img src="<?php echo base_url("/img/admin/income.png") ;?>"/><br />
            BEVÉTEL</li> </a>
    <a href="">  <li>
-           <img src="<?php echo base_url("/img/admin/orders.png") ;?>" /><br />
+           <img src="<?php echo base_url("/img/admin/orders.png") ;?>"/><br />
            RENDELÉSEK</li> </a>
    <a href="">  <li>
-           <img src="<?php echo base_url("/img/admin/mails.png" );?>" /><br />
+           <img src="<?php echo base_url("/img/admin/mails.png" );?>"/><br />
            ÜZENETEK</li> </a>
    <a href="">  <li>
            <img src="<?php echo base_url("/img/admin/newdrinks.png" );?>" /><br />

@@ -135,6 +135,8 @@
                   $('.listed2').css("display","block");
                   
                });
+              
+              
                <!-- cartnál az ikonok kattra mit csináljanak -->
                
                $('.firststep').click(function(e){

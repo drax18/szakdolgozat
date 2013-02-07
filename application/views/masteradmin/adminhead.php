@@ -1,5 +1,5 @@
 <div class="adminlogout">
-    <a href=""><b>KILÉPÉS</b></a>
+    <a href="<?php echo site_url("masteradmin/logout"); ?>"><b>KILÉPÉS</b></a>
 </div>
 <div class="adminusername">
     <table>
