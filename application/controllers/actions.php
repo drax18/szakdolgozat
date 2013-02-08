@@ -106,7 +106,6 @@ class Actions extends MY_Controller{
             $this->session->sess_destroy();
             redirect($_SERVER['HTTP_REFERER']);
         }
-        //keresés eredménye
         
         //komment írása
          public function writeComm($id){

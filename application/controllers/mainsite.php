@@ -1,5 +1,5 @@
 <?php
-    class Mainsite extends MY_Controller {
+    class Mainsite extends MY_Controller{
         
         //Oldalak
                 
@@ -61,6 +61,7 @@
             $data['middle'] = 'mainsite/own_orders';
             $this->show_with_all('mainsite/index', $data);
         }
+        
         public function searchresult(){
            $searchopt = $this->input->post('searchoption');
            $data['middle'] = 'mainsite/searchresult';
@@ -69,8 +70,9 @@
            
            if(sizeof($data['searchresult']) == 1){
                foreach ($data['searchresult'] as $row){
+                     
                    $this->drink($row->link_name);
-
+                   
                }
            }
            else{             

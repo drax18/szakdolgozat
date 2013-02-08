@@ -2,17 +2,7 @@
 
 class Alcohol extends MY_Controller{
     
-    public function drink($name){
-            $this->load->model('drinks');
-            $data['drinks'] = $this->drinks->getDrink($name);
-            $this->load->model('comments');
-            $data['allcomment'] = $this->comments->allComment($name);
-            $data['middle'] = 'alcohol/drink';
-            $this->load->model('scores');
-            $data['score'] = ($this->scores->getScoreName($name));
-            $this->show_with_all('mainsite/index', $data);
-        }
-        
+   
      public function catlist($id){
           
           $data['middle'] = 'alcohol/catlist';  

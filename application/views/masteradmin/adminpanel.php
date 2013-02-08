@@ -12,16 +12,15 @@ if($this->session->userdata('username')){
     <script type="text/javascript" src="http://code.jquery.com/ui/1.10.0/jquery-ui.js" /></script>
     <script>
          $(document).ready(function() {
-             $("#adminmenu ul li").click(function(e){
-                e.preventDefault();
-                $("#adminmenu ul li").removeClass('active_menu_class');
-                $(this).addClass('active_menu_class');
-              });
+            $('.informations').fadeIn(1000); 
+            $('#adminmenu ul a li').click(function(){
+                $('.informations').fadeIn(1000); 
+            });
+        
          });
     </script>
     </head>
     <body>
-
         <div id="admincontainer">
             <div id="adminhead">
                 <?php
@@ -33,15 +32,14 @@ if($this->session->userdata('username')){
             </div>
             <div id="admincenter">
                 <div id="admininform">
-                        <?php
-                          
-                          $this->load->view($middle);
-                         ?>
+                    <div class="informations" style="display: none;">
+                        <?php $this->load->view($middle); ?>
                     </div>
+                </div>
                     <div id="adminmenu">
                         <?php
                             $this->load->view('masteradmin/adminmenu');
-                        ?>
+                         ?>
                     </div>
                 <div style="clear:both"></div>
             </div>

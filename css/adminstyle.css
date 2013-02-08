@@ -59,8 +59,7 @@ div#adminmenu{
     border-right: 1px solid #ababab; 
 }
 
-li.active_menu_class{
-    
+#adminmenu ul a li:hover{  
     
     color: black;
     border-left:1px solid #ababab; 
