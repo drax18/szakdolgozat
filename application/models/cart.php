@@ -137,6 +137,11 @@ class Cart extends CI_Model{
         return $cartall;
        
     }
+    function orderSend(){
+        $username = $this->session->userdata('username');
+        $this->db->where('owner',$username);
+        $this->db->delete('cart');
+    }
     
 }
 

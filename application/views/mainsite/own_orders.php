@@ -1,6 +1,6 @@
 <?php
 if($this->session->userdata('username')){
-    echo "own orders";
+    print_r($myorders);
 }
  else {
     redirect("mainsite/index");

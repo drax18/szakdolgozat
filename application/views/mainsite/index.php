@@ -41,6 +41,19 @@
                    }
                });
             });
+            <!-- feladás -->
+            $('.send').click(function(){
+            
+                $().delay(2000).toastmessage('showToast', {
+                            position : 'middle-center',
+                            text     : 'Sikeresen feladtad a megrendelést!',
+                            sticky   : false,
+                            type     : 'notice',
+                            stayTime : 3000
+
+                        });
+            
+            });
             <!-- kereső -->
             $('.searchsend').click(function(){
             var search=  $('.searchvalue').val();

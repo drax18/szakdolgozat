@@ -99,6 +99,16 @@ class Users extends CI_Model{
             
             
         }
+        function addOwnorders(){
+            $username = $this->session->userdata('username');
+            $query = $this->db->query("SELECT * FROM cart WHERE owner='$username'");
+            foreach($query->result() as $row){
+                $data = array("owner" => $row->owner,"price"=>$row->price,"piece"=>$row->piece,"drink_name"=>$row->cart_name);
+                $this->db->insert('myorders',$data);
+                
+            }
+            
+        }
         
         
     

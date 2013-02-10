@@ -20,6 +20,7 @@ class MY_Controller extends CI_Controller{
         $data['fees'] = $this->shippingfees();
         $data['checkadmin'] = $this->adminpagecheck();
         $data['adminuser'] = $this->adminpageusercheck();
+        $data['myorders'] = $this->ownorders();
         $this->load->view($view_name,$data);        
     }
     function admincheck(){
@@ -122,7 +123,10 @@ class MY_Controller extends CI_Controller{
             $data['score'] = ($this->scores->getScoreName($name));
             $this->show_with_all('mainsite/index', $data);
         }
-        
+        public function ownorders(){
+             $this->load->model('myorders');
+            return $this->myorders->getOwnorders();
+        }
     
    
 }
