@@ -128,6 +128,7 @@ class Actions extends MY_Controller{
             $this->favorites->removeFav($id);
         }
         
+        
 }
 
 ?>

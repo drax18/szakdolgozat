@@ -113,7 +113,7 @@ if($this->session->userdata('username')){
     <a href="<?php echo site_url("mainsite/own_data"); ?>"><input type="image" src="<?php echo base_url()."/img/modify.png" ; ?>" name="send"/></a>
 </div>
 <div class="shippingdata" style="display: none;">
-    <a href="<?php echo site_url("mainsite/ordersend"); ?>">Megrendelés</a>
+    <a href="<?php echo site_url("owncart/ordersend"); ?>">Megrendelés</a>
 </div>    
     
     

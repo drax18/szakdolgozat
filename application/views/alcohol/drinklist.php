@@ -6,7 +6,7 @@
 
        </div>
 
-       <div class="sorted2">
+       <div class="listed2">
         <?php
            $this->load->view('alcohol/sorted2');
         ?>

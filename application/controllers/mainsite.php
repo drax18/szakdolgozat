@@ -67,6 +67,7 @@
            $data['middle'] = 'mainsite/searchresult';
            $this->load->model('search');           
            $data['searchresult'] = $this->search->getSearch($searchopt);
+           $data['searchcount'] = $this->search->getSearchCount($searchopt);
            
            if(sizeof($data['searchresult']) == 1){
                foreach ($data['searchresult'] as $row){

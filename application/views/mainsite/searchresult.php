@@ -1,5 +1,7 @@
 <?php
-    
+    if($this->input->post('searchoption')){
+        echo $searchcount ." találat a következőre: ".$this->input->post('searchoption');
+        br(1);
         foreach($searchresult as $row){
             
             ?>
@@ -15,6 +17,9 @@
            <?php
             
         }
-   
+    }
+ else {
+     echo "Nem állítottál be keresési paramétert!";
+}
        
 ?>

@@ -13,7 +13,7 @@ class Comments extends CI_Model{
     function writeComm($data,$id){
         $username = $this->session->userdata('username');
         $query = $this->db->query("SELECT link_name FROM drinks WHERE id=$id");
-        $date = date("y-m-d h:i A");
+        $date = date("Y-m-d H:i:s");
         foreach ($query->result() as $row){
             $link_name = $row->link_name;
         }
