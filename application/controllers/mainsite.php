@@ -12,7 +12,7 @@
         }
         public function newitems(){
             $this->load->model('newitems');
-            $data['newdrinks'] = $this->newitems->getnewitems();
+            $data['newdrinks'] = $this->newitems->getnewitems();            
             $data['middle'] = 'mainsite/newitems';
             $this->show_with_all('mainsite/index',$data);
         }
@@ -61,8 +61,6 @@
             $data['middle'] = 'mainsite/own_orders';
             
            
-            
-            
             $this->show_with_all('mainsite/index', $data);
         }
         
