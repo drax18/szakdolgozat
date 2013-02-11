@@ -20,9 +20,9 @@ class Owncart extends MY_Controller {
             
             $this->email->from('baderitalkozert@gmail.com', 'Báder László');
             $this->email->to('kisunuszi@gmail.com'); 
-
+            $cart['cartdatas'] = $this->getcartdatas();
             $this->email->subject('Email Test');
-            $this->email->message('Testing the email class.');  
+            $this->email->message();  
             $result = $this->email->send();
             
             $this->load->model('users');
@@ -33,6 +33,12 @@ class Owncart extends MY_Controller {
             
                     
            $this->show_with_all('mainsite/index', $data);            
+         }
+         // kosárból lekérés
+         public function getcartdatas(){
+             $this->load->model('cart');
+             $cartdatas = $this->cart->getCart();
+             return $cartdatas;
          }
     //kosárba tétel
         
