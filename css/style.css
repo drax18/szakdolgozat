@@ -4,10 +4,12 @@ root{
 *{
     padding:0;
     margin:0;
+   
 }
 body{
     font-family: century gothic, arial;
     color:black;
+   
   /*  background: url('../img/bg.jpg') 50% 0px repeat-x #09080c;
     background-attachment:fixed;
   */

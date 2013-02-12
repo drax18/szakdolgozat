@@ -6,7 +6,7 @@ if($this->session->userdata('username')){
     <head>    
         <meta http-equiv='Content-Type' content='Type=text/html; charset=utf-8'>
         <title></title>
-           <link rel="stylesheet" href="<?php echo base_url();?>css/adminstyle.css"  />
+           <link rel="stylesheet" href="<?php echo base_url("css/adminstyle.css");?>"  />
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/ui/1.10.0/jquery-ui.js" /></script>
@@ -16,7 +16,7 @@ if($this->session->userdata('username')){
             $('#adminmenu ul a li').click(function(){
                 $('.informations').fadeIn(1000); 
             });
-        
+            
          });
     </script>
     </head>

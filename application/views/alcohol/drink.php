@@ -171,7 +171,17 @@ $tmb = array();
                
                <div class="whobought">
                <h4>Akik már megvették:</h4>
-
+               <?php
+               $tmp = array();
+               foreach ($whoorders as $whobought){
+                   if(!in_array($whobought->owner,$tmp)){
+                       $tmp[] = $whobought->owner;
+                       echo $whobought->owner;
+                   }
+                   
+               }
+               
+               ?>
            </div>
            <div class="comments">
                

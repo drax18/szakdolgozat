@@ -2,7 +2,12 @@
 
 class Users extends CI_Model{
     
-        function can_login(){
+    function getUserdata(){
+        $username = $this->session->userdata('username');
+        $query = $this->db->query("SELECT surname,firstname,phonenumber,streetaddress,city,zipcode,country FROM users WHERE username='$username'");
+        return $query->result();
+    }
+    function can_login(){
         $this->db->where('username', $this->input->post('username'));
         $this->db->where('password', md5($this->input->post('password')));
         $query = $this->db->get('users');

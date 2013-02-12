@@ -121,12 +121,14 @@ class MY_Controller extends CI_Controller{
             $data['middle'] = 'alcohol/drink';
             $this->load->model('scores');
             $data['score'] = ($this->scores->getScoreName($name));
+            $this->load->model('myorders');
+            $data['whoorders'] = $this->myorders->getWhoorders($name);
             $this->show_with_all('mainsite/index', $data);
         }
-        public function ownorders(){
-             $this->load->model('myorders');
-            return $this->myorders->getOwnorders();
-        }
+    public function ownorders(){
+         $this->load->model('myorders');
+        return $this->myorders->getOwnorders();
+    }
     
    
 }
