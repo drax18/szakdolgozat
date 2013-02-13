@@ -62,7 +62,7 @@ class Actions extends MY_Controller{
                 $this->users->add_User();
                 $data['success'] = $this->Register_success();
                 $this->show_with_all('mainsite/index', $data);
-                header( "refresh:5;url=mainsite/login" );
+                redirect("mainsite/login");
             }
             else
                 $this->show_with_all('mainsite/index', $data);  

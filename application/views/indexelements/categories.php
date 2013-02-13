@@ -1,6 +1,6 @@
 <div class="cattitle">
 <?php
-echo "Kategóriák".br(1);?><img src="<?php echo base_url();?>img/cat_line.png" /><br />
+echo "Kategóriák".br(1);?><img src="<?php echo base_url("img/cat_line.png");?>" /><br />
 </div>
 <div id="container">
 
