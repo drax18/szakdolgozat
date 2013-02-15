@@ -106,13 +106,33 @@ class Users extends CI_Model{
         }
         function addOwnorders(){
             $username = $this->session->userdata('username');
+            
+            
+            
+            $data = array();
             $query = $this->db->query("SELECT * FROM cart WHERE owner='$username'");
+            $query2 = $this->db->query("SELECT ordernumber FROM myorders WHERE owner='$username' ORDER BY ordernumber DESC LIMIT 1");
+            if($query2->num_rows() == 0){
+                $i = 1;
+            }
+            else{
+                $i = 1;
+                foreach($query2->result() as $row2){
+                    $number = $row2->ordernumber;
+                }
+                $tmp = $i;
+                $i = $number + $tmp;
+            }
+
+            
+            $date = date("Y/m/d - H:i");
+            
             foreach($query->result() as $row){
-                $data = array("owner" => $row->owner,"price"=>$row->price,"piece"=>$row->piece,"drink_name"=>$row->cart_name);
+                $data = array("owner" => $row->owner,"price"=>$row->price,"piece"=>$row->piece,"link_name"=>$row->cart_name,"drink_name"=>$row->drink,"orderdate"=>$date, "ordernumber"=>$i);
                 $this->db->insert('myorders',$data);
                 
             }
-            
+
         }
         
         

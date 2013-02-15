@@ -205,7 +205,7 @@ $tmb = array();
                <?php
                 if($this->session->userdata('username')){
                      ?>
-                    <textarea rows="10" cols="42" class="commentarea" name="comment"></textarea></br>
+                    <textarea style="resize: none;" rows="10" cols="42" class="commentarea" name="comment"></textarea></br>
                    <input type="image" height="30px" src="<?php echo base_url()."/img/sendbutton.png" ;?>" class="commentsend" data-drinkid="<?php echo $row->id; ?>" value="Elküld" />                  
                    <?php 
                 }
