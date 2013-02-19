@@ -16,7 +16,7 @@
             <!-- Slide hírdetés -->
             $('.slider').cycle({ 
 		fx: 'fade',
-                delay: 4500,
+                delay: 1000,
                 pause:1,
                 pager:  '#pager',
 		slideExpr: 'img',
@@ -244,15 +244,8 @@
                         }
                  });
             });
-            
-     });
-    </script>
-    <script type="text/javascript"> 
-        $(document).ready(function(){
-            
-      //  $("ul#menu li:last-child").css("margin-right",0);
-      <!-- Menü slider-->
-            $("ul#menu div").live('click',
+            <!-- MENÜ div -->
+             $("ul#menu div").live('click',
                 function(){
                     $(this).parent().find("div").css("background-image","url(<?php echo base_url()."img/cat_selector_down.png" ;?>)");
                  
@@ -268,12 +261,8 @@
 
                 }
             );
-        });
-    </script>
-   <script type="text/javascript"> 
-        $(document).ready(function(){
-            <!-- Kosár slider -->
-            $(".cartfull").live('hover',function () {
+            <!-- kosár slide -->
+             $(".cartfull").live('hover',function () {
                 $(".cartlist").slideDown(700);
                 
                $(this).parent().hover(
@@ -282,10 +271,9 @@
                             $(this).parent().find(".cartlist").slideUp(700);
                            
                         }
-                    );
+               );
             });
-  
-        });
+     });
     </script>
     <!-- SITE -->
 </head>
