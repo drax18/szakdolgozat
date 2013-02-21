@@ -3,7 +3,7 @@
 <div class="admingeneraltitle">Általános Információk</div>
 <div class="adminline"></div>
 <div id="uov">
-    <div class="adminusers"><i><?php print_r($admingetusers); ?></i></div>
+    <div class="adminusers"><?php print_r($admingetusers); ?></div>
     <div class="adminorders">sajt</div>
     <div class="adminvisitors">sajt</div>
 </div>
