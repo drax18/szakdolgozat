@@ -21,6 +21,7 @@ class MY_Controller extends CI_Controller{
         $data['checkadmin'] = $this->adminpagecheck();
         $data['adminuser'] = $this->adminpageusercheck();
         $data['myorders'] = $this->ownorders();
+        $data['admingetusers'] = $this->adminGetUsers();
         $this->load->view($view_name,$data);        
     }
     function admincheck(){
@@ -128,8 +129,11 @@ class MY_Controller extends CI_Controller{
     public function ownorders(){
          $this->load->model('myorders');
         return $this->myorders->getOwnorders();
+    } 
+    public function adminGetUsers(){
+        $this->load->model('admin');
+        return $this->admin->adminGetUsers();
     }
-    
    
 }
 ?>

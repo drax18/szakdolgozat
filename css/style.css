@@ -241,7 +241,7 @@ a:hover{
 }
 #headmenu{
     margin-left: 7px;
-    padding-top: 3px;
+    padding-top: 5px;
     
 }
 #headitem
@@ -266,7 +266,7 @@ a:hover{
     color:#cccccc;
 }
 #logpanel{
-    padding-top: 3px;
+    padding-top: 5px;
 }
 #login_reg_forget_pw{
     color:black;

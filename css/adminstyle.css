@@ -60,6 +60,8 @@ div#adminmenu{
 }
 
 #adminmenu ul a li:hover{  
+    height: 83px;
+    
     
     color: black;
     border-left:1px solid #ababab; 
@@ -102,7 +104,6 @@ div#admincenter{
 }
 .admintitle{
     padding-left: 35px;
-    padding-top:10px;
     color:grey;
 }
 .admingeneraltitle{
@@ -120,17 +121,42 @@ div#admincenter{
     margin-top: 40px;
     border-top:1px solid #ababab;
 }
-.adminusers, .adminorders, .adminvisitors{
+.adminusers {
     width: 274px;
-    padding-top: 20px;
-    
+    padding-top: 55px;
+    height: 65px;
+     background: url('../img/admin/adminusers.png') no-repeat;
+     background-position:center;
+     color:white;
     float:left;
     text-align: center;
     
 }
-.adminusersinform{
-    position: absolute;
-    padding-left:120px;
+
+.adminorders{
+     width: 274px;
+      padding-top: 55px;
+    height: 65px;
+   background: url('../img/admin/adminorders.png') no-repeat;
+     background-position:center; 
+    float:left;
     color:white;
-    padding-top: 30px;
+    text-align: center;
 }
+.adminvisitors{
+    width: 274px;
+     padding-top: 55px;
+    height: 65px;
+    background: url('../img/admin/adminvisitors.png') no-repeat;
+     background-position:center; 
+     color:white;
+    float:left;
+    text-align: center;
+}
+.userscount, .userorders, .uservisitor{
+    width: 274px;
+    padding-top: 5px;    
+    float:left;
+    text-align: center;
+}
+

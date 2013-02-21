@@ -3,9 +3,14 @@
 <div class="admingeneraltitle">Általános Információk</div>
 <div class="adminline"></div>
 <div id="uov">
-    <div class="adminusers"><div class="adminusersinform">sajt</div><img src="<?php echo base_url("img/admin/adminusers.png"); ?>" /></div>
-    <div class="adminorders"><div class="adminusersinform">sajt</div><img src="<?php echo base_url("img/admin/adminorders.png"); ?>" /></div>
-    <div class="adminvisitors"><div class="adminusersinform">sajt</div><img src="<?php echo base_url("img/admin/adminvisitors.png"); ?>" /></div>
+    <div class="adminusers"><i><?php print_r($admingetusers); ?></i></div>
+    <div class="adminorders">sajt</div>
+    <div class="adminvisitors">sajt</div>
 </div>
 <div style="clear:both;"></div>
+<div id="uovinfo">
+    <div class="userscount">Felhasználók</div>
+    <div class="userorders">Rendelések</div>
+    <div class="uservisitor">Látogatók</div>
+</div>
 <div class="adminline2"></div>
