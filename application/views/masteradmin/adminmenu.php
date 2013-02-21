@@ -1,8 +1,8 @@
 <ul>
-    <a href="<?php echo site_url("masteradmin/adminadats"); ?>"><li>
+   <a href="<?php echo site_url("masteradmin/adminadats"); ?>"><li>
         <img src="<?php echo base_url("/img/admin/adats.png") ;?>" /><br />
           ADATOK</li></a>
-    <a href="<?php echo site_url("masteradmin/adminusers"); ?>" ><li>
+   <a href="<?php echo site_url("masteradmin/adminusers"); ?>" ><li>
            <img src="<?php echo base_url("/img/admin/users.png") ;?>"/><br />
            FELHASZNÁLÓK</li> </a>
    <a href="<?php echo site_url("masteradmin/adminincome"); ?>">  <li>

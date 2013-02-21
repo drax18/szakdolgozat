@@ -97,3 +97,40 @@ div#admincenter{
     float: right;
     
 }
+.admintitleimage{
+    float:left;
+}
+.admintitle{
+    padding-left: 35px;
+    padding-top:10px;
+    color:grey;
+}
+.admingeneraltitle{
+    padding-left: 35px;
+    font-size:15px;
+    color:#ababab;
+}
+.adminline{
+    width: 823px;
+    margin-top:  10px;
+    border-top:1px solid #ababab;
+}
+.adminline2{
+    width: 823px;
+    margin-top: 40px;
+    border-top:1px solid #ababab;
+}
+.adminusers, .adminorders, .adminvisitors{
+    width: 274px;
+    padding-top: 20px;
+    
+    float:left;
+    text-align: center;
+    
+}
+.adminusersinform{
+    position: absolute;
+    padding-left:120px;
+    color:white;
+    padding-top: 30px;
+}
