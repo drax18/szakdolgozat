@@ -83,5 +83,9 @@
             $this->show_with_all('mainsite/index', $data);
            }
         }
+        public function forgottenpassword(){
+            $data['middle'] = 'mainsite/forgottenpassword'; 
+            $this->show_with_all('mainsite/index', $data);
+        }
   
 }

@@ -127,7 +127,9 @@ class Actions extends MY_Controller{
             $this->load->model('favorites');
             $this->favorites->removeFav($id);
         }
-        
+        public function forgotpw($pw = ""){
+            
+        }
         
 }
 

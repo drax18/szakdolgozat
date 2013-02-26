@@ -134,6 +134,11 @@ class Users extends CI_Model{
             }
 
         }
+        function forgotpw($code){
+            $username = $this->session->userdata('username');
+            $data = array('owner'=>$username,'code'=>$code);
+            $this->db->insert('user_forgotpw',$data);
+        }
         
         
     
