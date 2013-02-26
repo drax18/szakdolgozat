@@ -112,6 +112,7 @@ if($this->session->userdata('username')){
     ?>
     <a href="<?php echo site_url("mainsite/own_data"); ?>"><input type="image" src="<?php echo base_url()."/img/modify.png" ; ?>" name="send"/></a>
 </div>
+<div class="refreshshipdata">
 <div class="shippingdata" style="display: none;">
     <?php
     if($cart){
@@ -130,7 +131,7 @@ if($this->session->userdata('username')){
     }
     ?>
 </div>    
-    
+</div>   
     
     
     

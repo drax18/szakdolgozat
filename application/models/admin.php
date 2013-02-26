@@ -34,5 +34,11 @@ class Admin extends CI_Model{
         return $ordernumber;
         
     }
+    function writeMessage($message){
+        $username = $this->session->userdata('username');
+        $date = date("Y/m/d - H:i");
+        $data = array('owner'=>$username,'message'=>$message,'date'=>$date);
+        $this->db->insert('admin_email',$data);
+    }
 }
 ?>

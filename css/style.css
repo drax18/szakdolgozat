@@ -437,7 +437,7 @@ div#alcohol{
     margin-right: 20px;
     margin-bottom: 20px;
 }
-div#newdrinklist{margin-left:10px; width: 940px;}
+div#newdrinklist{margin-left:10px; width: 940px; }
 div#table{
     margin-right: 30px;
     line-height: 50px;
@@ -627,8 +627,15 @@ div#table:last-child{
       border-left: 1px solid #b3b1b1;
       float: right;
       width: 284px;
+      
          
          padding-left: 15px;
+    }
+    .whoboughtname{
+        padding-top: 10px;
+    }
+    .sendmessagetoadmin{
+        padding-top: 10px;
     }
     .comments{
     

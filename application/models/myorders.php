@@ -10,7 +10,7 @@ class Myorders extends CI_Model{
     function getWhoorders($name){
         $this->db->select('owner');
         $this->db->from('myorders');
-        $this->db->where('drink_name',$name);
+        $this->db->where('link_name',$name);
         $query = $this->db->get();
         return $query->result();
         

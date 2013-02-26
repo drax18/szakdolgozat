@@ -214,7 +214,26 @@
                 });
                    }
                      
-                     //  alert("Nem hagyhatod üresen a mezőt az elküldéshez!");
+                    
+               });
+               $('.sendtoadminbutton').click(function(e){
+               e.preventDefault();
+               var contactarea = $('.sendtoadmin').val();
+               linkzje = "http://localhost/szakdoga_igniter/masteradmin/writetoadmin";
+               alert(contactarea);
+               alert(linkzje);
+               if(contactarea != ""){
+                   $.ajax({
+                       type: "POST",
+                       data: $('.sendtoadmin').serialize(),
+                       url: linkzje,
+                       success: function(){
+                           $('.sendtoadmin').val("");
+                       }
+                   })
+               }
+               else
+                    alert("ÜRES");
                });
             <!-- Kosárba tétel és elvétel -->
             $('.add_to_cart').live('click',function(e) {
@@ -228,6 +247,7 @@
                         success: function(){
                             $('#head2').load(location.href + ' .cartfull');
                             $('#refrowncartdata').load(location.href + ' .owncartdata');
+                            $('.refreshshipdata').load(location.href + ' .shippingdata');
                             
                         }
                  });
@@ -244,7 +264,7 @@
                             $('.cartlist').load(location.href + ' .content_011');
                             $('.cart').load(location.href + ' .cart_title');
                             $('#refrowncartdata').load(location.href + ' .owncartdata');
-
+                            $('.refreshshipdata').load(location.href + ' .shippingdata');
                             
                         }
                  });
@@ -260,6 +280,7 @@
                         $('.cartlist').load(location.href + ' .content_011');
                         $('.cart').load(location.href + ' .cart_title');
                         $('#refrowncartdata').load(location.href + ' .owncartdata');
+                        $('.refreshshipdata').load(location.href + ' .shippingdata');
                     }
                 });
 

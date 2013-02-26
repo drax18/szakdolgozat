@@ -41,7 +41,14 @@ class Masteradmin extends MY_Controller {
         $this->session->sess_destroy();
         redirect('mainsite/index');
     }
-    
+    public function writetoadmin(){
+        $message = $this->input->post('usermessagetoadmin');
+        $this->load->model('admin');
+        $this->admin->writeMessage($message);
+        
+        
+        
+    }
 }
 
 ?>

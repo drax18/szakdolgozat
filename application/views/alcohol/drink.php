@@ -175,17 +175,19 @@ $tmb = array();
                
                <div class="whobought">
                <h4>Akik már megvették:</h4>
+               <div class="whoboughtname">
                <?php
                $tmp = array();
                foreach ($whoorders as $whobought){
                    if(!in_array($whobought->owner,$tmp)){
                        $tmp[] = $whobought->owner;
-                       echo $whobought->owner;
+                       echo $whobought->owner.br(1);
                    }
                    
                }
                
                ?>
+               </div>
            </div>
            <div class="comments">
                
