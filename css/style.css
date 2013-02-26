@@ -421,8 +421,9 @@ ul#menu a:hover{
     width:25px;
     text-align: right; 
     height: 18px;
-    margin-right: 5px; 
-    margin-bottom: 10px; 
+    float:left;
+    
+    
     text-align: center;
 }
 .drinksline{
@@ -694,8 +695,11 @@ div#table:last-child{
     .alreadyfav{
         
         font-size: 15px;
-        color:#8a7adc;
-        height: 30px;
+        color:grey;
+        float:left;
+        padding-top:13px;
+        padding-left: 5px;
+        
     }
         .owncartdata{
         
@@ -753,4 +757,7 @@ div#table:last-child{
     .cartheadtitle{
         text-align: left;
         padding-top: 5px;
+    }
+    .errorsend{
+        color:red;
     }

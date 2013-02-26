@@ -24,12 +24,10 @@
                 return '<a href="#" ></a>';
                  }
                 });
-             //   $('.cat_alcohols').fadeIn(1000);
+          
              <!-- Kedvenchez adás -->   
             $('.favoradd').live('click',function(e){
-              
-           //    $(this).parent().find('.alreadyfav').fadeIn(1000);
-          //     $(this).parent().find('.alreadyfav').delay(1000).fadeOut(1000);
+
                e.preventDefault();
                var href2 =  $(this).data('linkname');
                var link2 = "http://localhost/szakdoga_igniter/actions/favadd/" + href2;
@@ -37,7 +35,7 @@
                    type: "POST",
                    url: link2,
                    success: function(){
-                   $(this).parent().find('.refreshfav').load(location.href + ' .alreadyfav');
+                   $('.favrerf').load(location.href + ' .alreadyfav');
                     
                    }
                });
@@ -99,6 +97,8 @@
                         success:function(data){
                             $('#returnedsort').empty();
                             $('#returnedsort').html(data);
+                            $('.listimg1').css("opacity","0.40");
+                            $('.listimg2').css("opacity","1");
                         }
                     });
                });

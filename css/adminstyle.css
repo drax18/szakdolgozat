@@ -59,9 +59,8 @@ div#adminmenu{
     border-right: 1px solid #ababab; 
 }
 
-#adminmenu ul a li:hover{  
+.menu1{  
     height: 83px;
-    
     
     color: black;
     border-left:1px solid #ababab; 

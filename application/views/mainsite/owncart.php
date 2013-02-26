@@ -113,7 +113,22 @@ if($this->session->userdata('username')){
     <a href="<?php echo site_url("mainsite/own_data"); ?>"><input type="image" src="<?php echo base_url()."/img/modify.png" ; ?>" name="send"/></a>
 </div>
 <div class="shippingdata" style="display: none;">
+    <?php
+    if($cart){
+    ?>
     <a class="send" href="<?php echo site_url("owncart/ordersend"); ?>">Megrendelés</a>
+    <?php
+    }else{
+        ?>
+    <div class="errorsend">
+        <img height="30" src="<?php echo base_url("img/errorsend.png"); ?>" />
+    <?php
+        echo "Üresen nem rendelhetsz alkoholt!";
+        ?>
+    </div>
+        <?php
+    }
+    ?>
 </div>    
     
     

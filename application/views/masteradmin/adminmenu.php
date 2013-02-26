@@ -1,5 +1,5 @@
 <ul>
-   <a href="<?php echo site_url("masteradmin/adminadats"); ?>"><li>
+   <a href="<?php echo site_url("masteradmin/adminadats"); ?>"><li  class="menu1">
         <img src="<?php echo base_url("/img/admin/adats.png") ;?>" /><br />
           ADATOK</li></a>
    <a href="<?php echo site_url("masteradmin/adminusers"); ?>" ><li>

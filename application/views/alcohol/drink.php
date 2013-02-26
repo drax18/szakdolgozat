@@ -25,13 +25,13 @@ $tmb = array();
     <table style="width: 475px; padding-top: 10px; padding-bottom: 10px;border-bottom: 1px solid #cccccc">
         <tr>
     <div class="price" >
-        <td style="width:245px; padding-bottom: 5px;">
+        <td style="width:245px; ">
         <?php
             echo "Ár: ".$row->price." Ft";
         ?>
          </td>
     </div>
-        <td style="text-align: right; padding-bottom: 5px;">
+        <td>
         <input class="drinkscount" type="text" value="1" name="db"/>Darab
         </td>
         <td style="text-align:right;">
@@ -141,21 +141,29 @@ $tmb = array();
            </div>
            </div>
            </div>
-           </p>
-           <a class="favoradd" style="color:#003399; padding-top: 5px;" href="" data-linkname="<?php echo $row->link_name; ?>">Kedvencekhez +</a></br>
-            <div class="alreadyfav" style="display: none; font-size: 15px; color:#8a7adc;" data-<?php echo $row->link_name; ?>="1">
+            </p>
+            <?php
+            if($this->session->userdata('username')){
+            ?>
+            <a class="favoradd" style="float:left;" href="" data-linkname="<?php echo $row->link_name; ?>"><img style="padding-top:10px;" src="<?php echo base_url("img/tofav.png"); ?>" /></a> 
+            <div class="favrerf">
+            <div class="alreadyfav">
                           <?php
-                          if($this->session->userdata('username')){
+                          
                               if(in_array($row->id,$tmb)){
                                 echo "Már a kedvenced";
+                                
                                 }else {
-                                echo "Kedvenchez adva";
+                                echo "Még nem a kedvenced";
                                   }
-                          }else {
-                                echo "Be kell lépned!";
-                          }                          
+                                             
                             ?>
-           </div>   
+           </div> 
+           </div>
+           <?php
+            }else
+                echo "Kedvencekhez adáshoz, először be kell jelentkezned!";
+           ?>
            </div>
            <div style="clear:both"></div>
            <div class="drinkinformation">

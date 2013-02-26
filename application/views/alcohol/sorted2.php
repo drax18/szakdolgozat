@@ -91,25 +91,10 @@
     <div class="cat_addtocart" >
        
            <p><?php echo "Ár: ".$row->price." Ft" ?></p>       
-           <input class="drinkscount" type="text" value="1" name="db" />Darab
+           <input class="drinkscount" type="text" value="1" name="db" /><div style="color:black; float:left; padding-bottom: 25px; padding-left: 5px;" class="db">Darab</div>
            <div class="cartbutton" ><a class="add_to_cart" href="<?php echo $row->link_name; ?>"><img src="<?php echo base_url()."/img/cartbutton.png" ;?>" /></a></div>
            <div class="informbuttom"><a href="<?php echo site_url("alcohol/drink/$row->link_name"); ?>"><img src="<?php echo base_url()."/img/moreinform.png" ;?>" /><a/></div>
-           <a class="favoradd"  href="" data-linkname="<?php echo $row->link_name; ?>"><img src="<?php echo base_url("img/favadd.png") ?>" /></a>
-           <div class="refreshfav">
-            <div class="alreadyfav" data-<?php echo $row->link_name; ?>="1">
-                           <?php
-                           if($this->session->userdata('username')){
-                               if(in_array($row->id,$tmb)){
-                                 echo "Már a kedvenced";
-                                 }else {
-                                 echo "Kedvenchez adva";
-                                   }
-                           }else {
-                                 echo "Be kell lépned!";
-                           }                          
-                             ?>
-            </div>   
-           </div>
+           
     </div>
  </div>
 <div style="clear:both;"></div>
