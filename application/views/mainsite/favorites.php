@@ -10,14 +10,9 @@ if($this->session->userdata('username')){
     foreach ($favorites as $row){
       $i = 0;
         ?>
-
-        
             <div class="allremovefav">
                 <div class="favimg">
-
                         <img height="90px" src="<?php echo base_url()."img/drinks/".$row->link_name.".png" ;?>" />
-
-
                 </div>
                     <div class="favinfos">
                         <div class="favname">

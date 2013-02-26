@@ -103,9 +103,6 @@ $tmb = array();
                         
                         
                     </div>
-               
-               
-           
            <div class="scoreselects">
               <?php
                      if($this->session->userdata('username')){
@@ -121,18 +118,17 @@ $tmb = array();
                         <?php
                         }
                         ?>
-                       </select>
+                    </select>
                             </td>
                             <td>
-                       <input  type="image" src="<?php echo base_url()."/img/refreshbutton.png" ;?>" class="scoresend" />
+                       <input type="image" src="<?php echo base_url()."/img/refreshbutton.png" ;?>" class="scoresend" />
                             </td>
                         </tr>
                        </table>
                        <?php
                      }
                        ?>
-           </div>
-              
+           </div>              
            <div style="clear:both"></div>
            <div id="refreshavgsc">
                     <div class="scoreave">

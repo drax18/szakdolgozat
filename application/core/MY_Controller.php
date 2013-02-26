@@ -22,6 +22,7 @@ class MY_Controller extends CI_Controller{
         $data['adminuser'] = $this->adminpageusercheck();
         $data['myorders'] = $this->ownorders();
         $data['admingetusers'] = $this->adminGetUsers();
+        $data['ordernumber'] = $this->adminGetOrdersmax();
         $this->load->view($view_name,$data);        
     }
     function admincheck(){
@@ -133,6 +134,10 @@ class MY_Controller extends CI_Controller{
     public function adminGetUsers(){
         $this->load->model('admin');
         return $this->admin->adminGetUsers();
+    }
+    public function adminGetOrdersmax(){
+        $this->load->model('admin');
+        return $this->admin->adminGetOrdersmax();
     }
    
 }

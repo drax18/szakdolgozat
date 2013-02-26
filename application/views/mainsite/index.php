@@ -199,6 +199,7 @@
                         url: commentlink,
                         success: function(){
                             $('.comments').load(location.href + ' .membercomments');
+                            $('.commentarea').val("");
                         }
                        });
                    }

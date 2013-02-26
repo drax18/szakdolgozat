@@ -4,7 +4,7 @@
 <div class="adminline"></div>
 <div id="uov">
     <div class="adminusers"><?php print_r($admingetusers); ?></div>
-    <div class="adminorders">sajt</div>
+    <div class="adminorders"><?php print_r($ordernumber); ?></div>
     <div class="adminvisitors">sajt</div>
 </div>
 <div style="clear:both;"></div>

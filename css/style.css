@@ -9,10 +9,7 @@ root{
 body{
     font-family: century gothic, arial;
     color:black;
-   
-  /*  background: url('../img/bg.jpg') 50% 0px repeat-x #09080c;
-    background-attachment:fixed;
-  */
+
 }
 a{    
     text-decoration: none;
@@ -29,7 +26,7 @@ div#cont{
     background: #eeeeee url('../img/bg.png') no-repeat;
     -webkit-box-shadow: 5px 4px 0px #888888;
     box-shadow: 5px 4px 5px 0px #888888;
-    margin:0 auto;
+    margin: 0 auto;
     margin-bottom: 5px;
 }
 div#head{
