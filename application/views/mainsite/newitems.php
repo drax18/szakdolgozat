@@ -6,7 +6,7 @@
     ?>
     <div id="alcohol" >
         <div id="img">
-        <img src="<?php echo base_url()."img/new_drinks/$row->link_name.png" ;?>" height="170" />
+        <img src="<?php echo base_url()."img/drinks/$row->link_name.png" ;?>" height="170" />
         </div>
         
      </div>
@@ -22,9 +22,10 @@
                     <td style="font-size:14px;"><a style="color:black;" href="" ><?php echo character_limiter($row->drink_title, 15); ?></a></td>
                 </tr>
                 <tr>
-                    <td><a href=""><img src="<?php echo base_url()."/img/moreinform.png" ;?>" /></a></td>
+                    <td><a href="<?php echo site_url("alcohol/drink/$row->link_name"); ?>"><img src="<?php echo base_url()."/img/moreinform.png" ;?>" /></a></td>
                 </tr>
                 <tr>
+                    <input class="drinkscount"  type="hidden" value="1" name="db"/>
                     <td><a href="<?php echo $row->link_name; ?>" class="add_to_cart"><img src="<?php echo base_url()."/img/cartbutton.png" ;?>" /></a></td>
                 </tr>
             </table>           

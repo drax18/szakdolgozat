@@ -23,9 +23,11 @@
                            <td style="font-size:14px;"><a style="color:black;" href="<?php echo site_url("alcohol/drink/$row->link_name"); ?>" ><?php echo character_limiter($row->drink_title, 10); ?></a></td>
                        </tr>
                        <tr>
-                            <td><input class="dbcount" style="width:25px;text-align: right; height: 18px; margin-right: 5px;" type="text" value="1" name="db"/>Darab</td>
-                       </tr>
+                           <td><a href="<?php echo site_url("alcohol/drink/$row->link_name"); ?>"><img src="<?php echo base_url()."/img/moreinform.png" ;?>" /></a></td>
+                       </tr>                      
+                      
                        <tr>
+                           <input class="drinkscount"  type="hidden" value="1" name="db"/>
                            <td><a href="<?php echo $row->link_name; ?>" class="add_to_cart"><img src="<?php echo base_url()."/img/cartbutton.png" ;?>" /></a></td>
                        </tr>
                    </table>           

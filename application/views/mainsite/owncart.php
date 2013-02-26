@@ -32,9 +32,9 @@ if($this->session->userdata('username')){
             <?php echo "Aktuális: "."<i>".$row->piece."</i>".br(1);  ?>
                 </div>
            <input class="drinkscount" style="width: 25px; text-align: center" type="text" value="1" name="db"/>
-           <a a href="<?php echo $row->cart_name; ?>"  class="add_to_cart" style="color: black;">+</a>
-           <a href="" style="color:black;">-</a>
-            </td>
+           <a href="<?php echo $row->cart_name; ?>"  class="add_to_cart" style="color: black;">+</a>
+           <a href="<?php echo $row->cart_name; ?>"  class="delete_to_cart" style="color:black;">-</a>
+           </td>
             <?php
             echo "<td>".$row->price * $row->piece." Ft"."</td>";
             echo '</tr>';    

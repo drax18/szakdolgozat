@@ -77,11 +77,14 @@ class Owncart extends MY_Controller {
         }    
     //kosárból elvétel
         
-        public function deletetocart($id){
+        public function deletetocart($id,$count){
             $this->load->model('cart');
-            $this->cart->deletetocart($id);
+            $this->cart->deletetocart($id,$count);
         }
-    
+        public function alldeleteitem($id){
+            $this->load->model('cart');
+            $this->cart->deleteallitem($id);
+        }
 }
 
 ?>

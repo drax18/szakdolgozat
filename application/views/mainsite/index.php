@@ -235,16 +235,34 @@
             $('.delete_to_cart').live('click',function(e) {
                     e.preventDefault();
                     var href = $(this).attr('href');
+                    var drinkscount2 = $(this).parent().find('.drinkscount').val();
+                    link = "http://localhost/szakdoga_igniter/owncart/deletetocart/" + href + "/" + drinkscount2;
                     $.ajax({
                         type: "POST",
-                        url: href,                    
+                        url: link,                    
                         success: function(){
                             $('.cartlist').load(location.href + ' .content_011');
                             $('.cart').load(location.href + ' .cart_title');
+                            $('#refrowncartdata').load(location.href + ' .owncartdata');
 
                             
                         }
                  });
+            });
+            $('.delete_all_cart_item').live('click',function(e){
+                e.preventDefault();
+                href4 = $(this).attr('href');
+                link4 = "http://localhost/szakdoga_igniter/owncart/alldeleteitem/"+ href4;
+                $.ajax({
+                    type:"POST",
+                    url:link4,
+                    success:function(){
+                        $('.cartlist').load(location.href + ' .content_011');
+                        $('.cart').load(location.href + ' .cart_title');
+                        $('#refrowncartdata').load(location.href + ' .owncartdata');
+                    }
+                });
+
             });
             <!-- MENÜ div -->
              $("ul#menu div").live('click',

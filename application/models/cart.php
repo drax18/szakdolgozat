@@ -95,7 +95,7 @@ class Cart extends CI_Model{
        else
            redirect ('mainsite/catlist/1');
     }  
-    function deletetocart($id){
+    function deletetocart($id,$count){
         if($this->session->userdata('username')){
                 
         $i = 1;
@@ -107,7 +107,7 @@ class Cart extends CI_Model{
            $query3 = $query2->result();
            foreach ($query3 as $row){
                if($row->piece > $i ){
-                $updatedata = array('piece'=>$row->piece-1);
+                $updatedata = array('piece'=>$row->piece-$count);
                 $this->db->where('cart_name',$id);
                 $this->db->where('owner',  $this->session->userdata('username'));
                 $this->db->update('cart', $updatedata);
@@ -139,6 +139,12 @@ class Cart extends CI_Model{
     }
     function orderSend(){
         $username = $this->session->userdata('username');
+        $this->db->where('owner',$username);
+        $this->db->delete('cart');
+    }
+    function deleteallitem($id){
+        $username = $this->session->userdata('username');
+        $this->db->where('cart_name',$id);
         $this->db->where('owner',$username);
         $this->db->delete('cart');
     }

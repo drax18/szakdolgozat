@@ -11,6 +11,9 @@ class Scores extends CI_Model{
     function getScoreName($name){
         $username = $this->session->userdata('username');
         $query = $this->db->query("SELECT id FROM drinks WHERE link_name='$name'");
+        if($query->num_rows() == 0){
+            $query = $this->db->query("SELECT id FROM newdrinks WHERE link_name='$name'");
+        }
         $data = $query->result();
         $drinkid = $data[0]->id; 
        
