@@ -140,7 +140,42 @@ class Users extends CI_Model{
             $this->db->insert('user_forgotpw',$data);
         }
         
-        
-    
+       function alreadysendpw(){
+            $username = $this->session->userdata('username');
+             $query = $this->db->query("SELECT id FROM user_forgotpw WHERE owner='$username'");
+             if($query->num_rows() == 1){
+                 return false;
+             }
+             else{
+                 return true;
+             }
+        }
+        function checkpass($newpass){
+            $username = $this->session->userdata('username');
+            $this->db->where('owner',$username);
+            $this->db->where('code',$newpass);
+            $query = $this->db->get('user_forgotpw');
+            if($query->num_rows() == 1){
+             
+             
+
+                return true;
+            }else
+
+                $this->db->where('owner',$username);
+                $this->db->delete('user_forgotpw');
+                
+                return false;
+        }
+        function passwordupdate(){
+            $password = $this->input->post('passwordedit');
+            $username = $this->session->userdata('username');
+            $data = array('password'=>md5($password));
+            $this->db->where('username',$username);
+            $this->db->update('users',  $data);
+               
+               $this->db->where('owner',$username);
+                $this->db->delete('user_forgotpw');
+        }
 }
 ?>

@@ -127,10 +127,80 @@ class Actions extends MY_Controller{
             $this->load->model('favorites');
             $this->favorites->removeFav($id);
         }
-        public function forgotpw($pw = ""){
+        public function sendforgotmail(){
+            $data['middle'] = 'mainsite/sendforgotmail';
             
+            $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            $randomString = '';
+            for ($i = 0; $i < 20; $i++) {
+                $randomString .= $characters[rand(0, strlen($characters) - 1)];
+            }
+            $this->load->model('users');
+            $bool = $this->users->alreadysendpw();
+            if($bool == true){
+                
+                
+                
+            $this->users->forgotpw($randomString);
+            $link = "";
+            $link .= "A linkre kattinva tudod megváltoztatni a jelszavad!"."<br />";
+            $link .= "<a href='http://localhost/szakdoga_igniter/actions/passwordreset/$randomString'>itt a link</a>";
+            $config = Array(
+                'protocol' => 'smtp',
+                'smtp_host' => 'ssl://smtp.googlemail.com',
+                'smtp_port' => 465,
+                'smtp_user' => 'baderitalkozert@gmail.com',
+                'smtp_pass' => 'qsefth5511r',
+                'mailtype'  => 'html',
+                'charset' => 'utf-8'
+            );
+            $this->load->library('email', $config);
+            $this->email->set_newline("\r\n");
+
+            
+            $this->email->from('baderitalkozert@gmail.com', 'Báder László');
+            $this->email->to('kisunuszi@gmail.com'); 
+            $this->email->subject('Jelszó változtatás');
+            
+            
+            
+            
+            $this->email->message($link);  
+            $result = $this->email->send();
+            
+            
+            
+            }
+            else{
+                $data['pwhiba'] = "Még függőven van egy jelszó kérésed";
+            }
+            
+            
+            $this->show_with_all('mainsite/index', $data);
         }
-        
+        public function passwordreset($newpass){
+            
+           $data['middle'] = 'mainsite/passwordreset';
+           $this->load->model('users');
+           $bool = $this->users->checkpass($newpass);
+           if($bool){
+               $data['bool'] = true;
+           }
+           $this->show_with_all('mainsite/index', $data);
+           
+        }
+        public function pwresetdone(){
+            $data['middle'] = 'mainsite/pwresetdone';
+             $this->load->library('form_validation');
+            $this->form_validation->set_rules('passwordedit','Jelszó','required|trim|min_length[5]');
+            $this->form_validation->set_rules('cpasswordedit','Jelszó megerősítő','required|trim|matches[passwordedit]');
+            if($this->form_validation->run()){
+                $this->load->model('users');
+                $this->users->passwordupdate();
+                $data['successpwedit'] = "Sikeresen megváltoztattad a jelszavad!";
+            }
+            $this->show_with_all('mainsite/index', $data);
+        }
 }
 
 ?>
