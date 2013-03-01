@@ -14,3 +14,17 @@
     <div class="uservisitor">Látogatók</div>
 </div>
 <div class="adminline2"></div>
+<div class="admingeneraltitle">Legújabb regisztrált felhasználók</div>
+<div id="newregistereduser">
+    Új felh:jani béla géza ödön
+</div>
+<div class="adminline2"></div>
+<div class="admingeneraltitle">Legújabb hozzászólások</div>
+<div id="newcomments">
+    Abszintál: jani -> háháháháháá
+</div>
+<div class="adminline2"></div>
+<div class="admingeneraltitle">Legjobbra értékelt italok</div>
+<div class="bestdrinkscores">
+    Legjobbra értékelt italok
+</div>

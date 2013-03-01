@@ -7,8 +7,8 @@
             ?>
            
            <div id="alcohol" >
-               <div id="img">
-               <img src="<?php echo base_url()."img/drinks/$row->link_name.png" ;?>" height="120" />
+               <div id="img" style="text-align: center; width: 60px;">
+               <img src="<?php echo base_url()."img/drinks/$row->link_name.png" ;?>" height="120px;"  />
                </div>
 
             </div>
@@ -29,7 +29,7 @@
                       
                        <tr>
                            <input class="drinkscount"  type="hidden" value="1" name="db"/>
-                           <td><a href="<?php echo $row->link_name; ?>" class="add_to_cart"><img width="129" src="<?php echo base_url()."/img/cartbutton.png" ;?>" /></a></td>
+                           <td><a href="<?php echo $row->link_name; ?>" class="add_to_cart"><img  src="<?php echo base_url()."/img/cartbutton.png" ;?>" /></a></td>
                        </tr>
                    </table>           
                </div>

@@ -6,7 +6,7 @@
             ?>
            
            <div id="alcohol" >
-               <div id="img">
+               <div id="img" style="text-align: center; width: 50px;">
                <img src="<?php echo base_url()."img/drinks/$row->link_name.png" ;?>" height="140" />
                </div>
 
@@ -14,7 +14,7 @@
            <div id="table">
                    <table height="140">
                        <tr>
-                            <td><h4 style="text-decoration:underline;"><a style="color:black;" href="<?php echo site_url("alcohol/drink/$row->link_name"); ?>"><?php echo character_limiter($row->name, 7); ?></a></h4></td>
+                            <td><h4 style="text-decoration:underline;"><a style="color:black;" href="<?php echo site_url("alcohol/drink/$row->link_name"); ?>"><?php echo character_limiter($row->name, 5); ?></a></h4></td>
                        </tr>
                        <tr>
                            <td><?php echo "Ár: ".$row->price." Ft" ;?></td>

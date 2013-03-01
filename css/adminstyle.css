@@ -118,6 +118,7 @@ div#admincenter{
 .adminline2{
     width: 823px;
     margin-top: 40px;
+    margin-bottom: 10px;
     border-top:1px solid #ababab;
 }
 .adminusers {
