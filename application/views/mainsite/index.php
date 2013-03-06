@@ -214,14 +214,12 @@
                 });
                    }
                      
-                    
+                <!-- adminnak -->  
                });
                $('.sendtoadminbutton').click(function(e){
                e.preventDefault();
                var contactarea = $('.sendtoadmin').val();
                linkzje = "http://localhost/szakdoga_igniter/masteradmin/writetoadmin";
-               alert(contactarea);
-               alert(linkzje);
                if(contactarea != ""){
                    $.ajax({
                        type: "POST",

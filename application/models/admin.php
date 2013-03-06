@@ -40,5 +40,18 @@ class Admin extends CI_Model{
         $data = array('owner'=>$username,'message'=>$message,'date'=>$date);
         $this->db->insert('admin_email',$data);
     }
+    function newregistereduser(){
+        $query = $this->db->query("SELECT username,surname,firstname FROM users ORDER BY id DESC LIMIT 3");
+        return $query->result();
+    }
+    function newcomments(){
+        $query = $this->db->query("SELECT * FROM comments order by id desc limit 5");
+        foreach($query->result() as $row)
+        {
+            $data = array();
+            $query2 = $this->db->query("SELECT name FROM drinks WHERE id=$row->drink_id");
+        }
+        return $query2->result();
+    }
 }
 ?>

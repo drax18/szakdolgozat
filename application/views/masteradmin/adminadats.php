@@ -16,12 +16,23 @@
 <div class="adminline2"></div>
 <div class="admingeneraltitle">Legújabb regisztrált felhasználók</div>
 <div id="newregistereduser">
-    Új felh:jani béla géza ödön
+    <div class="registeredusername">
+        <?php
+        foreach ($newregistereduser as $row){
+            echo "Felhasználónév: ".$row->username.", ";
+            echo "Név: ".$row->surname." ";
+            echo $row->firstname.br(1);
+        }
+        ?>
+    </div>
 </div>
+<div style="clear:both"></div>
 <div class="adminline2"></div>
 <div class="admingeneraltitle">Legújabb hozzászólások</div>
 <div id="newcomments">
-    Abszintál: jani -> háháháháháá
+    <?php
+        print_r($newcomments);
+    ?>
 </div>
 <div class="adminline2"></div>
 <div class="admingeneraltitle">Legjobbra értékelt italok</div>

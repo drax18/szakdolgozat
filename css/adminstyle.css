@@ -159,4 +159,8 @@ div#admincenter{
     float:left;
     text-align: center;
 }
+.registeredusername{
+    padding-left: 20px;
+    color:#666666;
+}
 

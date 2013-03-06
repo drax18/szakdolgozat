@@ -45,10 +45,8 @@ class Masteradmin extends MY_Controller {
         $message = $this->input->post('usermessagetoadmin');
         $this->load->model('admin');
         $this->admin->writeMessage($message);
-        
-        
-        
     }
+    
 }
 
 ?>

@@ -23,6 +23,8 @@ class MY_Controller extends CI_Controller{
         $data['myorders'] = $this->ownorders();
         $data['admingetusers'] = $this->adminGetUsers();
         $data['ordernumber'] = $this->adminGetOrdersmax();
+        $data['newregistereduser'] = $this->newregistereduser();
+        $data['newcomments'] = $this->newcomments();
         $this->load->view($view_name,$data);        
     }
     function admincheck(){
@@ -139,6 +141,13 @@ class MY_Controller extends CI_Controller{
         $this->load->model('admin');
         return $this->admin->adminGetOrdersmax();
     }
-   
+    public function newregistereduser(){
+        $this->load->model('admin');
+        return $this->admin->newregistereduser();
+    }
+    public function newcomments(){
+        $this->load->model('admin');
+        return $this->admin->newcomments();
+    }
 }
 ?>
