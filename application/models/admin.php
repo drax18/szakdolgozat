@@ -45,7 +45,15 @@ class Admin extends CI_Model{
         return $query->result();
     }
     function newcomments(){
-        $query = $this->db->query("SELECT * FROM comments order by id desc limit 5");
+        $query = $this->db->query("SELECT drinks.name,comments.comment,comments.owner,comments.date FROM drinks,comments WHERE comments.drink_id=drinks.id order by comments.id desc limit 5");
+        return $query->result();
+    }
+    function bestscores(){
+        $query = $this->db->query("SELECT drinks.name,scores.owner,scores.score FROM drinks,scores WHERE scores.drink_id=drinks.id ORDER BY scores.score DESC LIMIT 3");
+        return $query->result();
+    }
+    function allusers(){
+        $query = $this->db->query("SELECT * FROM users");
         return $query->result();
     }
 }

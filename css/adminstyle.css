@@ -122,9 +122,9 @@ div#admincenter{
     border-top:1px solid #ababab;
 }
 .adminusers {
-    width: 274px;
+    width: 250px;
     padding-top: 55px;
-    height: 65px;
+    height: 71px;
      background: url('../img/admin/adminusers.png') no-repeat;
      background-position:center;
      color:white;
@@ -134,9 +134,9 @@ div#admincenter{
 }
 
 .adminorders{
-     width: 274px;
-      padding-top: 55px;
-    height: 65px;
+    width: 250px;
+    padding-top: 55px;
+    height: 71px;
    background: url('../img/admin/adminorders.png') no-repeat;
      background-position:center; 
     float:left;
@@ -144,9 +144,9 @@ div#admincenter{
     text-align: center;
 }
 .adminvisitors{
-    width: 274px;
-     padding-top: 55px;
-    height: 65px;
+    width: 250px;
+    padding-top: 55px;
+    height: 71px;
     background: url('../img/admin/adminvisitors.png') no-repeat;
      background-position:center; 
      color:white;
@@ -154,13 +154,23 @@ div#admincenter{
     text-align: center;
 }
 .userscount, .userorders, .uservisitor{
-    width: 274px;
+    width: 250px;
     padding-top: 5px;    
     float:left;
     text-align: center;
 }
-.registeredusername{
+.registeredusername, .newcomments, .bestdrinkscores{
     padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     color:#666666;
 }
-
+.thefullusers{
+    float:left;
+    padding-right: 10px;
+    padding-top: 50px;
+}
+#users{
+    padding-left: 30px;
+    text-align: justify;
+}

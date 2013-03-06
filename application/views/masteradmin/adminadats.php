@@ -29,9 +29,10 @@
 </div>
 <div class="adminline2"></div>
 <div class="admingeneraltitle">Legújabb hozzászólások</div>
-<div id="newcomments">
+<div class="newcomments">
     <?php
         foreach($newcomments as $row2){
+            echo "Hol: ".$row2->name.br(1);
             echo "Mikor: ".$row2->date.br(1);
             echo "Hozzászólás ".$row2->comment.br(1);
         }
@@ -40,5 +41,14 @@
 <div class="adminline2"></div>
 <div class="admingeneraltitle">Legjobbra értékelt italok</div>
 <div class="bestdrinkscores">
-    Legjobbra értékelt italok
+    <?php
+        
+        $i=1;
+        foreach ($bestscores as $row3){
+            echo $i.". Alkohol: ".$row3->name." Pont: ".$row3->score.br(1);
+            $i++;
+            
+        }
+    
+    ?>
 </div>
