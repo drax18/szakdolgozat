@@ -13,6 +13,7 @@
     <div class="userorders">Rendelések</div>
     <div class="uservisitor">Látogatók</div>
 </div>
+<div style="clear: both;"></div>
 <div class="adminline2"></div>
 <div class="admingeneraltitle">Legújabb regisztrált felhasználók</div>
 <div id="newregistereduser">
@@ -26,12 +27,14 @@
         ?>
     </div>
 </div>
-<div style="clear:both"></div>
 <div class="adminline2"></div>
 <div class="admingeneraltitle">Legújabb hozzászólások</div>
 <div id="newcomments">
     <?php
-        print_r($newcomments);
+        foreach($newcomments as $row2){
+            echo "Mikor: ".$row2->date.br(1);
+            echo "Hozzászólás ".$row2->comment.br(1);
+        }
     ?>
 </div>
 <div class="adminline2"></div>

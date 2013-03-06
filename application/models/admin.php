@@ -46,12 +46,7 @@ class Admin extends CI_Model{
     }
     function newcomments(){
         $query = $this->db->query("SELECT * FROM comments order by id desc limit 5");
-        foreach($query->result() as $row)
-        {
-            $data = array();
-            $query2 = $this->db->query("SELECT name FROM drinks WHERE id=$row->drink_id");
-        }
-        return $query2->result();
+        return $query->result();
     }
 }
 ?>
