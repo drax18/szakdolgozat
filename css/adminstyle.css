@@ -59,7 +59,7 @@ div#adminmenu{
     border-right: 1px solid #ababab; 
 }
 
-.menu1{  
+/*.menu1{  
     height: 83px;
     
     color: black;
@@ -69,6 +69,7 @@ div#adminmenu{
     width: 165px;
     background-color: white;
 }
+*/
 div#admininform{
     padding-top: 10px;
     padding-bottom: 10px;
@@ -102,11 +103,11 @@ div#admincenter{
     float:left;
 }
 .admintitle{
-    padding-left: 35px;
+    padding-left: 40px;
     color:grey;
 }
 .admingeneraltitle{
-    padding-left: 35px;
+    padding-left:40px;
     font-size:15px;
     color:#ababab;
 }

@@ -10,11 +10,16 @@ if($this->session->userdata('username')){
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/ui/1.10.0/jquery-ui.js" /></script>
+    <script type="text/javascript" src="<?php echo base_url("js/jquery.mCustomScrollbar.concat.min.js") ?>"></script>
+    <link rel="stylesheet" href="<?php echo base_url("css/jquery.mCustomScrollbar.css");?>" />
     <script>
          $(document).ready(function() {
             $('.informations').fadeIn(1000); 
             $('#adminmenu ul a li').click(function(){
                 $('.informations').fadeIn(1000); 
+            });
+            $(".informations").mCustomScrollbar({
+                
             });
             
          });
