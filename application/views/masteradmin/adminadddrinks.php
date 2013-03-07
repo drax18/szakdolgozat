@@ -71,7 +71,7 @@ Feltöltendő kép neve:</td>
    <td> <?php echo form_upload('userfile') ?></td>
 </tr>
 <tr>
-     <td><input type="submit" value="Alkohol felvitele" /></td>
+    <td><input type="image" src="<?php echo base_url("img/addnewdrink.png"); ?>" /></td>
         </tr>
         </table>
 <?php form_close() ?>
