@@ -2,3 +2,14 @@
 <div class="admintitle">Üzenetek</div>
 <div class="admingeneraltitle">Felhasználók Üzenetei</div>
 <div class="adminline"></div>
+<div id="emails">
+    <div class="useremails">
+        <?php
+            foreach ($emails as $row){
+                echo "Írta: ".$row->owner. " Mikor: ".$row->date.br(1);
+                echo "Üzenet: ".br(1);
+                echo $row->message.br(1);
+            }
+        ?>
+    </div>
+</div>

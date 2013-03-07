@@ -56,5 +56,17 @@ class Admin extends CI_Model{
         $query = $this->db->query("SELECT * FROM users");
         return $query->result();
     }
+    function incomes(){
+        $query = $this->db->query("SELECT drink_name,price,piece,orderdate FROM prizes"); 
+        return $query->result();
+    }
+    function userorders(){
+        $query = $this->db->query("SELECT * FROM myorders");
+        return $query->result();
+    }
+    function emails(){
+        $query = $this->db->query("SELECT * FROM admin_email");
+        return $query->result();
+    }
 }
 ?>

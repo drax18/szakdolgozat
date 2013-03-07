@@ -12,8 +12,6 @@ class Masteradmin extends MY_Controller {
         $data['middle'] = "masteradmin/adminusers";
         $this->load->model('admin');
         $data['allusers'] = $this->admin->allusers();       
-        
-        
         $this->show_with_all('masteradmin/adminpanel', $data);
     }
     public function adminadats(){
@@ -26,10 +24,18 @@ class Masteradmin extends MY_Controller {
     }
     public function adminemails(){
         $data['middle'] = "masteradmin/adminemails";
+        
+        $this->load->model('admin');
+        $data['emails'] = $this->admin->emails();
+        
         $this->show_with_all('masteradmin/adminpanel', $data);
     }
     public function adminincome(){
         $data['middle'] = "masteradmin/adminincome";
+        
+        $this->load->model('admin');
+        $data['incomes'] = $this->admin->incomes();
+        
         $this->show_with_all('masteradmin/adminpanel', $data);
     }
     public function adminmodify(){
@@ -38,6 +44,10 @@ class Masteradmin extends MY_Controller {
     }
     public function adminorders(){
         $data['middle'] = "masteradmin/adminorders";
+        
+        $this->load->model('admin');
+        $data['userorders'] = $this->admin->userorders();
+        
         $this->show_with_all('masteradmin/adminpanel', $data);
     }
     

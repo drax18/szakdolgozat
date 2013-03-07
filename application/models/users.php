@@ -126,10 +126,12 @@ class Users extends CI_Model{
 
             
             $date = date("Y/m/d - H:i");
-            
+            $date2 = date('Y/m/d');
             foreach($query->result() as $row){
                 $data = array("owner" => $row->owner,"price"=>$row->price,"piece"=>$row->piece,"link_name"=>$row->cart_name,"drink_name"=>$row->drink,"orderdate"=>$date, "ordernumber"=>$i);
                 $this->db->insert('myorders',$data);
+                $data2 = array("price"=>$row->price,"drink_name"=>$row->drink,"piece"=>$row->piece,"orderdate"=>$date2);
+                $this->db->insert('prizes',$data2);
                 
             }
 
