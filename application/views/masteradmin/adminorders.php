@@ -14,12 +14,12 @@
                 if(!in_array($row->owner, $data2)){
 
                     $data2[] = $row->owner;
-                    echo "Felhasználó: ".$row->owner.br(1);
+                    echo "<h4>Felhasználó:</h4> "."<h5>".$row->owner."</h5>".br(1);
                 }
               if(!in_array($row->orderdate, $data)){
 
                     $data[] = $row->orderdate;
-                    echo "Dátum ".$row->orderdate.br(1);
+                    echo "<i><u>Dátum ".$row->orderdate."</u></i>".br(1);
                 }
                 
                 echo "Alkohol: ".$row->drink_name." ".$row->piece." Darab".br(1);

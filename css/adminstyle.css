@@ -160,11 +160,11 @@ div#admincenter{
     float:left;
     text-align: center;
 }
-.registeredusername, .newcomments, .bestdrinkscores{
+.registeredusername, .newcomments, .bestdrinkscores, .addnewdrinks, #users {
     padding-left: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
-    color:#666666;
+    color:#b7b7b7;
 }
 .thefullusers{
     float:left;
@@ -174,4 +174,10 @@ div#admincenter{
 #users{
     padding-left: 30px;
     text-align: justify;
+}
+.useremails{
+     padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color:#b7b7b7;
 }

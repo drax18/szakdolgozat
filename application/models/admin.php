@@ -68,5 +68,27 @@ class Admin extends CI_Model{
         $query = $this->db->query("SELECT * FROM admin_email");
         return $query->result();
     }
+    function getCategories(){
+        $query = $this->db->query("SELECT * FROM categories");
+        return $query->result();
+    }
+    function allincomes(){
+        $query = $this->db->query("SELECT piece,price,orderdate FROM prizes ");
+        return $query->result();
+    }
+    function addnewdrinks(){
+        $alcoholname = $this->input->post("alcoholname");
+        $categoriesid = $this->input->post("categoriesid");
+        $alcohollinkname = $this->input->post("alcohollinkname");
+        $alcoholprice = $this->input->post("alcoholprice");
+        $alcoholpiece = $this->input->post("alcoholpiece");
+        $alcohol = $this->input->post("alcohol");
+        $alcoholbottle = $this->input->post("alcoholbottle");
+        $alcoholaction = $this->input->post("alcoholaction");
+        $alcoholtitle = $this->input->post("alcoholtitle");
+        $alcoholinformation = $this->input->post("alcoholinformation");
+        $data = array("name"=>$alcoholname,"categories_id"=>$categoriesid,"price"=>$alcoholprice,"piece"=>$alcoholpiece,"drink_information"=>$alcoholinformation,"drink_title"=>$alcoholtitle,"alcohol"=>$alcohol,"bottle"=>$alcoholbottle,"action"=>$alcoholaction,"link_name"=>$alcohollinkname);
+        $this->db->insert("drinks",$data);
+    }
 }
 ?>

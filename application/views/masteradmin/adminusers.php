@@ -22,7 +22,8 @@
                 $i++;
                 if($i%3==0){
                     ?>
-                    <div style="clear:both";
+                    <div style="clear:both;"></div>
+                    <div class="adminline2"></div>
                     <?php
                 }
             }
