@@ -17,7 +17,14 @@
                             <td><h4 style="text-decoration:underline;"><a style="color:black;" href="<?php echo site_url("alcohol/drink/$row->link_name"); ?>"><?php echo character_limiter($row->name, 5); ?></a></h4></td>
                        </tr>
                        <tr>
-                           <td><?php echo "Ár: ".$row->price." Ft" ;?></td>
+                           <td><?php if($row->action){
+                $price = $row->price;
+              $alcoholaction = "0.".$row->action;
+               $finalyaction = $row->price * $alcoholaction;
+               $finalprice = $price - $finalyaction;
+               echo "Ár: ".floor($finalprice)." Ft";
+            }else
+            echo "Ár: ".$row->price." Ft";?></td>
                        </tr>
                        <tr>
                            <td style="font-size:14px;"><a style="color:black;" href="<?php echo site_url("alcohol/drink/$row->link_name"); ?>" ><?php echo character_limiter($row->drink_title, 10); ?></a></td>

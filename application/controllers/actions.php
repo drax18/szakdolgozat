@@ -62,14 +62,14 @@ class Actions extends MY_Controller{
                 $this->users->add_User();
                 $data['success'] = $this->Register_success();
                 $this->show_with_all('mainsite/index', $data);
-                redirect("mainsite/login");
+                
             }
             else
                 $this->show_with_all('mainsite/index', $data);  
         }
         
         public function Register_success(){
-            $success = "Gratulálok! Sikeres regisztráció! Azonnal átirányítunk a Belépéshez!";
+            $success = "Gratulálok! Sikeres regisztráció!";
             return $success;
         }
         
@@ -80,10 +80,15 @@ class Actions extends MY_Controller{
             $this->form_validation->set_rules('username','Felhasználónév','required|trim|xss_clean|callback_validate_credentials');
             $this->form_validation->set_rules('password','Jelszó','required|md5|trim');
             if($this->form_validation->run()){
-                 
+             
                 $session['username'] = $this->input->post('username');
                 $newdata = array('username'=> $session['username']);
                 $this->session->set_userdata($newdata);
+                 $this->load->model('users');
+                $userid = $this->users->getuser();
+                $session['userid'] = $userid;
+                $newdata2 = array('userid'=>$session['userid']);
+                $this->session->set_userdata($newdata2);
                 
                 redirect('mainsite/index');
             }

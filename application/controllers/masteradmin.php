@@ -45,6 +45,12 @@ class Masteradmin extends MY_Controller {
     }
     public function adminmodify(){
         $data['middle'] = "masteradmin/adminmodify";
+        
+        $this->load->model('admin');
+        
+        $data['getaandd'] = $this->admin->getActionswithDrinks();
+        $this->load->model('users');
+        $data['getusers'] = $this->users->getAllusers();
         $this->show_with_all('masteradmin/adminpanel', $data);
     }
     public function adminorders(){
@@ -116,6 +122,55 @@ class Masteradmin extends MY_Controller {
 
         $this->show_with_all('masteradmin/adminpanel', $data);
         
+    }
+    public function actionmodify(){
+        $this->load->library('form_validation');
+        $data['middle'] = 'masteradmin/adminmodify';
+         $this->load->model('admin');
+        $data['getaandd'] = $this->admin->getActionswithDrinks();
+        $this->form_validation->set_rules('newaction','Akció','required|numeric');
+        if($this->form_validation->run()){
+            $this->admin->updateaction();
+            $data['successupdateaction'] = 'Sikeresennek frissítetted a kiválaszott alkohol akcióját!';
+             
+         }
+        
+        $this->show_with_all('masteradmin/adminpanel', $data);
+    }
+    public function deleteusers(){
+      
+        $data['middle'] = 'masteradmin/adminmodify';
+         $this->load->model('admin');
+        $data['getaandd'] = $this->admin->getActionswithDrinks();
+        if($this->input->post('deleteusers')){
+            $data['sucessuserdelete'] = 'Sikeresen törölted a kiválaszott Felhasználókat/Felhasználót';
+       $this->admin->deleteusers();
+        }else{
+            $data['problemusersdelete'] = 'Nem válaszottál ki törlendő felhasználót!';
+        }
+       
+         $this->load->model('users');
+        $data['getusers'] = $this->users->getAllusers();
+       $this->show_with_all('masteradmin/adminpanel', $data);
+    }
+    public function deletedrinks(){
+        $data['middle'] = 'masteradmin/adminmodify';
+          $this->load->model('admin');
+        $this->load->model('users');
+        $data['getusers'] = $this->users->getAllusers();
+        
+        if($this->input->post('deletedrinks')){
+            $data['sucessdrinkdelete'] = 'Sikeresen törölted a kiválaszott Italokat/Italt!';
+         $this->admin->deletedrinks();
+        }else{
+            $data['problemdrinksdelete'] = 'Nem válaszottál ki törlendő alkoholt!';
+        }
+        
+       
+        $data['getaandd'] = $this->admin->getActionswithDrinks();
+        
+        
+       $this->show_with_all('masteradmin/adminpanel', $data);
     }
     
 }

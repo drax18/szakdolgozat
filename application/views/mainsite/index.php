@@ -227,11 +227,26 @@
                        url: linkzje,
                        success: function(){
                            $('.sendtoadmin').val("");
+                           $().toastmessage('showToast', {
+                    position : 'middle-center',
+                    text     : 'Elküldve !',
+                    sticky   : false,
+                    type     : 'notice',
+                    stayTime : 3000
+                   
+                });
                        }
                    })
                }
                else
-                    alert("ÜRES");
+                    $().toastmessage('showToast', {
+                    position : 'middle-center',
+                    text     : 'Nem hagyhatod üresen a mezőt !',
+                    sticky   : false,
+                    type     : 'notice',
+                    stayTime : 3000
+                   
+                });
                });
             <!-- Kosárba tétel és elvétel -->
             $('.add_to_cart').live('click',function(e) {

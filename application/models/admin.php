@@ -36,8 +36,9 @@ class Admin extends CI_Model{
     }
     function writeMessage($message){
         $username = $this->session->userdata('username');
+        $user_id = $this->session->userdata('userid');
         $date = date("Y/m/d - H:i");
-        $data = array('owner'=>$username,'message'=>$message,'date'=>$date);
+        $data = array('owner'=>$username,'message'=>$message,'date'=>$date,"user_id"=>$user_id);
         $this->db->insert('admin_email',$data);
     }
     function newregistereduser(){
@@ -73,7 +74,7 @@ class Admin extends CI_Model{
         return $query->result();
     }
     function allincomes(){
-        $query = $this->db->query("SELECT piece,price,orderdate FROM prizes ");
+        $query = $this->db->query("SELECT piece,price FROM prizes ");
         return $query->result();
     }
     function addnewdrinks(){
@@ -89,6 +90,36 @@ class Admin extends CI_Model{
         $alcoholinformation = $this->input->post("alcoholinformation");
         $data = array("name"=>$alcoholname,"categories_id"=>$categoriesid,"price"=>$alcoholprice,"piece"=>$alcoholpiece,"drink_information"=>$alcoholinformation,"drink_title"=>$alcoholtitle,"alcohol"=>$alcohol,"bottle"=>$alcoholbottle,"action"=>$alcoholaction,"link_name"=>$alcohollinkname);
         $this->db->insert("drinks",$data);
+    }
+    function getActionswithDrinks(){
+        $query = $this->db->query("SELECT id,name FROM drinks");
+        return $query->result();
+    }
+    function updateaction(){
+        $drink_id = $this->input->post('drinkid');
+        $newaction = array("action"=>$this->input->post('newaction'));
+        $this->db->where('id',$drink_id);
+        $this->db->update('drinks',$newaction);
+        
+    }
+    function deleteusers(){
+                 $user_id = $this->input->post('deleteusers');
+         foreach ($user_id as $row){
+                $this->db->where('id',$row);
+           $this->db->delete('users');
+         }
+        
+    }
+    function deletedrinks(){
+        $drink_id = $this->input->post('deletedrinks');
+        foreach ($drink_id as $row){
+            $this->db->where('id',$row);
+            $this->db->delete('drinks');
+        }
+    }
+    function getdrinkpiece(){
+        $query = $this->db->query("SELECT name,piece FROM drinks");
+        return $query->result();
     }
 }
 ?>

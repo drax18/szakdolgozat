@@ -13,9 +13,16 @@ class Cart extends CI_Model{
         $freeship = 25000;
         
         $username = $this->session->userdata('username');
-        $query = $this->db->query("SELECT price,piece FROM cart WHERE owner='$username'");
+        $query = $this->db->query("SELECT price,piece,action FROM cart WHERE owner='$username'");
         $cartall = "";
         foreach ($query->result() as $row){
+            if($row->action){
+                $price = $row->price;
+              $alcoholaction = "0.".$row->action;
+               $finalyaction = $row->price * $alcoholaction;
+               $finalprice = $price - $finalyaction;
+               $cartall = $cartall + ($finalprice * $row->piece);
+            }else
            $cartall = $cartall + ($row->price * $row->piece);
         }
         if($cartall > $freeship){
@@ -51,45 +58,46 @@ class Cart extends CI_Model{
         if($this->session->userdata('username')){
         
         $query = $this->db->query("SELECT * FROM drinks WHERE link_name='$id'");
-        if($query->num_rows == 0){
-            $query = $this->db->query("SELECT * FROM newdrinks WHERE link_name='$id'");
-        }
         $queryke = $query->result();
         $i = 1;
         foreach($queryke as $row){
-            $data = array ('piece'=>$i,'cart_name'=>$row->link_name,'drink' =>$row->name,'owner'=> $this->session->userdata('username'),'price'=>$row->price); 
+            $data = array ('piece'=>$i,'cart_name'=>$row->link_name,'drink' =>$row->name,'owner'=> $this->session->userdata('username'),'price'=>$row->price,'action'=>$row->action,"user_id"=>  $this->session->userdata('userid'),"drink_id"=>$row->id); 
         }
         $this->db->where('cart_name',$id);
         $this->db->where('owner',  $this->session->userdata('username'));
         $query2 = $this->db->get('cart');
-           
+        foreach ($query->result() as $countvalid){
+            $whatineed = array('piece'=>$countvalid->piece);
+        }   
        if($query2->num_rows() > 0){
-           $query3 = $query2->result();
-           foreach ($query3 as $row){
-                $updatedata = array('piece'=>$row->piece+$count);
+           foreach ($query2->result() as $row){
+               if($whatineed['piece'] - $count >= 0){
+                   $updapiece = array("piece"=>$whatineed['piece'] - $count);
+                   $this->db->where('link_name',$id);
+                   $this->db->update('drinks',$updapiece);
+                    $updatedata = array('piece'=>$row->piece+$count);
                 $this->db->where('cart_name',$id);
                 $this->db->where('owner',  $this->session->userdata('username'));
-                $this->db->update('cart', $updatedata);     
+                $this->db->update('cart', $updatedata);    
+               }
+                
                 
            }
-      /*     foreach($queryke as $rowos){
-               $asd = $rowos->piece -1 ;
-               echo $asd;
-               $this->db->query("UPDATE drinks SET piece=$asd WHERE link_name='$id'");
-           }
-       * 
-       */
-      /*    foreach ($queryke as $row2){
-                    $count = $row2->piece - 1;
-                    $drinksupdate = array('piece'=>$count);
-                    $this->db->where('link_name', $id);
-                    $this->db->update('drinks', $drinksupdate); 
-
-                }
-           */
        }
-       else
-          $this->db->insert('cart',$data);
+       else{
+           
+               
+               if($whatineed['piece'] - $i >= 0){
+                   $this->db->insert('cart',$data);
+                   $updapiece = array("piece"=>$whatineed['piece'] - $i);
+                   $this->db->where('link_name',$id);
+                   $this->db->update('drinks',$updapiece);
+               }
+                
+          
+          
+          
+       }
      
        }
        else
@@ -129,9 +137,16 @@ class Cart extends CI_Model{
     
     function getAllprice(){
         $username = $this->session->userdata('username');
-        $query = $this->db->query("SELECT price,piece FROM cart WHERE owner='$username'");
+        $query = $this->db->query("SELECT price,piece,action FROM cart WHERE owner='$username'");
         $cartall = "";
         foreach ($query->result() as $row){
+           if($row->action){
+                $price = $row->price;
+              $alcoholaction = "0.".$row->action;
+               $finalyaction = $row->price * $alcoholaction;
+               $finalprice = $price - $finalyaction;
+               $cartall = $cartall + ($finalprice * $row->piece);
+            }else
            $cartall = $cartall + ($row->price * $row->piece);
         }
         return $cartall;
@@ -144,6 +159,19 @@ class Cart extends CI_Model{
     }
     function deleteallitem($id){
         $username = $this->session->userdata('username');
+        
+        $query = $this->db->query("SELECT piece FROM drinks WHERE link_name='$id'");
+        foreach ($query->result() as $row){
+            $piece = $row->piece;
+        }
+        $query2 = $this->db->query("SELECT piece FROM cart WHERE cart_name='$id' and owner='$username'");
+        foreach ($query2->result() as $row2){
+            $updatepiece = $piece + $row2->piece;
+            $data = array('piece'=>$updatepiece);
+            $this->db->where('link_name',$id);
+
+            $this->db->update('drinks',$data);
+        }
         $this->db->where('cart_name',$id);
         $this->db->where('owner',$username);
         $this->db->delete('cart');

@@ -7,8 +7,9 @@ class Favorites extends CI_Model{
         $query = $this->db->query("SELECT * FROM drinks WHERE link_name='$name'");
         $data = $query->result();
         $username = $this->session->userdata('username');
+        $user_id = $this->session->userdata('userid');
         foreach ($data as $row){
-            $favorites = array("link_name" => $row->link_name,"name"=>$row->name,"owner"=>$username,"drink_id"=>$row->id);
+            $favorites = array("link_name" => $row->link_name,"name"=>$row->name,"owner"=>$username,"drink_id"=>$row->id,"user_id"=>$user_id);
         }
        
             $this->db->insert('favorites',$favorites);

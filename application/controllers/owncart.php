@@ -11,6 +11,13 @@ class Owncart extends MY_Controller {
             foreach($userdrinks as $row){
              $drinks.="<b>".$row->drink."</b>"." ";
              $drinks.="Darab: ".$row->piece;
+             if($row->action){
+                $price = $row->price;
+              $alcoholaction = "0.".$row->action;
+               $finalyaction = $row->price * $alcoholaction;
+               $finalprice = $price - $finalyaction;
+              $drinks.=" Ár: ".floor($finalprice)." Ft"."<br />";
+            }else
              $drinks.=" Ár: ".$row->price." Ft"."<br />";
              
             }

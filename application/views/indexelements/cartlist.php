@@ -9,7 +9,16 @@ if($this->session->userdata('username')){
         foreach ($cart as $row){
             echo $row -> piece." x ";
             echo $row -> drink.br(1);
+            if($row->action){
+                $price = $row->price;
+              $alcoholaction = "0.".$row->action;
+               $finalyaction = $row->price * $alcoholaction;
+               $finalprice = $price - $finalyaction;
+               echo floor($finalprice). "Ft"."( - ".$row->action.""."% )";
+            }
+               else{
             echo $row -> price * $row->piece." Ft";
+               }
             ?>
             <a href="<?php echo $row -> cart_name; ?>" class="delete_all_cart_item"><img src="<?php echo base_url()."/img/delete.gif" ;?>" /></a>
             <br />

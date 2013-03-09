@@ -90,10 +90,31 @@
     </div>
     <div class="cat_addtocart" >
        
-           <p><?php echo "Ár: ".$row->price." Ft" ?></p>       
+           <p><?php
+           if($row->action){
+                $price = $row->price;
+              $alcoholaction = "0.".$row->action;
+               $finalyaction = $row->price * $alcoholaction;
+               $finalprice = $price - $finalyaction;
+               echo "Ár: ".floor($finalprice)." Ft".br(1);
+               echo "( - ".$row->action.""."% )";
+            }else
+            echo "Ár: ".$row->price." Ft";
+            
+            ?></p>
+           
            <input class="drinkscount" type="text" value="1" name="db" /><div style="color:black; float:left; padding-bottom: 25px; padding-left: 5px;" class="db">Darab</div>
            <div class="cartbutton" ><a class="add_to_cart" href="<?php echo $row->link_name; ?>"><img src="<?php echo base_url()."/img/cartbutton.png" ;?>" /></a></div>
            <div class="informbuttom"><a href="<?php echo site_url("alcohol/drink/$row->link_name"); ?>"><img src="<?php echo base_url()."/img/moreinform.png" ;?>" /><a/></div>
+            <div class="instock">
+           <?php
+                if($row->piece == 0){
+                    echo "Raktáron: nincs";
+                }
+                else
+                echo "Raktáron: "."<i>".$row->piece."</i>"." db";
+           ?>
+         </div>
            
     </div>
  </div>

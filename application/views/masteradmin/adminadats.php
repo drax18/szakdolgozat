@@ -15,6 +15,15 @@
 </div>
 <div style="clear: both;"></div>
 <div class="adminline2"></div>
+<div class="admingeneraltitle">Készlet ( Alkohol )</div>
+<div class="piece">
+    <?php
+    foreach ($drinkpiece as $row4){
+        echo "Alkohol neve: ".$row4->name." Raktáron: ".$row4->piece." darab".br(1);
+    }
+    ?>
+</div>
+<div class="adminline2"></div>
 <div class="admingeneraltitle">Legújabb regisztrált felhasználók</div>
 <div id="newregistereduser">
     <div class="registeredusername">

@@ -18,8 +18,7 @@ if($this->session->userdata('username')){
             $('#adminmenu ul a li').click(function(){
                 $('.informations').fadeIn(1000); 
             });
-            $(".informations").mCustomScrollbar({
-                
+            $(".informations").mCustomScrollbar({  
             });
             
          });

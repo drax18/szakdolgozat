@@ -1,10 +1,21 @@
 <?php
 
 class Users extends CI_Model{
-    
+    function getuser(){
+        $username = $this->input->post('username');
+        $query = $this->db->query("SELECT id FROM users where username='$username'");
+        foreach ($query->result() as $row){
+            $userid = $row->id;
+        }
+        return $userid;
+    }
     function getUserdata(){
         $username = $this->session->userdata('username');
-        $query = $this->db->query("SELECT surname,firstname,phonenumber,streetaddress,city,zipcode,country FROM users WHERE username='$username'");
+        $query = $this->db->query("SELECT id,surname,firstname,phonenumber,streetaddress,city,zipcode,country FROM users WHERE username='$username'");
+        return $query->result();
+    }
+    function getAllusers(){
+        $query = $this->db->query("SELECT id,username,surname,firstname FROM users");
         return $query->result();
     }
     function can_login(){
@@ -106,7 +117,7 @@ class Users extends CI_Model{
         }
         function addOwnorders(){
             $username = $this->session->userdata('username');
-            
+            $user_id = $this->session->userdata('userid');
             
             
             $data = array();
@@ -128,9 +139,18 @@ class Users extends CI_Model{
             $date = date("Y/m/d - H:i");
             $date2 = date('Y/m/d');
             foreach($query->result() as $row){
-                $data = array("owner" => $row->owner,"price"=>$row->price,"piece"=>$row->piece,"link_name"=>$row->cart_name,"drink_name"=>$row->drink,"orderdate"=>$date, "ordernumber"=>$i);
+                $data = array("owner" => $row->owner,"price"=>$row->price,"piece"=>$row->piece,"link_name"=>$row->cart_name,"drink_name"=>$row->drink,"orderdate"=>$date, "ordernumber"=>$i,"user_id"=>$user_id,"drink_id"=>$row->drink_id);
                 $this->db->insert('myorders',$data);
-                $data2 = array("price"=>$row->price,"drink_name"=>$row->drink,"piece"=>$row->piece,"orderdate"=>$date2);
+                if($row->action){
+                    $price = $row->price;
+                $alcoholaction = "0.".$row->action;
+                 $finalyaction = $row->price * $alcoholaction;
+                 $finalprice = $price - $finalyaction;
+                    
+                    $data2 = array("price"=>$finalprice,"drink_name"=>$row->drink,"piece"=>$row->piece,"orderdate"=>$date2,"drink_id"=>$row->drink_id);
+                }else{
+                $data2 = array("price"=>$row->price,"drink_name"=>$row->drink,"piece"=>$row->piece,"orderdate"=>$date2,"drink_id"=>$row->drink_id);
+                }
                 $this->db->insert('prizes',$data2);
                 
             }
@@ -138,7 +158,8 @@ class Users extends CI_Model{
         }
         function forgotpw($code){
             $username = $this->session->userdata('username');
-            $data = array('owner'=>$username,'code'=>$code);
+            $user_id = $this->session->userdata('userid');
+            $data = array('owner'=>$username,'code'=>$code,"user_id"=>$user_id);
             $this->db->insert('user_forgotpw',$data);
         }
         

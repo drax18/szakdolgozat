@@ -27,6 +27,13 @@ $tmb = array();
     <div class="price" >
         <td style="width:245px; ">
         <?php
+            if($row->action){
+                $price = $row->price;
+              $alcoholaction = "0.".$row->action;
+               $finalyaction = $row->price * $alcoholaction;
+               $finalprice = $price - $finalyaction;
+               echo "Ár: ".$finalprice." Ft"."( - ".$row->action.""."% )";
+            }else
             echo "Ár: ".$row->price." Ft";
         ?>
          </td>

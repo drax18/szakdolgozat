@@ -26,7 +26,15 @@ if($this->session->userdata('username')){
             <td><img height="50" src="<?php echo base_url()."img/drinks/$row->cart_name".".png" ;?>" /></td>
             <?php
             echo "<td>".$row->drink."</td>";
+            if(isset($row->action)){
+                $price = $row->price;
+              $alcoholaction = "0.".$row->action;
+               $finalyaction = $row->price * $alcoholaction;
+               $finalprice = $price - $finalyaction;
+               echo "<td>".floor($finalprice)." Ft"."( - ".$row->action.""."% )";
+            }else
             echo "<td>".$row->price." Ft"."</td>";
+
             ?>
             <td><div class="actualcount" style="font-size: 13px;">
             <?php echo "Aktuális: "."<i>".$row->piece."</i>".br(1);  ?>
@@ -36,7 +44,7 @@ if($this->session->userdata('username')){
            <a href="<?php echo $row->cart_name; ?>"  class="delete_to_cart" style="color:black;">-</a>
            </td>
             <?php
-            echo "<td>".$row->price * $row->piece." Ft"."</td>";
+            echo "<td>".floor($finalprice * $row->piece)." Ft"."</td>";
             echo '</tr>';    
         }
         
@@ -44,7 +52,7 @@ if($this->session->userdata('username')){
     <tr>
 
         <td colspan="4" style="text-align: right; padding:5px;">Összes termék ára</td>
-        <td><?php echo $fees['fullprice']." Ft";  ?></td>
+        <td><?php echo floor($fees['fullprice'])." Ft";  ?></td>
     </tr>
     <tr>
 

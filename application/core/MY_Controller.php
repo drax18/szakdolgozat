@@ -26,6 +26,7 @@ class MY_Controller extends CI_Controller{
         $data['newregistereduser'] = $this->newregistereduser();
         $data['newcomments'] = $this->newcomments();
         $data['bestscores'] = $this->bestscores();
+        $data['drinkpiece'] = $this->getDrinkpiece();
         $this->load->view($view_name,$data);        
     }
     function admincheck(){
@@ -153,6 +154,11 @@ class MY_Controller extends CI_Controller{
     public function bestscores(){
         $this->load->model('admin');
         return $this->admin->bestscores();
+    }
+    public function getDrinkpiece(){
+        $this->load->model('admin');
+        return $this->admin->getdrinkpiece();
+    
     }
 }
 ?>
