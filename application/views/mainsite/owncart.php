@@ -39,7 +39,7 @@ if($this->session->userdata('username')){
             <td><div class="actualcount" style="font-size: 13px;">
             <?php echo "Aktuális: "."<i>".$row->piece."</i>".br(1);  ?>
                 </div>
-           <input class="drinkscount" style="width: 25px; text-align: center" type="text" value="1" name="db"/>
+           <input class="drinkscount" type="text" value="1" name="db"/>
            <a href="<?php echo $row->cart_name; ?>"  class="add_to_cart" style="color: black;">+</a>
            <a href="<?php echo $row->cart_name; ?>"  class="delete_to_cart" style="color:black;">-</a>
            </td>

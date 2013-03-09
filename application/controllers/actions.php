@@ -54,7 +54,7 @@ class Actions extends MY_Controller{
             $this->form_validation->set_rules('streetaddress','Utca/házszám','required|trim');
             $this->form_validation->set_rules('city','Város','required|trim');
             $this->form_validation->set_rules('zipcode','Irányítószám','required|trim|numeric');            
-            $this->form_validation->set_rules('country','Ország','required|trim');            
+                
             $this->form_validation->set_rules('orderterms','Szolgáltatási feltételeket','required|trim');
             
             if($this->form_validation->run()){

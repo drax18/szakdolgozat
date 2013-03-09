@@ -1,5 +1,7 @@
 <?php
-
+if($this->session->userdata('username')){
+    redirect("mainsite/index");
+}else{
 if(isset($success)){
                 echo $success;
             }
@@ -61,9 +63,6 @@ if(isset($success)){
                         echo "<td>"."Irányítószám:* "."</td>"."<td>".form_input('zipcode','',"class='inputs'")."</td>";
                         echo '</tr>';
                         echo '<tr>';
-                        echo "<td>"."Ország:* "."</td>"."<td>".form_input('country','',"class='inputs'")."</td>";
-                        echo '</tr>';
-                        echo '<tr>';
                         echo '<td>';
                         echo form_checkbox('orderterms',TRUE)." *Elfogadom a szolgáltatási feltételeket. ";?><br /><a style="color:grey;" href="<?php echo base_url()."mainsite/orderterms" ;?>">(Rendelési feltételek)</a>
                         <?php
@@ -80,4 +79,5 @@ if(isset($success)){
                         echo form_close();
                         echo '</table>';           
             }
+}
 ?>

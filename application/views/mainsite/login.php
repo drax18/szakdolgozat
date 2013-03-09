@@ -1,18 +1,11 @@
-<style>
-    
-    #loginform{
-        width: 290px;
-        margin: 30px auto;
-        border:2px solid #c6c3c3;
-        padding:20px;
-        padding-top: 10px;
-    }
-    
-    
-</style>
 
+<?php
+if($this->session->userdata('username')){
+    redirect("mainsite/index");
+}else{
+?>
 <div id="loginform">
-                <h4 style="font-size:25px; line-height: 50px;">Belépés</h4>
+                <h4>Belépés</h4>
 
 <?php
             echo '<table>';
@@ -48,3 +41,6 @@
             echo '</table>';
 ?>
 </div>
+<?php
+}
+?>

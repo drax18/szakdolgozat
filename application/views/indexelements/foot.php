@@ -1,8 +1,4 @@
-<style>
-    #foot1 a{
-        line-height: 18px;
-    }
-</style>
+
 <div id="foot1">
     <?php
     echo "<div id='foot_title'>INFORMÁCIÓK".br(2)."</div>";

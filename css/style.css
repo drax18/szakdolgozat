@@ -395,13 +395,13 @@ ul#menu a:hover{
     float:left;
     padding:10px;
     margin-bottom: 25px;
-    font-size: 17px;
+    font-size: 15px;
     
 
 
 }
 .cat_addtocart p{
-    color:black; font-style: italic; margin-bottom: 20px;
+    color:black;  margin-bottom: 20px;
 }
 .adminbutton:hover{
     text-decoration: underline;
@@ -417,12 +417,16 @@ ul#menu a:hover{
 }
 .drinkscount{
     width:25px;
-    text-align: right; 
-    height: 18px;
+
+   
     float:left;
     
     
     text-align: center;
+}
+#img{
+    text-align: center;
+    width: 50px;
 }
 .drinksline{
     list-style-type: none;
@@ -437,6 +441,12 @@ div#alcohol{
     float:left;
     margin-right: 20px;
     margin-bottom: 20px;
+}
+.db{
+    color:black;
+    float:left;
+    padding-bottom: 25px;
+    padding-left: 5px;
 }
 div#newdrinklist{margin-left:10px; width: 940px; }
 div#table{
@@ -594,6 +604,12 @@ div#table:last-child{
     .fulldrink{
         width: 475px;
         float: left;
+    }
+    .fulldrinktable{
+        width: 475px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #cccccc;
     }
     .drinkinformation{
         
@@ -774,4 +790,50 @@ div#table:last-child{
     .actiondrinkimg{
         width: 699px;
         text-align: center;
+    }
+    .drinks_title{
+        font-size: 35px; 
+        font-weight: bold;
+        float:left;
+    }
+    .drinkcount{
+        float:right;
+        font-size: 15px; 
+        font-weight: bold;
+        padding-top: 5px;
+    }
+    .clickhere{
+        float:right;
+        font-size: 10px;
+        padding-top: 10px;
+        padding-right: 2px;
+    }
+    #shipping{
+       padding-top: 10px;
+       padding-bottom: 10px;
+    }
+    .cart_line_img{
+        margin-bottom:5px;
+        
+    }
+    .under_cart_line_img{
+       color:white;
+       font-size:13px; 
+       width: 160px;
+       line-height: 20px;
+    }
+      #foot1 a{
+        line-height: 18px;
+    }
+     
+    #loginform{
+        width: 290px;
+        margin: 30px auto;
+        border:2px solid #c6c3c3;
+        padding:20px;
+        padding-top: 10px;
+    }
+    #loginform h4{
+        font-size:25px;
+        line-height: 50px;
     }

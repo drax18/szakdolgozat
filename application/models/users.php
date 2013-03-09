@@ -49,7 +49,7 @@ class Users extends CI_Model{
                 'streetaddress' => $this->input->post('streetaddress'),
                 'city' => $this->input->post('city'),
                 'zipcode' => $this->input->post('zipcode'),
-                'country' => $this->input->post('country')
+      
                 );
             $this->db->insert('users',$data);
         }

@@ -26,13 +26,13 @@ if($this->session->userdata('username')){
         }
 
 ?>
-<div id="shipping" style="padding-top: 10px; padding-bottom: 10px;">
+<div id="shipping" >
         <?php
         
             if($cart){
             ?>
-            <div class="cart_line_img" style=" margin-bottom:5px;"><img src="<?php echo base_url()."/img/cart_line.png" ;?>" /></div>
-            <table style=" color:white; font-size:13px; width: 160px; line-height: 20px;">
+            <div class="cart_line_img" ><img src="<?php echo base_url()."/img/cart_line.png" ;?>" /></div>
+            <table class="under_cart_line_img" >
                 <tr>
                     <td>Akció:</td><td style="text-align: right;">
                      <?php

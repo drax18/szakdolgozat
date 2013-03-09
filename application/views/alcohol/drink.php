@@ -22,10 +22,11 @@ $tmb = array();
         
         ?>
     </div>
-    <table style="width: 475px; padding-top: 10px; padding-bottom: 10px;border-bottom: 1px solid #cccccc">
+    <table class="fulldrinktable">
         <tr>
-    <div class="price" >
+   
         <td style="width:245px; ">
+             <div class="price" >
         <?php
             if($row->action){
                 $price = $row->price;
@@ -36,11 +37,11 @@ $tmb = array();
             }else
             echo "Ár: ".$row->price." Ft";
         ?>
+             </div>
          </td>
-    </div>
+
         <td>
-        <input class="drinkscount" type="text" value="1" name="db"/>Darab
-        </td>
+        <input class="drinkscount" type="text" value="1" name="db"/></td><td>Darab</td>
         <td style="text-align:right;">
         <a href="<?php echo $row->link_name; ?>" class="add_to_cart"><img src="<?php echo base_url()."/img/cartbutton.png" ;?>" /></a></br>
         </td>

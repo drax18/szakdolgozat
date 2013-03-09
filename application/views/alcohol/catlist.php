@@ -4,12 +4,12 @@
 <?php
 foreach ($catname as $categories){
     ?>
-<div class="drinks_title" style="font-size: 35px;  font-weight: bold; float:left;">
+<div class="drinks_title" >
     <?php
     echo $categories->categories;
     ?>
 </div>
-<div class="drinkcount" style="float:right; font-size: 15px;  font-weight: bold; padding-top: 5px;"><?php foreach ($countdrinks as $row){echo $row->numrows;}?> darab alkohol található itt.</div>
+<div class="drinkcount" ><?php foreach ($countdrinks as $row){echo $row->numrows;}?> darab alkohol található itt.</div>
 <div style="clear:both;"></div>
 <?php
 }

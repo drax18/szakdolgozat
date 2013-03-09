@@ -6,7 +6,7 @@
             ?>
            
            <div id="alcohol" >
-               <div id="img" style="text-align: center; width: 60px;">
+               <div id="img" >
                <img src="<?php echo base_url()."img/drinks/$row->link_name.png" ;?>" height="120px;"  />
                </div>
 
