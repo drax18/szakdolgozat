@@ -6,13 +6,8 @@ class MY_Controller extends CI_Controller{
         parent::__construct();
     }    
     function show_with_all($view_name, $data){
-        $data['menu'] = $this->menudata();
-        $data['headmenu'] = $this->headmenudata();
-        $data['footmenu'] = $this->footmenudata();
-        $data['footmenu2'] = $this->footmenudata2();
         $data['cart'] = $this->cartdata();
         $data['cartcount'] = $this->cartcount();
-        $data['log_content'] = $this->logContentdata();
         $data['cartprice'] = $this->cartPricedata();
         $data['owndata'] = $this->own_Datas();
         $data['alfavdata'] = $this->alreadyfav();
@@ -50,30 +45,11 @@ class MY_Controller extends CI_Controller{
         $this->load->model('admin');
         return $adminuser = $this->session->userdata('username');
     }
-    function menudata(){
-        $this->load->model('menu');
-        $menudata = $this->menu->getMenu();
-        return $menudata;
-    }
+
     function alreadyfav(){
         $this->load->model('favorites');
         $alreadyfavdata =$this->favorites->alreadyfav();
         return $alreadyfavdata;
-    }
-    function headmenudata(){
-        $this->load->model('menu');
-        $headmenudata = $this->menu->getHeadmenu();
-        return $headmenudata;
-    }
-    function footmenudata(){
-        $this->load->model('menu');
-        $footmenu = $this->menu->getFootmenu();
-        return $footmenu;
-    }
-    function footmenudata2(){
-        $this->load->model('menu');
-        $footmenu2 = $this->menu->getFootmenu2();
-        return $footmenu2;
     }
     function cartdata(){
         $this->load->model('cart');
@@ -98,11 +74,6 @@ class MY_Controller extends CI_Controller{
         else
             return false;
         
-    }
-    function logContentdata(){
-        $this->load->model('log_content');
-        $log_content = $this->log_content->getLog_content();
-        return $log_content;
     }
     function cartPricedata(){
         $this->load->model('cart');

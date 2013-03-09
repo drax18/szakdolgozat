@@ -31,6 +31,9 @@
 
         public function actions(){
             $data['middle'] = 'mainsite/actions';
+            $this->load->model('drinks');
+            $data['actiondrinks'] = $this->drinks->getActiondrinks();
+            
             $this->show_with_all('mainsite/index',$data);
         }
 

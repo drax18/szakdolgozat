@@ -47,8 +47,9 @@ class Masteradmin extends MY_Controller {
         $data['middle'] = "masteradmin/adminmodify";
         
         $this->load->model('admin');
-        
+           $data['allcomments'] = $this->admin->getallcomments();
         $data['getaandd'] = $this->admin->getActionswithDrinks();
+        $data['getdrinksinform'] = $this->admin->getdrinksinform();
         $this->load->model('users');
         $data['getusers'] = $this->users->getAllusers();
         $this->show_with_all('masteradmin/adminpanel', $data);
@@ -127,12 +128,18 @@ class Masteradmin extends MY_Controller {
         $this->load->library('form_validation');
         $data['middle'] = 'masteradmin/adminmodify';
          $this->load->model('admin');
+         $data['allcomments'] = $this->admin->getallcomments();
         $data['getaandd'] = $this->admin->getActionswithDrinks();
+        $data['getdrinksinform'] = $this->admin->getdrinksinform();
+        $this->load->model('users');
+        $data['getusers'] = $this->users->getAllusers();
         $this->form_validation->set_rules('newaction','Akció','required|numeric');
         if($this->form_validation->run()){
             $this->admin->updateaction();
             $data['successupdateaction'] = 'Sikeresennek frissítetted a kiválaszott alkohol akcióját!';
              
+         }else{
+             $data['validerror2'] = validation_errors();
          }
         
         $this->show_with_all('masteradmin/adminpanel', $data);
@@ -142,6 +149,8 @@ class Masteradmin extends MY_Controller {
         $data['middle'] = 'masteradmin/adminmodify';
          $this->load->model('admin');
         $data['getaandd'] = $this->admin->getActionswithDrinks();
+        $data['allcomments'] = $this->admin->getallcomments();
+        $data['getdrinksinform'] = $this->admin->getdrinksinform();
         if($this->input->post('deleteusers')){
             $data['sucessuserdelete'] = 'Sikeresen törölted a kiválaszott Felhasználókat/Felhasználót';
        $this->admin->deleteusers();
@@ -157,8 +166,9 @@ class Masteradmin extends MY_Controller {
         $data['middle'] = 'masteradmin/adminmodify';
           $this->load->model('admin');
         $this->load->model('users');
+        $data['allcomments'] = $this->admin->getallcomments();
         $data['getusers'] = $this->users->getAllusers();
-        
+        $data['getdrinksinform'] = $this->admin->getdrinksinform();
         if($this->input->post('deletedrinks')){
             $data['sucessdrinkdelete'] = 'Sikeresen törölted a kiválaszott Italokat/Italt!';
          $this->admin->deletedrinks();
@@ -171,6 +181,82 @@ class Masteradmin extends MY_Controller {
         
         
        $this->show_with_all('masteradmin/adminpanel', $data);
+    }
+    public function updatedrinkscount(){
+        $this->load->library('form_validation');
+        $data['middle'] = 'masteradmin/adminmodify';
+         $this->load->model('admin');
+        $this->load->model('users');
+        $data['getusers'] = $this->users->getAllusers();
+         $data['getaandd'] = $this->admin->getActionswithDrinks();
+         $data['allcomments'] = $this->admin->getallcomments();
+         $data['getdrinksinform'] = $this->admin->getdrinksinform();
+          $this->form_validation->set_rules('updatecount','Darab','required|numeric');
+         
+          if($this->form_validation->run()){
+              $this->admin->updatedrinkscount();
+            $data['successupdatecount'] = 'Sikeresennek frissítetted a kiválaszott alkohol darabszámát !';
+          }
+          else{
+              $data['validerror1'] = validation_errors();
+          }
+         
+         
+         
+         
+         
+        $this->show_with_all('masteradmin/adminpanel', $data);
+    }
+    public function deletecomments(){
+
+        $data['middle'] = 'masteradmin/adminmodify';
+         $this->load->model('admin');
+        $this->load->model('users');
+        $data['getusers'] = $this->users->getAllusers();
+         $data['getaandd'] = $this->admin->getActionswithDrinks();
+         $data['getdrinksinform'] = $this->admin->getdrinksinform();
+         
+          if($this->input->post('deletecomments')){
+            $data['sucesscommentdelete'] = 'Sikeresen törölted a kiválaszott Hozzászólásokat/Hozzászólást !';
+         $this->admin->deleteselectedcomments();
+        }else{
+            $data['problemcommentdelete'] = 'Nem válaszottál ki törlendő hozzászólást !';
+        }
+         $data['allcomments'] = $this->admin->getallcomments();
+         $this->show_with_all('masteradmin/adminpanel', $data);
+    }
+    public function modifydrinks(){
+         $this->load->library('form_validation');
+        $data['middle'] = 'masteradmin/adminmodify';
+         $this->load->model('admin');
+        $this->load->model('users');
+        $data['getusers'] = $this->users->getAllusers();
+         $data['getaandd'] = $this->admin->getActionswithDrinks();
+         $data['allcomments'] = $this->admin->getallcomments();
+         
+          
+          $this->form_validation->set_rules('newname','Új név');
+          $this->form_validation->set_rules('newprice','Új ár','numeric');
+          $this->form_validation->set_rules('newalcohol','Új alkohol tartalom','numeric');
+          $this->form_validation->set_rules('newbottle','Új mennyiség');
+          $this->form_validation->set_rules('newtitle','Új Ital címke');
+          $this->form_validation->set_rules('newinfo','Új Ital információ');
+          if($this->form_validation->run()){
+              if(!$this->input->post('newname') && !$this->input->post('newprice') && !$this->input->post('newalcohol') && !$this->input->post('newbottle') && !$this->input->post('newtitle') && !$this->input->post('newinfo')){
+                  $data['blank'] = "Nem adtad meg változtatni kívánt adatokat!";
+              }else{
+                $this->admin->modifydrinks();
+                $data['successupdatedinfo'] = "Sikeresen módosítottad a kiválasztott Alkohol adatait!";
+              }
+            }else {
+                $data['validerror3'] = validation_errors();
+            }
+         
+         
+         $data['getdrinksinform'] = $this->admin->getdrinksinform();
+         
+         
+         $this->show_with_all('masteradmin/adminpanel', $data);
     }
     
 }

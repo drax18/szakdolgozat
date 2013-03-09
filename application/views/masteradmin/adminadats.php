@@ -5,13 +5,19 @@
 <div id="uov">
     <div class="adminusers"><?php print_r($admingetusers); ?></div>
     <div class="adminorders"><?php print_r($ordernumber); ?></div>
-    <div class="adminvisitors">sajt</div>
+    <div class="adminvisitors">
+        <?php
+        $count = count($this->session->userdata('userid'));
+        $finalcount = $count - 1;
+         echo $finalcount;
+         ?>
+    </div>
 </div>
 <div style="clear:both;"></div>
 <div id="uovinfo">
     <div class="userscount">Felhasználók</div>
     <div class="userorders">Rendelések</div>
-    <div class="uservisitor">Látogatók</div>
+    <div class="uservisitor">Belépett látogatók</div>
 </div>
 <div style="clear: both;"></div>
 <div class="adminline2"></div>

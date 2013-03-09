@@ -25,7 +25,7 @@ foreach ($catname as $categories){
             <option value="name">Név szerint</option>
             <option value="price ASC">Ár szerint növekvő</option>
             <option value="price DESC">Ár szerint csökkenő</option>
-            <option value="score">Pontszám szerint</option>
+            <option value="score DESC">Pontszám szerint</option>
         </select>
                 </td>
                 <td>

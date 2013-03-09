@@ -1,13 +1,13 @@
 .toast-container {
 	width: 280px;
 	z-index: 9999;
-        text-align: center;
+        
 }
 
 
 * html .toast-container {
 	position: absolute;
-        text-align: center;
+        
 }
 
 .toast-item {
@@ -28,12 +28,12 @@
 	display: block;
 	position: relative;
 	margin: 0 0 12px 0;
-        text-align: center;
+       
 }
 
 .toast-item p {
-    text-align: left;
-    margin-left: 50px;
+    text-align: center;
+   /* margin-left: 50px; */
 }
 
 .toast-item-close {

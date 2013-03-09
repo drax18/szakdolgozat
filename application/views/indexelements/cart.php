@@ -24,5 +24,12 @@
     echo "Lépj be a kosár<br />használatához";
  }
  echo '<p>';
+ if($cart == FALSE){
+     
+ }else{
 ?>
+    <div style="float:right;font-size: 10px;padding-top: 10px;padding-right: 2px;" class="clickhere">Kattints ide</div>
+    <?php
+ }
+    ?>
 </div>

@@ -104,10 +104,13 @@ class Cart extends CI_Model{
            redirect ('mainsite/catlist/1');
     }  
     function deletetocart($id,$count){
-        if($this->session->userdata('username')){
+        
                 
         $i = 1;
-        
+         $query = $this->db->query("SELECT * FROM drinks WHERE link_name='$id'");
+        foreach ($query->result() as $row2){
+            $piece = $row2->piece;
+        }   
         $this->db->where('cart_name',$id);
         $this->db->where('owner',  $this->session->userdata('username'));
         $query2 = $this->db->get('cart');           
@@ -118,20 +121,30 @@ class Cart extends CI_Model{
                 $this->db->where('cart_name',$id);
                 $this->db->where('owner',  $this->session->userdata('username'));
                 $this->db->update('cart', $updatedata);
+                $data = array('piece'=>$piece + $count);
+                $this->db->where('link_name',$id);
+                $this->db->update('drinks',$data);
+                if($row->piece - $count == 0){
+                     $this->db->where('cart_name',$id);
+                    $this->db->where('owner',  $this->session->userdata('username'));
+                    $this->db->delete('cart');
+                }
+                
                }           
                 else{
-
+                $data = array('piece'=>$piece + $i);
+                $this->db->where('link_name',$id);
+                $this->db->update('drinks',$data);
                 $this->db->where('cart_name',$id);
                 $this->db->where('owner',  $this->session->userdata('username'));
                 $this->db->delete('cart');
+                
 
                   }
            }
        
      
-       }
-       else
-           redirect ('mainsite/catlist/1');
+      
     }  
     
     function getAllprice(){

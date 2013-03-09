@@ -664,6 +664,7 @@ div#table:last-child{
         width: 100px;
           height:120px;
        float: left;
+       text-align: center;
     }
     .favinfos{
         height:120px;
@@ -693,8 +694,10 @@ div#table:last-child{
         
     }
    
-    .allremovefav{
-        border-bottom: 1px solid #cccccc;
+    .allremovefav ul li{
+        list-style-type: none;
+        width: 699px;
+        border-bottom: 1px solid #cccccc; 
     }
     .favoradd{
         color:#003399; margin-bottom: 15px;
@@ -767,4 +770,8 @@ div#table:last-child{
     }
     .errorsend{
         color:red;
+    }
+    .actiondrinkimg{
+        width: 699px;
+        text-align: center;
     }

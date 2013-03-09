@@ -7,38 +7,32 @@
     <?php
     echo "<div id='foot_title'>INFORMÁCIÓK".br(2)."</div>";
 
-        foreach ($footmenu as $row){
         ?>  
         
-          <a id="foot_items" href="<?php echo site_url("mainsite/$row->link_tags")?>"><?php echo $row->menu_tags; ?></a><br />
-          <?php
-        }
-    ?>
+          <a id="foot_items" href="<?php echo site_url("mainsite/aboutus")?>">Rólunk</a><br />
+          <a id="foot_items" href="<?php echo site_url("mainsite/contact")?>">Elérhetőségek</a><br />
+          <a id="foot_items" href="<?php echo site_url("mainsite/orderterms")?>">Rendelési feltételek</a><br />
+
 </div>
 <div id="foot1">
      <?php
     echo "<div id='foot_title'>AJÁNLATAINK".br(2)."</div>";
-        foreach ($footmenu2 as $row){
-        ?>  
-        
-          <a id="foot_items" href="<?php echo site_url("mainsite/$row->link_tags")?>"><?php echo $row->menu_tags; ?></a><br />
-          <?php
-        }
     ?>
+        
+          <a id="foot_items" href="<?php echo site_url("mainsite/speciality")?>">Különlegességek</a><br />
+          <a id="foot_items" href="<?php echo site_url("mainsite/actions")?>">Akciók</a><br />
+          <a id="foot_items" href="<?php echo site_url("mainsite/newitems")?>">Új áruk</a><br />
+
 </div>
 <div id="foot1">
     
 <?php
 echo "<div id='foot_title'>FIÓKOM".br(2)."</div>";
-foreach($log_content as $row){
     ?>
-    <a id="foot_items" href="<?php echo site_url("mainsite/own_data"); ?>"><?php echo $row->own_data; ?></a><br />
-    <a id="foot_items" href="<?php echo site_url("mainsite/own_orders"); ?>"><?php echo $row->own_orders; ?></a><br />
-    <a id="foot_items" href="<?php echo site_url("mainsite/favorites"); ?>"><?php echo $row->favorites; ?></a><br />
-<?php
+    <a id="foot_items" href="<?php echo site_url("mainsite/own_data"); ?>">Adataim</a><br />
+    <a id="foot_items" href="<?php echo site_url("mainsite/own_orders"); ?>">Rendeléseim</a><br />
+    <a id="foot_items" href="<?php echo site_url("mainsite/favorites"); ?>">Kedvenceim</a><br />
 
-}
-?>
 </div>
 
 <div id="foot1">

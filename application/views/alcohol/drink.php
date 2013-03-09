@@ -32,7 +32,7 @@ $tmb = array();
               $alcoholaction = "0.".$row->action;
                $finalyaction = $row->price * $alcoholaction;
                $finalprice = $price - $finalyaction;
-               echo "Ár: ".$finalprice." Ft"."( - ".$row->action.""."% )";
+               echo "Ár: ".floor($finalprice)." Ft"."( - ".$row->action.""."% )";
             }else
             echo "Ár: ".$row->price." Ft";
         ?>

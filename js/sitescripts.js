@@ -2,7 +2,7 @@
             <!-- Slide hírdetés -->
             $('.slider').cycle({ 
 		fx: 'fade',
-                delay: 4500,
+                delay: 1000,
                 pause:1,
                 pager:  '#pager',
 		slideExpr: 'img',
@@ -10,22 +10,34 @@
                 return '<a href="#" ></a>';
                  }
                 });
-             //   $('.cat_alcohols').fadeIn(1000);
+          
              <!-- Kedvenchez adás -->   
             $('.favoradd').live('click',function(e){
-              
-               $(this).parent().find('.alreadyfav').fadeIn(1000);
-               $(this).parent().find('.alreadyfav').delay(1000).fadeOut(1000);
+
                e.preventDefault();
                var href2 =  $(this).data('linkname');
-               var link2 = "http://localhost/szakdoga_igniter/mainsite/favadd/" + href2;
+               var link2 = "http://localhost/szakdoga_igniter/actions/favadd/" + href2;
                $.ajax({
                    type: "POST",
                    url: link2,
                    success: function(){
-                     
+                   $('.favrerf').load(location.href + ' .alreadyfav');
+                    
                    }
                });
+            });
+            <!-- feladás -->
+            $('.send').click(function(){
+            
+                $().delay(2000).toastmessage('showToast', {
+                            position : 'middle-center',
+                            text     : 'Sikeresen feladtad a megrendelést!',
+                            sticky   : false,
+                            type     : 'notice',
+                            stayTime : 3000
+
+                        });
+            
             });
             <!-- kereső -->
             $('.searchsend').click(function(){
@@ -47,7 +59,7 @@
             $('.favorremove').live('click',function(e){
             e.preventDefault();
             var removefav = $(this).data('favid');
-            var removelink = "http://localhost/szakdoga_igniter/mainsite/removefav/" + removefav;
+            var removelink = "http://localhost/szakdoga_igniter/actions/removefav/" + removefav;
             $.ajax({
                 type: "POST",
                 url: removelink,
@@ -63,7 +75,7 @@
                     e.preventDefault();
                     
                     var drinkid = $('#catid').val();
-                    var link3 = "http://localhost/szakdoga_igniter/mainsite/catdrinksrefresh/" + drinkid;
+                    var link3 = "http://localhost/szakdoga_igniter/alcohol/catdrinksrefresh/" + drinkid;
                     $.ajax({
                         type: "POST",
                         url: link3,
@@ -71,6 +83,8 @@
                         success:function(data){
                             $('#returnedsort').empty();
                             $('#returnedsort').html(data);
+                            $('.listimg1').css("opacity","0.40");
+                            $('.listimg2').css("opacity","1");
                         }
                     });
                });
@@ -79,7 +93,7 @@
                    e.preventDefault();
                    var drink_id = $('.commentsend').data('drinkid');
                    var userscore = $('.scorevalue').val();
-                   var scorelink = "http://localhost/szakdoga_igniter/mainsite/scoreupdate/" + drink_id + "/" + userscore;            
+                   var scorelink = "http://localhost/szakdoga_igniter/actions/scoreupdate/" + drink_id + "/" + userscore;            
                    $.ajax({
                        type: "POST",
                        url: scorelink,
@@ -121,6 +135,8 @@
                   $('.listed2').css("display","block");
                   
                });
+              
+              
                <!-- cartnál az ikonok kattra mit csináljanak -->
                
                $('.firststep').click(function(e){
@@ -160,7 +176,7 @@
                $('.commentsend').click(function(e){
                    e.preventDefault();
                    var alcoholid = $(this).data('drinkid');
-                   var commentlink = "http://localhost/szakdoga_igniter/mainsite/writeComm/" + alcoholid;
+                   var commentlink = "http://localhost/szakdoga_igniter/actions/writeComm/" + alcoholid;
                    var comment = $('.commentarea').val();
                    if(comment != "" ){
                        $.ajax({
@@ -169,6 +185,7 @@
                         url: commentlink,
                         success: function(){
                             $('.comments').load(location.href + ' .membercomments');
+                            $('.commentarea').val("");
                         }
                        });
                    }
@@ -183,20 +200,53 @@
                 });
                    }
                      
-                     //  alert("Nem hagyhatod üresen a mezőt az elküldéshez!");
+                <!-- adminnak -->  
+               });
+               $('.sendtoadminbutton').click(function(e){
+               e.preventDefault();
+               var contactarea = $('.sendtoadmin').val();
+               linkzje = "http://localhost/szakdoga_igniter/masteradmin/writetoadmin";
+               if(contactarea != ""){
+                   $.ajax({
+                       type: "POST",
+                       data: $('.sendtoadmin').serialize(),
+                       url: linkzje,
+                       success: function(){
+                           $('.sendtoadmin').val("");
+                           $().toastmessage('showToast', {
+                    position : 'middle-center',
+                    text     : 'Elküldve !',
+                    sticky   : false,
+                    type     : 'notice',
+                    stayTime : 3000
+                   
+                });
+                       }
+                   })
+               }
+               else
+                    $().toastmessage('showToast', {
+                    position : 'middle-center',
+                    text     : 'Nem hagyhatod üresen a mezőt !',
+                    sticky   : false,
+                    type     : 'notice',
+                    stayTime : 3000
+                   
+                });
                });
             <!-- Kosárba tétel és elvétel -->
             $('.add_to_cart').live('click',function(e) {
                    e.preventDefault();
                     var href = $(this).attr('href');
                     var drinkscount = $(this).parent().parent().find('.drinkscount').val();
-                    link = "http://localhost/szakdoga_igniter/mainsite/addtocart/" + href + "/" + drinkscount;
+                    link = "http://localhost/szakdoga_igniter/owncart/addtocart/" + href + "/" + drinkscount;
                     $.ajax({
                         type: "POST",
                         url: link,
                         success: function(){
                             $('#head2').load(location.href + ' .cartfull');
                             $('#refrowncartdata').load(location.href + ' .owncartdata');
+                            $('.refreshshipdata').load(location.href + ' .shippingdata');
                             
                         }
                  });
@@ -204,36 +254,40 @@
             $('.delete_to_cart').live('click',function(e) {
                     e.preventDefault();
                     var href = $(this).attr('href');
+                    var drinkscount2 = $(this).parent().find('.drinkscount').val();
+                    link = "http://localhost/szakdoga_igniter/owncart/deletetocart/" + href + "/" + drinkscount2;
                     $.ajax({
                         type: "POST",
-                        url: href,                    
+                        url: link,                    
                         success: function(){
                             $('.cartlist').load(location.href + ' .content_011');
                             $('.cart').load(location.href + ' .cart_title');
-                            
-                            $(".cart").live('hover',
-                                function(){
-
-                                    $(this).parent().find(".cartlist").slideDown(700);
-
-                                    $(this).parent().hover(
-                                        function(){},
-                                        function(){
-                                            $(this).parent().find(".cartlist").slideUp(700);
-
-                                        }
-                                    );
-
-                                }
-                            );
+                            $('#refrowncartdata').load(location.href + ' .owncartdata');
+                            $('.refreshshipdata').load(location.href + ' .shippingdata');
                             
                         }
                  });
             });
-           <!-- Menü slider-->
-            $("ul#menu div").live('click',
+            $('.delete_all_cart_item').live('click',function(e){
+                e.preventDefault();
+                href4 = $(this).attr('href');
+                link4 = "http://localhost/szakdoga_igniter/owncart/alldeleteitem/"+ href4;
+                $.ajax({
+                    type:"POST",
+                    url:link4,
+                    success:function(){
+                        $('.cartlist').load(location.href + ' .content_011');
+                        $('.cart').load(location.href + ' .cart_title');
+                        $('#refrowncartdata').load(location.href + ' .owncartdata');
+                        $('.refreshshipdata').load(location.href + ' .shippingdata');
+                    }
+                });
+
+            });
+            <!-- MENÜ div -->
+             $("ul#menu div").live('click',
                 function(){
-                    $(this).parent().find("div").css("background-image","url(../img/cat_selector_down.png)");
+                    $(this).parent().find("div").css("background-image","url('../img/cat_selector_down.png')");
                  
                     $(this).parent().find("ul").slideDown(700);
 
@@ -241,27 +295,23 @@
                         function(){},
                         function(){
                             $(this).parent().find("ul").slideUp(700);
-                            $(this).parent().find("div").css("background-image","url(../img/cat_selector.png)");
-                        }
-                    );
-
-                }
-            ); 
-            <!-- Kosár slider -->
-            $(".cart").live('hover',
-                function(){
-                   
-                    $(this).parent().find(".cartlist").slideDown(700);
-
-                    $(this).parent().hover(
-                        function(){},
-                        function(){
-                            $(this).parent().find(".cartlist").slideUp(700);
-                           
+                            $(this).parent().find("div").css("background-image","url('../img/cat_selector.png')");
                         }
                     );
 
                 }
             );
+            <!-- kosár slide -->
+             $(".cartfull").live('click',function () {
+                $(".cartlist").slideDown(700);
+                
+               $(this).parent().hover(
+                        function(){},
+                        function(){
+                            $(this).parent().find(".cartlist").slideUp(700);
+                           
+                        }
+               );
+            });
             
      });

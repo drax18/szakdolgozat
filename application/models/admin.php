@@ -24,10 +24,10 @@ class Admin extends CI_Model{
        
         $ordernumber = 0;
         foreach ($owners as $row2){
-            $query2 =  $this->db->query("SELECT max(ordernumber) as sajt FROM myorders WHERE owner='$row2'");
+            $query2 =  $this->db->query("SELECT max(ordernumber) as count FROM myorders WHERE owner='$row2'");
            foreach ($query2->result() as $row3){
            
-              $ordernumber += $row3->sajt;
+              $ordernumber += $row3->count;
            }
            
         }
@@ -38,7 +38,8 @@ class Admin extends CI_Model{
         $username = $this->session->userdata('username');
         $user_id = $this->session->userdata('userid');
         $date = date("Y/m/d - H:i");
-        $data = array('owner'=>$username,'message'=>$message,'date'=>$date,"user_id"=>$user_id);
+        $usermessage = $this->db->escape_str($message);
+        $data = array('owner'=>$username,'message'=>$usermessage,'date'=>$date,"user_id"=>$user_id);
         $this->db->insert('admin_email',$data);
     }
     function newregistereduser(){
@@ -104,10 +105,13 @@ class Admin extends CI_Model{
     }
     function deleteusers(){
                  $user_id = $this->input->post('deleteusers');
-         foreach ($user_id as $row){
-                $this->db->where('id',$row);
-           $this->db->delete('users');
-         }
+                 
+                foreach ($user_id as $row){
+                       $this->db->where('id',$row);
+                       $this->db->delete('users');
+                       $this->db->where('user_id',$row);
+                       $this->db->delete('myorders');
+                }
         
     }
     function deletedrinks(){
@@ -120,6 +124,65 @@ class Admin extends CI_Model{
     function getdrinkpiece(){
         $query = $this->db->query("SELECT name,piece FROM drinks");
         return $query->result();
+    }
+    function updatedrinkscount(){
+        $drink_id = $this->input->post('drink_id');
+        $count = $this->input->post('updatecount');
+        $query = $this->db->query("SELECT piece FROM drinks where id=$drink_id");
+        foreach ($query->result() as $row){
+            $data = array('piece' => $row->piece + $count);
+            $this->db->where('id',$drink_id);
+            $this->db->update('drinks',$data);
+        }
+    }
+    function getallcomments(){
+        $query = $this->db->query("SELECT comments.date,comments.owner,comments.id,comments.drink_id,comments.comment, drinks.name FROM comments,drinks WHERE comments.drink_id = drinks.id");
+ 
+        return $query->result();
+    }
+    function deleteselectedcomments(){
+         $comment_id = $this->input->post('deletecomments');
+         foreach ($comment_id as $row){
+                $this->db->where('id',$row);
+                $this->db->delete('comments');
+         }
+    }
+    function getdrinksinform(){
+        $query = $this->db->query("SELECT id,name,price,drink_information,drink_title,alcohol,bottle FROM drinks");
+        return $query->result();
+    }
+    function modifydrinks(){
+        $drink_id = $this->input->post('modifyvalue');
+        if($this->input->post('newname') != ""){
+            $this->db->where('id',$drink_id);
+            $data = array('name'=>$this->input->post('newname'));
+            $this->db->update('drinks',$data);
+        }
+        if($this->input->post('newprice') != ""){
+            $this->db->where('id',$drink_id);
+            $data = array('price'=>$this->input->post('newprice'));
+            $this->db->update('drinks',$data);
+        }
+        if($this->input->post('newalcohol') != ""){
+            $this->db->where('id',$drink_id);
+            $data = array('alcohol'=>$this->input->post('newalcohol'));
+            $this->db->update('drinks',$data);
+        }
+        if($this->input->post('newbottle') != ""){
+            $this->db->where('id',$drink_id);
+            $data = array('bottle'=>$this->input->post('newbottle'));
+            $this->db->update('drinks',$data);
+        }
+        if($this->input->post('newtitle') != ""){
+            $this->db->where('id',$drink_id);
+            $data = array('drink_title'=>$this->input->post('newtitle'));
+            $this->db->update('drinks',$data);
+        }
+        if($this->input->post('newinfo') != ""){
+            $this->db->where('id',$drink_id);
+            $data = array('drink_information'=>$this->input->post('newinfo'));
+            $this->db->update('drinks',$data);
+        }
     }
 }
 ?>

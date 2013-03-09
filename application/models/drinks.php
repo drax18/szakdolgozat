@@ -14,7 +14,10 @@ class Drinks extends CI_Model{
         return $query->result();
         
     }
-    
+    function getActiondrinks(){
+        $query = $this->db->query("SELECT * FROM drinks WHERE action > 0");
+        return $query->result();
+    }
     
     
     

@@ -4,14 +4,13 @@ if($this->session->userdata('username')){
     echo "<h4>Kedvenceim</h4>";
     ?>
     <div class="favorites">
-    <?php
-    if($favorites){
-
-    foreach ($favorites as $row){
-      $i = 0;
-        ?>
-            <div class="allremovefav">
-                <div class="favimg">
+        <div class="allremovefav">
+              <ul>
+            <?php
+            if($favorites){
+                foreach ($favorites as $row){
+                    ?>
+                   <div class="favimg">
                         <img height="90px" src="<?php echo base_url()."img/drinks/".$row->link_name.".png" ;?>" />
                 </div>
                     <div class="favinfos">
@@ -29,21 +28,17 @@ if($this->session->userdata('username')){
                         <div class="favremove">
                             <a style="color:grey;" class="favorremove" href="" data-favid="<?php echo $row->id;  ?>">Kedvencek -</a>
                         </div>
+                        <li></li>
                     </div>
-            </div>
-        <?php      
-        if($i%2==0){
-           ?>
-        <div style="clear: both;"></div>
-            <?php
-        }
-        
-    }
-    
-}else{
-    echo "Nincs kedvenc alkoholod!";
-}
-?>
+                  
+                    <?php
+                }
+            }else{
+                echo "Nincs kedvenc alkoholod! ";
+            }
+             ?>
+                  </ul>
+         </div>
     </div>  
 <?php
 }

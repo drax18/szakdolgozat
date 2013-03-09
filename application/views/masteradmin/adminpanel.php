@@ -20,7 +20,7 @@ if($this->session->userdata('username')){
             });
             $(".informations").mCustomScrollbar({  
             });
-            
+           
          });
     </script>
     </head>
