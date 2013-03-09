@@ -112,8 +112,7 @@ class Cart extends CI_Model{
         $this->db->where('owner',  $this->session->userdata('username'));
         $query2 = $this->db->get('cart');           
        
-           $query3 = $query2->result();
-           foreach ($query3 as $row){
+           foreach ($query2->result() as $row){
                if($row->piece > $i ){
                 $updatedata = array('piece'=>$row->piece-$count);
                 $this->db->where('cart_name',$id);
