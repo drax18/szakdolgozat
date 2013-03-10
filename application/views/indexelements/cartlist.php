@@ -77,7 +77,7 @@ if($this->session->userdata('username')){
                 </tr>
             </table>
             <div style="padding-left: 47.5px;" class="tocartbutton">
-            <a href="<?php echo site_url("mainsite/owncart"); ?>"><img src="<?php echo base_url()."/img/incartbutton.png" ;?>" /></a>
+            <a href="<?php echo site_url("mainsite/owncart#hh"); ?>"><img src="<?php echo base_url()."/img/incartbutton.png" ;?>" /></a>
             </div>
             <?php
                 
