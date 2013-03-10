@@ -1,14 +1,16 @@
 root{
     display: block;
 }
-*{
+*,html,body{
     padding:0;
     margin:0;
    
 }
+
 body{
     font-family: century gothic, arial;
     color:black;
+
 
 }
 a{    
@@ -21,7 +23,6 @@ div#cont{
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
-    margin-top:10px;
     width: 940px;    
     background: #eeeeee url('../img/bg.png') no-repeat;
     -webkit-box-shadow: 5px 4px 0px #888888;
@@ -43,8 +44,9 @@ div#head{
 div#head2{
     height: 119px;
     width: 940px;
-    background: url('../img/logo.png') no-repeat;
-    background-position-y:20px;
+    background: url('../img/logo.png') no-repeat left center;
+    
+   
     
 }
 .cartfull{
@@ -97,7 +99,9 @@ div#menusearch{
 }
 div#search{
 
-    overflow: auto;   
+    
+    float: right;
+
     
 }
 #input{
@@ -106,6 +110,7 @@ div#search{
     background:url('../img/searchbg.png');
     border: none;
     height: 21px;
+ 
 
 }
 
@@ -115,8 +120,9 @@ div#search{
 }
 #searchbtn{
    
-  margin-top: 5px;
+margin-top: 5px;
   margin-left: 0px;
+
 }
 div#menu{
     width:749px;
@@ -134,7 +140,20 @@ div#menu li{
     padding-right: 10px;
 
 }
-div#action{margin-top:27px;}
+@-moz-document url-prefix() {
+   div#menu li{
+    float:left;
+    border-right: 1px solid grey;
+    list-style-type: none;    
+    margin-top: 5px;
+    padding-left: 10px;
+    padding-right: 0px;
+   }
+    
+}
+div#action{
+    margin-top:27px;
+}
 div#advertisement{
     width: 220px;
     height: 326px;
@@ -356,26 +375,38 @@ ul#menu a:hover{
     background-position:left;
 }
 .cat_alcohols{
-   background: grey;
+   
     width: 700px;
-    font-size: small;
+    height: 300px;
+   padding-top: 15px;
+   
 
 }    
 .cat_image{
     width: 230px;
     height: 280px;
     float:left;
-    margin-top: 15px;
-    margin-bottom: 25px;
+   
+    
 }
 .cat_name{
-    margin-top: 15px;
+    
     width: 289px;
     height: 260px;
     float:left;
     padding: 10px;
     border-right: 1px solid #cccccc;
-    margin-bottom: 25px;
+    
+}
+.cat_addtocart{
+    
+    
+    width: 140px;
+    height: 260px;
+    float:left;
+    padding:10px;
+    
+    font-size: 15px;
 }
 .cat_name_table{
     font-size:13px;
@@ -387,19 +418,7 @@ ul#menu a:hover{
     color:black;
 }
 
-.cat_addtocart{
-    
-    margin-top: 15px;
-    width: 140px;
-    height: 260px;
-    float:left;
-    padding:10px;
-    margin-bottom: 25px;
-    font-size: 15px;
-    
 
-
-}
 .cat_addtocart p{
     color:black;  margin-bottom: 20px;
 }
@@ -426,7 +445,7 @@ ul#menu a:hover{
 }
 #img{
     text-align: center;
-    width: 50px;
+    width: 55px;
 }
 .drinksline{
     list-style-type: none;
@@ -448,7 +467,10 @@ div#alcohol{
     padding-bottom: 25px;
     padding-left: 5px;
 }
-div#newdrinklist{margin-left:10px; width: 940px; }
+div#newdrinklist{
+    margin-left:10px;
+    width: 699px;
+}
 div#table{
     margin-right: 15px;
     line-height: 50px;
@@ -465,7 +487,8 @@ div#table:last-child{
 .newdrinksline{
     border-bottom: 1px solid #cccccc;
     width: 670px;
-    margin-bottom:15px;
+    margin-bottom:10px;
+    margin-top: 10px;
     list-style-type: none;
 }
 .newdrinksline:last-child{
@@ -477,14 +500,9 @@ div#table:last-child{
     margin-bottom:15px;
     list-style-type: none;
 }
+
 .drinksline:last-child{
     border-bottom: none;
-}
-.sortdrinksline{
-    border-bottom: 1px solid #cccccc;
-    list-style-type: none;
-    margin-top: 10px;
-    margin-bottom: 10px;
 }
 
 .listimg1{
@@ -595,6 +613,14 @@ div#table:last-child{
          color:black;
          font-size: 15px;
          
+    }
+    .instock_cat{
+        padding-top: 10px;
+        padding-bottom: 10px;
+         
+         margin-bottom: 10px;
+         color:black;
+         font-size: 15px;
     }
     .alcoholpercent{
         padding-bottom: 10px;
@@ -709,12 +735,7 @@ div#table:last-child{
         margin-top: 10px;
         
     }
-   
-    .allremovefav ul li{
-        list-style-type: none;
-        width: 699px;
-        border-bottom: 1px solid #cccccc; 
-    }
+
     .favoradd{
         color:#003399; margin-bottom: 15px;
     }
@@ -836,4 +857,61 @@ div#table:last-child{
     #loginform h4{
         font-size:25px;
         line-height: 50px;
+    }
+    .irishleft{
+        width: 450px;
+        font-size: 15px;
+        float:left;
+        text-align: justify;
+    }
+    .irishright{
+        text-align: center;
+        
+    }
+    .irishlink{
+        font-size: 15px;
+    }
+    .irishlink ul li{
+        list-style-type: none;
+    }
+    .irishlink ul li a{
+        color:grey;
+    }
+    .irishlink ul li a:hover{
+        cursor: pointer;
+        color:#c5c5c5;
+    }
+    .specline{
+        width: 660px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #b3b1b1;
+    }
+    .leftlimon{
+        float:left;
+        padding-top: 7px;
+        text-align: center;
+    }
+    .rightlimon{
+        width: 450px;
+        font-size: 15px;
+        float:right;
+        padding-right: 50px;
+        text-align: justify;
+    }
+    .rightangel{
+        text-align: center;
+    }
+    .leftangel{
+         width: 450px;
+        font-size: 15px;
+        float:left;
+        text-align: justify;
+    }
+    .speciality h3{
+        padding-bottom: 15px;
+    }
+    .spectitle{
+        padding-top: 5px;
+        padding-bottom: 10px;
     }

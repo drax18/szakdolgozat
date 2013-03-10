@@ -11,7 +11,7 @@ class Users extends CI_Model{
     }
     function getUserdata(){
         $username = $this->session->userdata('username');
-        $query = $this->db->query("SELECT id,surname,firstname,phonenumber,streetaddress,city,zipcode,country FROM users WHERE username='$username'");
+        $query = $this->db->query("SELECT id,surname,firstname,phonenumber,streetaddress,city,zipcode FROM users WHERE username='$username'");
         return $query->result();
     }
     function getAllusers(){
@@ -101,11 +101,6 @@ class Users extends CI_Model{
                 $this->db->update('users', $data);
             }
             
-            if($this->input->post('countryedit') != ""){
-                $this->db->where('username',$username);
-                $data = array('country'=>$this->input->post('countryedit'));
-                $this->db->update('users', $data);
-            }
             if($this->input->post('zipcodeedit') != ""){
                 $this->db->where('username',$username);
                 $data = array('zipcode'=>$this->input->post('zipcodeedit'));

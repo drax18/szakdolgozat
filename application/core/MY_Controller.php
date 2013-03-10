@@ -90,7 +90,7 @@ class MY_Controller extends CI_Controller{
         $owndatas = $this->users->ownData();
         return $owndatas;
     }
-     public function drink($name){
+     function drink($name){
             $this->load->model('drinks');
             $data['drinks'] = $this->drinks->getDrink($name);
             $this->load->model('comments');
@@ -102,31 +102,31 @@ class MY_Controller extends CI_Controller{
             $data['whoorders'] = $this->myorders->getWhoorders($name);
             $this->show_with_all('mainsite/index', $data);
         }
-    public function ownorders(){
+     function ownorders(){
          $this->load->model('myorders');
         return $this->myorders->getOwnorders();
     } 
-    public function adminGetUsers(){
+     function adminGetUsers(){
         $this->load->model('admin');
         return $this->admin->adminGetUsers();
     }
-    public function adminGetOrdersmax(){
+    function adminGetOrdersmax(){
         $this->load->model('admin');
         return $this->admin->adminGetOrdersmax();
     }
-    public function newregistereduser(){
+   function newregistereduser(){
         $this->load->model('admin');
         return $this->admin->newregistereduser();
     }
-    public function newcomments(){
+     function newcomments(){
         $this->load->model('admin');
         return $this->admin->newcomments();
     }
-    public function bestscores(){
+     function bestscores(){
         $this->load->model('admin');
         return $this->admin->bestscores();
     }
-    public function getDrinkpiece(){
+    function getDrinkpiece(){
         $this->load->model('admin');
         return $this->admin->getdrinkpiece();
     

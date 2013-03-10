@@ -14,7 +14,7 @@
            <div id="table">
                    <table height="120">
                        <tr>
-                            <td><h4 style="text-decoration:underline;"><a style="color:black;" href="<?php echo site_url("alcohol/drink/$row->link_name"); ?>"><?php echo character_limiter($row->name, 7); ?></a></h4></td>
+                            <td><h4 style="text-decoration:underline;"><a style="color:black;" href="<?php echo site_url("alcohol/drink/$row->link_name"); ?>"><?php echo character_limiter($row->name, 8); ?></a></h4></td>
                        </tr>
                        <tr>
                            <td><?php
@@ -30,7 +30,7 @@
                            ?></td>
                        </tr>
                        <tr>
-                           <td style="font-size:14px;"><a style="color:black;" href="<?php echo site_url("alcohol/drink/$row->link_name"); ?>" ><?php echo character_limiter($row->drink_title, 10); ?></a></td>
+                           <td style="font-size:14px;"><a style="color:black;" href="<?php echo site_url("alcohol/drink/$row->link_name"); ?>" ><?php echo character_limiter($row->drink_information, 9); ?></a></td>
                        </tr>
                        <tr>
                            <td><a href="<?php echo site_url("alcohol/drink/$row->link_name"); ?>"><img src="<?php echo base_url()."/img/moreinform.png" ;?>" /></a></td>

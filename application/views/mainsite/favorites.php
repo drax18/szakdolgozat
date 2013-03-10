@@ -5,7 +5,7 @@ if($this->session->userdata('username')){
     ?>
     <div class="favorites">
         <div class="allremovefav">
-              <ul>
+             
             <?php
             if($favorites){
                 foreach ($favorites as $row){
@@ -26,18 +26,18 @@ if($this->session->userdata('username')){
                             <?php echo "Ár: ".$row->price; ?>
                         </div>
                         <div class="favremove">
-                            <a style="color:grey;" class="favorremove" href="" data-favid="<?php echo $row->id;  ?>">Kedvencek -</a>
+                            <a style="color:grey;" class="favorremove" href="" data-favid="<?php echo $row->id;  ?>"><img src="<?php echo base_url("img/deletefav.png");?>" /></a>
                         </div>
-                        <li></li>
+                       
                     </div>
-                  
+                     <li class="newdrinksline"></li>
                     <?php
                 }
             }else{
                 echo "Nincs kedvenc alkoholod! ";
             }
              ?>
-                  </ul>
+                
          </div>
     </div>  
 <?php

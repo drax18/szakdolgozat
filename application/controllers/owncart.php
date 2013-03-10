@@ -30,8 +30,8 @@ class Owncart extends MY_Controller {
                 $adats.="Telefonszám: ".$row2->phonenumber."<br />";
                 $adats.="Cím: ".$row2->streetaddress."<br />";
                 $adats.="Város: ".$row2->city."<br />";
-                $adats.="Irányítószám: ".$row2->zipcode."<br />";
-                $adats.="Ország: ".$row2->country."</b>"."<br /><br />";
+                $adats.="Irányítószám: ".$row2->zipcode."<br /><br />";
+
             }            
            $data['middle'] = 'mainsite/own_orders';
            $final = $adats.=$drinks;

@@ -75,10 +75,10 @@ if($this->session->userdata('username')){
                         ?>
                     </td>
                 </tr>
-                <tr>
-                    <td><a href="<?php echo site_url("mainsite/owncart"); ?>"><img src="<?php echo base_url()."/img/incartbutton.png" ;?>" /></a></td><td style="text-align: right;"><a class="pay" href="<?php echo site_url("mainsite/owncart"); ?>"><img src="<?php echo base_url()."/img/payment.png" ;?>" /></a></td>
-                </tr>
             </table>
+            <div style="padding-left: 47.5px;" class="tocartbutton">
+            <a href="<?php echo site_url("mainsite/owncart"); ?>"><img src="<?php echo base_url()."/img/incartbutton.png" ;?>" /></a>
+            </div>
             <?php
                 
             }

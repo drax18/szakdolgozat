@@ -25,7 +25,6 @@ class Actions extends MY_Controller{
             $this->form_validation->set_rules('streetaddressedit','Utca/házszám','trim');
             $this->form_validation->set_rules('cityedit','Város','trim');
             $this->form_validation->set_rules('zipcodeedit','Irányítószám','trim|numeric');            
-            $this->form_validation->set_rules('countryedit','Ország','trim'); 
             if($this->form_validation->run()){
                 $this->load->model('users');
                 $this->users->ownDataEdit();

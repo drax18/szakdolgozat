@@ -41,7 +41,7 @@ foreach ($catname as $categories){
     </div>
 </div>
 <div style="clear:both;"></div>
- <li class="sortdrinksline"></li>
+<li class="newdrinksline"></li>
  
  <input type="hidden" id="catid" value="<?php echo $drinklist[0]->categories_id; ?>" />
   <div id="returnedsort">

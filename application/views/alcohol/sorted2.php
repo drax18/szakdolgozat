@@ -1,5 +1,5 @@
     <?php
-     $idcount = 1;
+     
      $tmb = array();
      $tmb2 = array();
      $tmb3 = array();
@@ -15,7 +15,7 @@
         foreach ($drinklist as $row)
         {
     ?> 
- <div class="cat_alcohols" id="<?php echo "drink".$idcount; ?>">
+ <div class="cat_alcohols" >
     <div class="cat_image" >
         <div class="cat_img_db">
             <img height="270px" src="<?php echo base_url()."img/drinks/$row->link_name.png" ;?>" />
@@ -23,7 +23,7 @@
     </div>
     <div class="cat_name" >
         <table class="cat_name_table">
-            <tr><td><p><a href="<?php echo site_url("alcohol/drink/$row->link_name"); ?>"><h2><?php echo $row->name.br(2); ?></h2></a><p></td></tr>
+            <tr><td><a href="<?php echo site_url("alcohol/drink/$row->link_name"); ?>"><h4><?php echo $row->name.br(2); ?></h4></a></td></tr>
             <tr><td>                  
                         <div class="score">
                             <?php
@@ -105,8 +105,8 @@
            
            <input class="drinkscount" type="text" value="1" name="db" /><div class="db">Darab</div>
            <div class="cartbutton" ><a class="add_to_cart" href="<?php echo $row->link_name; ?>"><img src="<?php echo base_url()."/img/cartbutton.png" ;?>" /></a></div>
-           <div class="informbuttom"><a href="<?php echo site_url("alcohol/drink/$row->link_name"); ?>"><img src="<?php echo base_url()."/img/moreinform.png" ;?>" /><a/></div>
-            <div class="instock">
+           <div class="informbuttom"><a href="<?php echo site_url("alcohol/drink/$row->link_name"); ?>"><img src="<?php echo base_url()."/img/moreinform.png" ;?>" /></a></div>
+            <div class="instock_cat">
            <?php
                 if($row->piece == 0){
                     echo "Raktáron: nincs";
@@ -119,8 +119,8 @@
     </div>
  </div>
 <div style="clear:both;"></div>
+<li class="newdrinksline"></li>
+<?php
 
-    <?php
-    $idcount++;
-       }
-    ?>
+}
+?>

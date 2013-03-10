@@ -115,7 +115,6 @@ if($this->session->userdata('username')){
            echo "Cím: ".$mydata->streetaddress.br(1);
            echo "Város: ".$mydata->city.br(1);
            echo "Irányítószám: ".$mydata->zipcode.br(1);
-           echo "Ország: ".$mydata->country.br(1);
         }
     ?>
     <a href="<?php echo site_url("mainsite/own_data"); ?>"><input type="image" src="<?php echo base_url()."/img/modify.png" ; ?>" name="send"/></a>

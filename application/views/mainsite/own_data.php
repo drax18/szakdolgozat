@@ -73,11 +73,6 @@ if($this->session->userdata('username')){
             echo '</tr>';
             echo '<tr>';
             echo '<td>';
-            echo "Ország: ".'<td>'.form_input('countryedit','',"class='inputs'").'</td>';
-            echo '</td>';
-            echo '</tr>';
-            echo '<tr>';
-            echo '<td>';
             ?>
             <input type="image" src="<?php echo base_url()."/img/modify.png" ; ?>" name="send"/>
             <?php
