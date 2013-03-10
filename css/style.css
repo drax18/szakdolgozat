@@ -476,6 +476,7 @@ div#table{
     margin-right: 15px;
     line-height: 50px;
     float:left;
+    width: 131px;
 
 }
 div#table:last-child{
@@ -714,8 +715,6 @@ div#table:last-child{
        
     }
     .favimg img{
-        
-        
         margin-top: 10px;    
     }
     .favname{

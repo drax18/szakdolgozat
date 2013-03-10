@@ -12,6 +12,7 @@
         foreach ($score as $scorerow){
             array_push($tmb3,$scorerow->score);
         }
+        if($drinklist){
         foreach ($drinklist as $row)
         {
     ?> 
@@ -96,7 +97,8 @@
               $alcoholaction = "0.".$row->action;
                $finalyaction = $row->price * $alcoholaction;
                $finalprice = $price - $finalyaction;
-               echo "Ár: ".floor($finalprice)." Ft".br(1);
+               echo "<div class='orignalprice'>Eredeti ár: ".$row->price." Ft"."</div>";
+               echo "Akciós: ".floor($finalprice)." Ft".br(1);
                echo "( - ".$row->action.""."% )";
             }else
             echo "Ár: ".$row->price." Ft";
@@ -123,4 +125,5 @@
 <?php
 
 }
+        }
 ?>

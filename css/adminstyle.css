@@ -160,7 +160,7 @@ div#admincenter{
     float:left;
     text-align: center;
 }
-.registeredusername, .newcomments, .bestdrinkscores, .addnewdrinks, #users ,{
+.registeredusername, .newcomments, .bestdrinkscores, .addnewdrinks, #users{
     padding-left: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -168,7 +168,7 @@ div#admincenter{
 }
 .thefullusers{
     float:left;
-    padding-right: 10px;
+    padding-right: 20px;
     padding-top: 50px;
 }
 #users{

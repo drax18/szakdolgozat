@@ -33,7 +33,8 @@ $tmb = array();
               $alcoholaction = "0.".$row->action;
                $finalyaction = $row->price * $alcoholaction;
                $finalprice = $price - $finalyaction;
-               echo "Ár: ".floor($finalprice)." Ft"."( - ".$row->action.""."% )";
+               echo "<div class='orignalprice'>Eredeti ár: ".$row->price." Ft"."</div>";
+               echo "Akciós: ".floor($finalprice)." Ft"."( - ".$row->action.""."% )";
             }else
             echo "Ár: ".$row->price." Ft";
         ?>

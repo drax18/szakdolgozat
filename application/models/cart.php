@@ -61,7 +61,7 @@ class Cart extends CI_Model{
         $queryke = $query->result();
         $i = 1;
         foreach($queryke as $row){
-            $data = array ('piece'=>$i,'cart_name'=>$row->link_name,'drink' =>$row->name,'owner'=> $this->session->userdata('username'),'price'=>$row->price,'action'=>$row->action,"user_id"=>  $this->session->userdata('userid'),"drink_id"=>$row->id); 
+            $data = array ('piece'=>$count,'cart_name'=>$row->link_name,'drink' =>$row->name,'owner'=> $this->session->userdata('username'),'price'=>$row->price,'action'=>$row->action,"user_id"=>  $this->session->userdata('userid'),"drink_id"=>$row->id); 
         }
         $this->db->where('cart_name',$id);
         $this->db->where('owner',  $this->session->userdata('username'));
@@ -117,19 +117,22 @@ class Cart extends CI_Model{
        
            foreach ($query2->result() as $row){
                if($row->piece > $i ){
-                $updatedata = array('piece'=>$row->piece-$count);
-                $this->db->where('cart_name',$id);
-                $this->db->where('owner',  $this->session->userdata('username'));
-                $this->db->update('cart', $updatedata);
-                $data = array('piece'=>$piece + $count);
-                $this->db->where('link_name',$id);
-                $this->db->update('drinks',$data);
-                if($row->piece - $count == 0){
-                     $this->db->where('cart_name',$id);
-                    $this->db->where('owner',  $this->session->userdata('username'));
-                    $this->db->delete('cart');
-                }
-                
+             
+                        if($row->piece - $count == 0){
+                             $this->db->where('cart_name',$id);
+                            $this->db->where('owner',  $this->session->userdata('username'));
+                            $this->db->delete('cart');
+                        }else{
+                                  
+                        $updatedata = array('piece'=>$row->piece-$count);
+                        $this->db->where('cart_name',$id);
+                        $this->db->where('owner',  $this->session->userdata('username'));
+                        $this->db->update('cart', $updatedata);
+                        $data = array('piece'=>$piece + $count);
+                        $this->db->where('link_name',$id);
+                        $this->db->update('drinks',$data);
+                        }
+                   
                }           
                 else{
                 $data = array('piece'=>$piece + $i);

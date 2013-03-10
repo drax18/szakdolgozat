@@ -5,14 +5,16 @@ if($this->session->userdata('username')){
     ?>
 <div id="cartheadtitle">
 <ul>
+        <a name="hh"></a>
     <li class="firststep"><span>1.Lépés</span></br><div class="cartheadtitle">Összegzés</div></li>
     <li class="secondstep" style="opacity:0.30;"><span>2.Lépés</span></br><div class="cartheadtitle">Cím</div></br></li>
     <li class="thirdstep" style="opacity:0.30;"><span>3.Lépés</span></br><div class="cartheadtitle">Megrendelés</div></br></li>
 </ul>
 </div>
 <div style="clear:both"></div>
+
 <div id="refrowncartdata">
-    <a name="hh"></a>
+
 <div class="owncartdata">    
 <table>
     <tbody>
@@ -107,18 +109,20 @@ if($this->session->userdata('username')){
 </div>  
 </div>
 <div class="owndata" style="display:none;">
+    <table>
     <?php
         foreach ($owndata as $mydata){
-           echo "<h4>Szállítási Adatok</h4>".br(1);
-           echo "Név: ".$mydata->surname." ".$mydata->firstname.br(1);
-           echo "Telefonszám: ".$mydata->phonenumber.br(1);
-           echo "E-mail: ".$mydata->email.br(1);
-           echo "Cím: ".$mydata->streetaddress.br(1);
-           echo "Város: ".$mydata->city.br(1);
-           echo "Irányítószám: ".$mydata->zipcode.br(1);
+           echo "<tr><td><h4>Szállítási Adatok</h4></td></tr>";
+           echo "<tr><td>Név: </td><td>".$mydata->surname." ".$mydata->firstname."</td></tr>";
+           echo "<tr><td>Telefonszám: </td><td>".$mydata->phonenumber."</td></tr>";
+           echo "<tr><td>E-mail: </td><td>".$mydata->email."</td></tr>";
+           echo "<tr><td>Cím: </td><td>".$mydata->streetaddress."</td></tr>";
+           echo "<tr><td>Város: </td><td>".$mydata->city."</td></tr>";
+           echo "<tr><td>Irányítószám: </td><td>".$mydata->zipcode."</td></tr>";
         }
     ?>
-    <a href="<?php echo site_url("mainsite/own_data"); ?>"><input type="image" src="<?php echo base_url()."/img/modify.png" ; ?>" name="send"/></a>
+    <tr><td><a href="<?php echo site_url("mainsite/own_data"); ?>"><input type="image" src="<?php echo base_url("img/modify.png") ; ?>" name="send"/></a></td></tr>
+    </table>
 </div>
 <div class="refreshshipdata">
 <div class="shippingdata" style="display: none;">

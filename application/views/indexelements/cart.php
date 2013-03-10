@@ -17,7 +17,7 @@
 
     }else{
 
-        echo  "<p class='list_count'>".$count->piece." Alkohol ".$cartprice." Ft</p>";
+        echo  "<p class='list_count'>".$count->piece." Alkohol ".floor($cartprice)." Ft</p>";
     }
   
  }else{
