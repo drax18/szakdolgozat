@@ -72,6 +72,7 @@ class Cart extends CI_Model{
        if($query2->num_rows() > 0){
            foreach ($query2->result() as $row){
                if($whatineed['piece'] - $count >= 0){
+                   if($count == 1 ||  $count > 1){
                    $updapiece = array("piece"=>$whatineed['piece'] - $count);
                    $this->db->where('link_name',$id);
                    $this->db->update('drinks',$updapiece);
@@ -79,6 +80,7 @@ class Cart extends CI_Model{
                 $this->db->where('cart_name',$id);
                 $this->db->where('owner',  $this->session->userdata('username'));
                 $this->db->update('cart', $updatedata);    
+                   }
                }
                 
                 
@@ -123,7 +125,7 @@ class Cart extends CI_Model{
                             $this->db->where('owner',  $this->session->userdata('username'));
                             $this->db->delete('cart');
                         }else{
-                                  
+                                  if($count == 1 ||  $count > 1){
                         $updatedata = array('piece'=>$row->piece-$count);
                         $this->db->where('cart_name',$id);
                         $this->db->where('owner',  $this->session->userdata('username'));
@@ -131,6 +133,7 @@ class Cart extends CI_Model{
                         $data = array('piece'=>$piece + $count);
                         $this->db->where('link_name',$id);
                         $this->db->update('drinks',$data);
+                                  }
                         }
                    
                }           

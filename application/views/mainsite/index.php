@@ -11,7 +11,6 @@
     <script type="text/javascript" src="<?php echo base_url("js/jquery.cycle.all.js");?>"></script>
     <script type="text/javascript" src="<?php echo base_url("js/jquery.toastmessage.js");?>"></script>  
     <script type="text/javascript" src="<?php echo base_url("js/sitescripts.js");?>"></script>
-    <script type="text/javascript" src="<?php echo base_url("js/jquery.cookie.js");?>"></script>
     <!-- SITE -->
 </head>
 <body>

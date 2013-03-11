@@ -14,7 +14,7 @@
                     echo "<h4>Dátum ".$row->orderdate."</h4>".br(1);
                 }
 
-                echo "Alkohol: ".$row->drink_name." Darab: ".$row->piece." Ár: ".$row->price.br(1);
+                echo "Alkohol: ".$row->drink_name." Darab: ".$row->piece." Ár: ".$row->price." Ft".br(1);
 
             }
             
