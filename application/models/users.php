@@ -151,15 +151,19 @@ class Users extends CI_Model{
             }
 
         }
-        function forgotpw($code){
-            $username = $this->session->userdata('username');
-            $user_id = $this->session->userdata('userid');
-            $data = array('owner'=>$username,'code'=>$code,"user_id"=>$user_id);
+        function forgotpw($code,$user){
+            
+           $query = $this->db->query("SELECT id FROM users WHERE username='$user'");
+           $user_id = "";
+            foreach ($query->result() as $row){
+                $user_id = $row->id;
+            }
+            $data = array('owner'=>$user,'code'=>$code,"user_id"=>$user_id);
             $this->db->insert('user_forgotpw',$data);
         }
         
-       function alreadysendpw(){
-            $username = $this->session->userdata('username');
+       function alreadysendpw($user){
+            $username = $user;
              $query = $this->db->query("SELECT id FROM user_forgotpw WHERE owner='$username'");
              if($query->num_rows() == 1){
                  return false;
@@ -168,8 +172,8 @@ class Users extends CI_Model{
                  return true;
              }
         }
-        function checkpass($newpass){
-            $username = $this->session->userdata('username');
+        function checkpass($newpass,$user){
+            $username = $user;
             $this->db->where('owner',$username);
             $this->db->where('code',$newpass);
             $query = $this->db->get('user_forgotpw');

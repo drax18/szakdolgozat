@@ -114,7 +114,6 @@ class Actions extends MY_Controller{
         //komment írása
          public function writeComm($id){
             $data = $this->input->post('comment');
-            echo $data;
             $this->load->model('comments');
             $this->comments->writeComm($data,$id);
         }
@@ -133,22 +132,23 @@ class Actions extends MY_Controller{
         }
         public function sendforgotmail(){
             $data['middle'] = 'mainsite/sendforgotmail';
-            
+            $user =  $this->input->post('forgotuser');
             $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
             $randomString = '';
+
             for ($i = 0; $i < 20; $i++) {
                 $randomString .= $characters[rand(0, strlen($characters) - 1)];
             }
             $this->load->model('users');
-            $bool = $this->users->alreadysendpw();
+            $bool = $this->users->alreadysendpw($user);
             if($bool == true){
                 
                 
                 
-            $this->users->forgotpw($randomString);
+            $this->users->forgotpw($randomString,$user);
             $link = "";
             $link .= "A linkre kattinva tudod megváltoztatni a jelszavad!"."<br />";
-            $link .= "<a href='http://localhost/szakdoga_igniter/actions/passwordreset/$randomString'>itt a link</a>";
+            $link .= "<a href='http://localhost/szakdoga_igniter/actions/passwordreset/$randomString/$user'>itt a link</a>";
             $config = Array(
                 'protocol' => 'smtp',
                 'smtp_host' => 'ssl://smtp.googlemail.com',
@@ -182,11 +182,11 @@ class Actions extends MY_Controller{
             
             $this->show_with_all('mainsite/index', $data);
         }
-        public function passwordreset($newpass){
+        public function passwordreset($newpass,$user){
             
            $data['middle'] = 'mainsite/passwordreset';
            $this->load->model('users');
-           $bool = $this->users->checkpass($newpass);
+           $bool = $this->users->checkpass($newpass,$user);
            if($bool){
                $data['bool'] = true;
            }
