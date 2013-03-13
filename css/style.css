@@ -915,3 +915,11 @@ div#table:last-child{
         padding-top: 5px;
         padding-bottom: 10px;
     }
+    .search_img{
+        text-align: center;
+        float:left;
+        width: 70px;
+    }
+    .results{
+        padding-top: 20px;
+    }

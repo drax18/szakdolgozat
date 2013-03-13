@@ -345,7 +345,7 @@
                     $this->load->view('indexelements/loginpanel');
                 ?>
             </div>
-            <div id="clear"></div>
+            <div style="clear: both;"></div>
         </div>
         <div id="head2">
             <div class="cartfull">
@@ -354,7 +354,7 @@
                         $this->load->view('indexelements/cart');
                     ?>
                 </div>
-                <div class="cartlist" >
+                <div class="cartlist">
                     <?php
                         $this->load->view('indexelements/cartlist');
                     ?>
