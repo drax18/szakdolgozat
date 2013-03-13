@@ -12,7 +12,8 @@
     <script type="text/javascript" src="<?php echo base_url("js/jquery.toastmessage.js");?>"></script>  
     <script type="text/javascript" src="<?php echo base_url("js/sitescripts.js");?>"></script>
     <script type="text/javascript">
-         $(document).ready(function() {            
+         $(document).ready(function() {
+             var site = "http://localhost/szakdoga_igniter/";
             <!-- Slide hírdetés -->
             $('.slider').cycle({ 
 		fx: 'fade',
@@ -29,11 +30,11 @@
             $('.favoradd').live('click',function(e){
 
                e.preventDefault();
-               var href2 =  $(this).data('linkname');
-               var link2 = "http://localhost/szakdoga_igniter/actions/favadd/" + href2;
+               var href =  $(this).data('linkname');
+               var link = site + "actions/favadd/" + href;
                $.ajax({
                    type: "POST",
-                   url: link2,
+                   url: link,
                    success: function(){
                    $('.favrerf').load(location.href + ' .alreadyfav');
                     
@@ -55,12 +56,12 @@
             });
             <!-- kereső -->
             $('.searchsend').click(function(){
-            var search=  $('.searchvalue').val();
-            var searchlink = "http://localhost/szakdoga_igniter/mainsite/searchresult/" + search;
+            var href2 =  $('.searchvalue').val();
+            var link2 = site + "mainsite/searchresult/" + href2;
             
             $.ajax({
                 type: "POST",
-                url: searchlink,
+                url: link2,
 
                 success: function(){
 
@@ -72,11 +73,11 @@
             <!-- favor elvétel -->
             $('.favorremove').live('click',function(e){
             e.preventDefault();
-            var removefav = $(this).data('favid');
-            var removelink = "http://localhost/szakdoga_igniter/actions/removefav/" + removefav;
+            var href3 = $(this).data('favid');
+            var link3 = site + "actions/removefav/" + href3;
             $.ajax({
                 type: "POST",
-                url: removelink,
+                url: link3,
                 success: function(){
                     $('.favorites').load(location.href + ' .allremovefav');
                 }
@@ -86,13 +87,12 @@
             });
             <!-- Rendezés -->
                $('.sort').click(function(e){
-                    e.preventDefault();
-                    
-                    var drinkid = $('#catid').val();
-                    var link3 = "http://localhost/szakdoga_igniter/alcohol/catdrinksrefresh/" + drinkid;
+                    e.preventDefault();       
+                    var href4 = $('#catid').val();
+                    var link4 = site + "alcohol/catdrinksrefresh/" + href4;
                     $.ajax({
                         type: "POST",
-                        url: link3,
+                        url: link4,
                         data: $('.sorttypes').serialize(),
                         success:function(data){
                             $('#returnedsort').empty();
@@ -105,12 +105,12 @@
                <!-- score frissítés -->
                $('.scoresend').live('click',function(e){
                    e.preventDefault();
-                   var drink_id = $('.commentsend').data('drinkid');
-                   var userscore = $('.scorevalue').val();
-                   var scorelink = "http://localhost/szakdoga_igniter/actions/scoreupdate/" + drink_id + "/" + userscore;            
+                   var href5 = $('.commentsend').data('drinkid');
+                   var href51 = $('.scorevalue').val();
+                   var link5 = site + "actions/scoreupdate/" + href5 + "/" + href51;            
                    $.ajax({
                        type: "POST",
-                       url: scorelink,
+                       url: link5,
                        success:function(){
                           $().toastmessage('showToast', {
                             position : 'middle-center',
@@ -189,14 +189,14 @@
                <!-- Komment küldés -->
                $('.commentsend').click(function(e){
                    e.preventDefault();
-                   var alcoholid = $(this).data('drinkid');
-                   var commentlink = "http://localhost/szakdoga_igniter/actions/writeComm/" + alcoholid;
+                   var href6 = $(this).data('drinkid');
+                   var link6 = site + "actions/writeComm/" + href6;
                    var comment = $('.commentarea').val();
                    if(comment != "" ){
                        $.ajax({
                         type: "POST",
                         data: $('.commentarea').serialize(),
-                        url: commentlink,
+                        url: link6,
                         success: function(){
                             $('.comments').load(location.href + ' .membercomments');
                             $('.commentarea').val("");
@@ -219,12 +219,12 @@
                $('.sendtoadminbutton').click(function(e){
                e.preventDefault();
                var contactarea = $('.sendtoadmin').val();
-               linkzje = "http://localhost/szakdoga_igniter/masteradmin/writetoadmin";
+               link7 = site + "masteradmin/writetoadmin";
                if(contactarea != ""){
                    $.ajax({
                        type: "POST",
                        data: $('.sendtoadmin').serialize(),
-                       url: linkzje,
+                       url: link7,
                        success: function(){
                            $('.sendtoadmin').val("");
                            $().toastmessage('showToast', {
@@ -251,12 +251,12 @@
             <!-- Kosárba tétel és elvétel -->
             $('.add_to_cart').live('click',function(e) {
                    e.preventDefault();
-                    var href = $(this).attr('href');
+                    var href8 = $(this).attr('href');
                     var drinkscount = $(this).parent().parent().find('.drinkscount').val();
-                    link = "http://localhost/szakdoga_igniter/owncart/addtocart/" + href + "/" + drinkscount;
+                    var link8 = site + "owncart/addtocart/" + href8 + "/" + drinkscount;
                     $.ajax({
                         type: "POST",
-                        url: link,
+                        url: link8,
                         success: function(){
                             $('#head2').load(location.href + ' .cartfull');
                             $('#refrowncartdata').load(location.href + ' .owncartdata');
@@ -267,12 +267,12 @@
             });
             $('.delete_to_cart').live('click',function(e) {
                     e.preventDefault();
-                    var href = $(this).attr('href');
+                    var href9 = $(this).attr('href');
                     var drinkscount2 = $(this).parent().find('.drinkscount').val();
-                    link = "http://localhost/szakdoga_igniter/owncart/deletetocart/" + href + "/" + drinkscount2;
+                    link9 = site + "owncart/deletetocart/" + href9 + "/" + drinkscount2;
                     $.ajax({
                         type: "POST",
-                        url: link,                    
+                        url: link9,                    
                         success: function(){
                             $('.cartlist').load(location.href + ' .content_011');
                             $('.cart').load(location.href + ' .cart_title');
@@ -284,11 +284,11 @@
             });
             $('.delete_all_cart_item').live('click',function(e){
                 e.preventDefault();
-                href4 = $(this).attr('href');
-                link4 = "http://localhost/szakdoga_igniter/owncart/alldeleteitem/"+ href4;
+                href10 = $(this).attr('href');
+                link10 = "http://localhost/szakdoga_igniter/owncart/alldeleteitem/"+ href10;
                 $.ajax({
                     type:"POST",
-                    url:link4,
+                    url:link10,
                     success:function(){
                         $('.cartlist').load(location.href + ' .content_011');
                         $('.cart').load(location.href + ' .cart_title');
@@ -301,7 +301,7 @@
             <!-- MENÜ div -->
              $("ul#menu div").live('click',
                 function(){
-                    $(this).parent().find("div").css("background-image","url('../img/cat_selector_down.png')");
+                $(this).parent().find("div").css("background-image","url('<?php echo base_url("img/cat_selector_down.png"); ?>')");
                  
                     $(this).parent().find("ul").slideDown(700);
 
@@ -309,7 +309,7 @@
                         function(){},
                         function(){
                             $(this).parent().find("ul").slideUp(700);
-                            $(this).parent().find("div").css("background-image","url('../img/cat_selector.png')");
+                            $(this).parent().find("div").css("background-image","url('<?php echo base_url("img/cat_selector.png"); ?>')");
                         }
                     );
 

@@ -23,20 +23,23 @@ if($this->session->userdata('username')){
     </tr>
     
     <?php
+    $finalprice = "";
         foreach ($cart as $row){
             ?>
             <tr>
             <td><img height="50" src="<?php echo base_url()."img/drinks/$row->cart_name".".png" ;?>" /></td>
             <?php
             echo "<td>".$row->drink."</td>";
-            if(isset($row->action)){
+            if($row->action){
                 $price = $row->price;
               $alcoholaction = "0.".$row->action;
                $finalyaction = $row->price * $alcoholaction;
                $finalprice = $price - $finalyaction;
                echo "<td>".floor($finalprice)." Ft"."( - ".$row->action.""."% )";
-            }else
-            echo "<td>".$row->price." Ft"."</td>";
+            }else{
+                $finalprice = $row->price;
+            echo "<td>".$finalprice." Ft"."</td>";
+            }
 
             ?>
             <td><div class="actualcount" style="font-size: 13px;">

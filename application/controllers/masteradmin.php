@@ -98,7 +98,7 @@ class Masteradmin extends MY_Controller {
           if (!empty($_FILES['userfile']['name'])){
                // Specify configuration for File 1
                $config['upload_path'] = 'img/drinks';
-               $config['allowed_types'] = 'gif|jpg|png';
+               $config['allowed_types'] = 'png';
                $config['max_size'] = '1000';
                $config['max_width']  = '300';
                $config['max_height']  = '700';       

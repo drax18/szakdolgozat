@@ -160,16 +160,18 @@ div#admincenter{
     float:left;
     text-align: center;
 }
-.registeredusername, .newcomments, .bestdrinkscores, .addnewdrinks, #users{
+ .registeredusername,.newcomments, .bestdrinkscores, .addnewdrinks, #users{
     padding-left: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
-    color:#b7b7b7;
+    
 }
 .thefullusers{
     float:left;
-    padding-right: 20px;
+    padding-right: 40px;
     padding-top: 50px;
+    text-align: center;
+    width: 222px;
 }
 #users{
     padding-left: 30px;
@@ -179,7 +181,7 @@ div#admincenter{
      padding-left: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
-    color:#b7b7b7;
+    
 }
 .normalactions{
     padding-bottom: 10px;
@@ -190,4 +192,19 @@ div#admincenter{
     padding-top: 10px;
     padding-bottom: 10px;
     color:black;
+}
+.usersorders{
+     padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.incomeslist{
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.updatedrinkcount, .deleteuserform, #modifyactions, .deletedrinks, .drinksmodify, .deletecomments{
+     padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }

@@ -67,7 +67,7 @@ Feltöltendő kép neve:</td>
            <td>  <textarea style="resize:none;" name="alcoholinformation" cols="30" rows="10"></textarea></td>
         </tr>
         <tr>
-  <td>  <?php echo form_label('Kép ( Max: 300*700, 1mb )', 'userfile') ?></td>
+  <td>  <?php echo form_label('Kép ( Max: 300*700, 1mb, .PNG )', 'userfile') ?></td>
    <td> <?php echo form_upload('userfile') ?></td>
 </tr>
 <tr>
