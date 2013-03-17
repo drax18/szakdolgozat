@@ -78,9 +78,9 @@ class Masteradmin extends MY_Controller {
         $data['middle'] = 'masteradmin/adminadddrinks';
         $this->load->library('upload');
         $this->load->library('form_validation');
-        $this->form_validation->set_rules('alcoholname','Alkohol neve','required');
+        $this->form_validation->set_rules('alcoholname','Alkohol neve','required|is_unique[drinks.name]');
         $this->form_validation->set_rules('categoriesid','Kategória','required');
-         $this->form_validation->set_rules('alcohollinkname','Feltöltendő kép neve','required');
+         $this->form_validation->set_rules('alcohollinkname','Feltöltendő kép neve','required|is_unique[drinks.link_name]');
          $this->form_validation->set_rules('alcoholprice','Ár','required|numeric');
          $this->form_validation->set_rules('alcoholpiece','Darab','required|numeric');
          $this->form_validation->set_rules('alcohol','Alkohol tartalom','required|numeric');
@@ -133,7 +133,7 @@ class Masteradmin extends MY_Controller {
         $data['getdrinksinform'] = $this->admin->getdrinksinform();
         $this->load->model('users');
         $data['getusers'] = $this->users->getAllusers();
-        $this->form_validation->set_rules('newaction','Akció','required|numeric');
+        $this->form_validation->set_rules('newaction','Akció','required|numeric|is_natural');
         if($this->form_validation->run()){
             $this->admin->updateaction();
             $data['successupdateaction'] = 'Sikeresennek frissítetted a kiválaszott alkohol akcióját!';
@@ -153,7 +153,7 @@ class Masteradmin extends MY_Controller {
         $data['getdrinksinform'] = $this->admin->getdrinksinform();
         if($this->input->post('deleteusers')){
             $data['sucessuserdelete'] = 'Sikeresen törölted a kiválaszott Felhasználókat/Felhasználót';
-       $this->admin->deleteusers();
+            $this->admin->deleteusers();
         }else{
             $data['problemusersdelete'] = 'Nem válaszottál ki törlendő felhasználót!';
         }

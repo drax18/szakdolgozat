@@ -1,7 +1,16 @@
 <html lang="en">
 <head>    
     <meta http-equiv='Content-Type' content='Type=text/html; charset=utf-8'>
-    <title>Ital Közért</title>
+    <title>Ital bolt</title>
+    <meta name="description" content="Online rendelhető italok">
+    <meta name="keywords" content="online rendelhető italok toanyone net63 ">
+    <meta name="robots" content="index, follow">
+    <meta name="revisit-after" content="3 Months">
+    <meta name="author" content="Báder László">
+    <meta name="distribution" content="local">
+    <meta name="language" content="HU">
+    <meta name="rating" content="mature">
+    <meta name="generator" content="fabio.hu">
     <link rel="stylesheet" href="<?php echo base_url("css/style.css");?>"  />
     <link rel="stylesheet" href="<?php echo base_url("css/jquery.toastmessage.css");?>"  />
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
@@ -12,8 +21,8 @@
     <script type="text/javascript" src="<?php echo base_url("js/jquery.toastmessage.js");?>"></script>  
     <script type="text/javascript" src="<?php echo base_url("js/sitescripts.js");?>"></script>
     <script type="text/javascript">
-         $(document).ready(function() {
-             var site = "http://localhost/szakdoga_igniter/";
+         $(document).ready(function() {            
+             var site = "<?php echo base_url(""); ?>";
             <!-- Slide hírdetés -->
             $('.slider').cycle({ 
 		fx: 'fade',
@@ -327,11 +336,19 @@
                         }
                );
             });
-            
+           
      });
     </script>
     <!-- SITE -->
 </head>
+<?php
+    
+    if(!$this->agent->is_browser('Chrome') && !$this->agent->is_browser('Firefox') && !$this->agent->is_browser('Opera')){
+        $this->load->view('mainsite/error.php');
+    }else{
+    
+
+?>
 <body>
     <div id="cont">
         <div id="head">
@@ -401,7 +418,7 @@
                     ?>
                 </div>
             </div>
-            <div id="clear"></div>
+            <div style="clear:both;"></div>
         </div>
         <div id="advertisement2">
             <div id="advimg">
@@ -420,3 +437,6 @@
 
 </body>
 </html>
+<?php
+    }
+?>

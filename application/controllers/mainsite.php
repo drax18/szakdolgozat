@@ -4,8 +4,10 @@
         //Oldalak
                 
         public function index(){
+            
             $this->newitems();
         }
+       
         public function login(){
            $data['middle'] = 'mainsite/login';
            $this->show_with_all('mainsite/index',$data); 

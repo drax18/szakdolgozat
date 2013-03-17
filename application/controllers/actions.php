@@ -28,13 +28,13 @@ class Actions extends MY_Controller{
             if($this->form_validation->run()){
                 $this->load->model('users');
                 $this->users->ownDataEdit();
-                $data['editsuccess'] = $this->Data_edit_success();
+                $data['editsuccess'] = $this->data_edit_success();
                 $this->show_with_all('mainsite/index', $data);
             }
             else
             $this->show_with_all('mainsite/index',$data);
         }
-        public function Data_edit_success(){
+        public function data_edit_success(){
             $editsuccess = "Sikeresen megváltoztattad az adatokat/adatot!";
             return $editsuccess;
         }
@@ -59,7 +59,7 @@ class Actions extends MY_Controller{
             if($this->form_validation->run()){
                 $this->load->model('users');
                 $this->users->add_User();
-                $data['success'] = $this->Register_success();
+                $data['success'] = $this->register_success();
                 $this->show_with_all('mainsite/index', $data);
                 
             }
@@ -67,7 +67,7 @@ class Actions extends MY_Controller{
                 $this->show_with_all('mainsite/index', $data);  
         }
         
-        public function Register_success(){
+        public function register_success(){
             $success = "Gratulálok! Sikeres regisztráció!";
             return $success;
         }

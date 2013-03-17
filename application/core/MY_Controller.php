@@ -6,6 +6,7 @@ class MY_Controller extends CI_Controller{
         parent::__construct();
     }    
     function show_with_all($view_name, $data){
+        $this->load->library('user_agent');
         $data['cart'] = $this->cartdata();
         $data['cartcount'] = $this->cartcount();
         $data['cartprice'] = $this->cartPricedata();

@@ -99,8 +99,10 @@ class Admin extends CI_Model{
     function updateaction(){
         $drink_id = $this->input->post('drinkid');
         $newaction = array("action"=>$this->input->post('newaction'));
-        $this->db->where('id',$drink_id);
-        $this->db->update('drinks',$newaction);
+        if($newaction > 0){
+            $this->db->where('id',$drink_id);
+            $this->db->update('drinks',$newaction);
+        }
         
     }
     function deleteusers(){
@@ -130,9 +132,11 @@ class Admin extends CI_Model{
         $count = $this->input->post('updatecount');
         $query = $this->db->query("SELECT piece FROM drinks where id=$drink_id");
         foreach ($query->result() as $row){
-            $data = array('piece' => $row->piece + $count);
-            $this->db->where('id',$drink_id);
-            $this->db->update('drinks',$data);
+                
+                    $data = array('piece' => $row->piece + $count);
+                    $this->db->where('id',$drink_id);
+                    $this->db->update('drinks',$data);
+               
         }
     }
     function getallcomments(){

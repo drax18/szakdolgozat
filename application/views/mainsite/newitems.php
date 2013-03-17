@@ -23,7 +23,7 @@
                           $alcoholaction = "0.".$row->action;
                            $finalyaction = $row->price * $alcoholaction;
                            $finalprice = $price - $finalyaction;
-                           echo $finalprice. " Ft";
+                           echo floor($finalprice). " Ft";
                         }else{
                            echo "Ár: ".$row->price." Ft";
                         }

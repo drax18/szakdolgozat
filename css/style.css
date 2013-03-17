@@ -6,16 +6,25 @@ root{
     margin:0;
    
 }
-
-body{
-    font-family: century gothic, arial;
-    color:black;
-
-
+@font-face{
+font-family: century gothic;
+src: url('../font/Century_Gothic.ttf');
 }
+body{
+    font-family: century gothic;
+    color:black;
+}
+
+
+
 a{    
     text-decoration: none;
     color:white;
+}
+.error{
+    display: block;
+    width: 800px;
+    margin: 50px auto 50px auto;
 }
 div#cont{
     
@@ -24,14 +33,14 @@ div#cont{
     border-bottom-right-radius: 5px;
     -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
     width: 940px;    
-    background: #eeeeee url('../img/bg.png') no-repeat;
+    background: #eeeeee no-repeat;
     -webkit-box-shadow: 5px 4px 0px #888888;
     box-shadow: 5px 4px 5px 0px #888888;
-    margin: 0 auto;
-    margin-bottom: 5px;
+    margin: 5px auto;
+
 }
 div#head{
-    margin-top:5px;
+    
     -webkit-border-top-radius: 5px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -89,7 +98,9 @@ div#head2{
 #cart_title p{
     color:#e2e2e2;
 }
-.list_count{font-size:11px;}
+.list_count{
+    font-size:11px;
+}
 div#menusearch{
     width:940px;
     height: 30px;  
@@ -197,11 +208,24 @@ div#advertisement{
     margin-right:0; /* we need no space after the last pager link */
 }
 
+
+
+
 div#categories{
-    width: 210px;
     padding-left:10px;
+    width: 210px;
     color:black;
     border-right: 1px solid #b3b1b1;   
+}
+/* Opera */
+@media all and (-webkit-min-device-pixel-ratio:10000), not all and (-webkit-min-device-pixel-ratio:0)
+{
+    div#categories {
+        padding-left:10px;
+        color:black;
+        width: 0px;
+        border-right: 1px solid #b3b1b1;
+    }
 }
 div#inform{
     width: 699px;

@@ -5,11 +5,11 @@ if($this->session->userdata('username')){
      if(!in_array($row->ordernumber, $data)){
            
            $data[] = $row->ordernumber;
-           echo "Rendelés: ".$row->ordernumber.".".br(1);
-           echo "Dátum: ".$row->orderdate.br(1);
+           echo "<b>Rendelés: </b>".$row->ordernumber.".".br(1);
+           echo "<u>Dátum:</u> ".$row->orderdate.br(1);
        }
        
-       echo "Alkohol: ".$row->drink_name." Darab:".$row->piece.br(1);
+       echo "<i>Alkohol:</i> ".$row->drink_name." <i>Darab:</i>".$row->piece.br(1);
        
    }
     
